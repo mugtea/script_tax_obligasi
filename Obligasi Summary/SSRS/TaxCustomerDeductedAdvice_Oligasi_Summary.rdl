@@ -1149,7 +1149,7 @@ where id = @Fk_TaxRequestList </CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TanggalAwalPelaporan.Value</Value>
+                                  <Value>=Format(Cdate(Fields!TanggalAwalPelaporan.Value),"dd/MM/yyyy")</Value>
                                   <Style>
                                     <FontFamily>HelveticaNeueLT Std</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1215,7 +1215,7 @@ where id = @Fk_TaxRequestList </CommandText>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TanggalAkhirPelaporan.Value</Value>
+                                  <Value>=Format(Cdate(Fields!TanggalAkhirPelaporan.Value),"dd/MM/yyyy")</Value>
                                   <Style>
                                     <FontFamily>HelveticaNeueLT Std</FontFamily>
                                     <FontSize>8pt</FontSize>

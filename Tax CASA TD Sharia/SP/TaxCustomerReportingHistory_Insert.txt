@@ -1,0 +1,124 @@
+USE [Enginestatement_BDI]
+GO
+Create or  ALTER PROCEDURE [dbo].[TaxCustomerReportingHistory_Insert] AS     
+  BEGIN IF EXISTS (select top 1 * from TAX_CSA_MONTH WITH (NOLOCK))    
+   BEGIN     
+       
+   --drop index    
+   DROP INDEX IF EXISTS [CI_CIF] ON [dbo].[TaxCustomerDeductedAdvice_OBS_History]    
+       
+   INSERT INTO TaxCustomerDeductedAdvice_OBS_History (    
+    cif, cif_eoy, customer_name, account_no,     
+    branch_code, period_date, product_category,     
+    product_code, product_name, currency_code,     
+    balance_original, balance_idr, interest_original,     
+    interest_idr, interest_desc, tax_original,     
+    tax_idr, tax_desc, maturity_date,     
+    account_status, date_pr, period_type, npwp, alamat    
+  )     
+ SELECT distinct  
+    LEFT(cif, 30) cif,  
+    LEFT(cif_eoy, 30) cif_eoy,  
+    LEFT(customer_name, 150) customer_name,  
+    LEFT(account_no, 30) account_no,  
+    CAST(branch_code AS varchar(10)) branch_code,  
+    period_date,  
+    LEFT(product_category, 50) product_category,  
+    product_code,  
+    LEFT(product_name, 50) product_name,  
+    currency_code,  
+    balance_original,  
+    balance_idr,  
+    interest_original,  
+    interest_idr,  
+    CAST(interest_desc AS nvarchar(100)) interest_desc,  
+    tax_original,  
+    tax_idr,  
+    LEFT(tax_desc, 50) tax_desc,  
+    LEFT(maturity_date, 30) maturity_date,  
+    0 AS account_status,  
+    date_pr,  
+    period_type,  
+ npwp,  
+ address  
+  FROM (  
+  SELECT  
+    cif,  
+    cif_eoy,  
+    customer_name,  
+    account_no,  
+    branch_code,  
+    period_date,  
+    product_category,  
+    product_code,  
+    product_name,  
+    currency_code,  
+    balance_original,  
+    balance_idr,  
+    interest_original,  
+    interest_idr,  
+    interest_desc,  
+    tax_original,  
+    tax_idr,  
+    sub_product_category tax_desc,  
+    CAST(ISNULL(CONVERT(varchar(10), maturity_date, 126), '') AS varchar(30)) maturity_date,  
+    account_status,  
+    date_pr,  
+    'M' period_type,  
+ NPWP,  
+ Concat(Address,', ',District_SubDistrict,', ',dbo.RemoveNonAlphaCharacters(City),', ',ZIP) Address    
+  FROM TAX_FUND_MONTH  
+  UNION ALL  
+  SELECT  
+    cif,  
+    cif_eoy,  
+    customer_name,  
+    account_no,  
+    SUBSTRING(branch_name, 1, (CHARINDEX(' ', branch_name + ' ') - 1)) AS branch_code,  
+    end_period AS period_date,  
+    product_category,  
+    SUBSTRING(product_name, 1, (CHARINDEX(' ', product_name + ' ') - 1)) AS product_code,  
+    product_name,  
+    currency_code,  
+    balance_original,  
+    balance_idr,  
+    interest_original,  
+    interest_idr,  
+    '' interest_desc,  
+    tax_original,  
+    tax_idr,  
+    sub_product_category tax_desc,  
+    '' maturity_date,  
+    0 AS account_status,  
+    date_pr,  
+    'Y' period_type,  
+ NPWP,  
+ Concat(Address,', ',District_SubDistrict,', ',dbo.RemoveNonAlphaCharacters(City),', ',ZIP) Address  
+  FROM TAX_FUND_YEAR  
+  )  e    
+WHERE     
+  NOT EXISTS (    
+    SELECT     
+      null     
+    FROM     
+      TaxCustomerDeductedAdvice_OBS_History d     
+    WHERE     
+      d.cif = e.cif     
+      and d.account_no = e.account_no     
+      and DATEDIFF(    
+        day, d.period_date, e.period_date    
+      )= 0 and d.period_type = e.period_type    
+  ) 
+  END
+      
+  --add index    
+    
+    
+CREATE CLUSTERED INDEX [CI_CIF] ON [dbo].[TaxCustomerDeductedAdvice_OBS_History]    
+(    
+ [cif] ASC,    
+ period_type ASC,    
+ [account_no] ASC    
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]    
+    
+END

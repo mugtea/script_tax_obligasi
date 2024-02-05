@@ -1,0 +1,27 @@
+USE [Enginestatement_BDI]
+GO
+
+CREATE OR ALTER PROCEDURE [dbo].[TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert] AS BEGIN IF EXISTS (
+    SELECT 
+      TOP 1 * 
+    FROM 
+      TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation
+  ) BEGIN INSERT INTO TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated (cif, account_no) 
+SELECT 
+  cif, 
+  account_no 
+FROM 
+  TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation e 
+WHERE 
+  NOT EXISTS (
+    SELECT 
+      null 
+    FROM 
+      TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated d 
+    WHERE 
+      d.cif = e.cif 
+      and d.account_no = e.account_no
+  ) END END
+GO
+
+

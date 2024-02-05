@@ -1,0 +1,16 @@
+USE [Enginestatement_BDI]
+GO
+
+DROP TABLE IF EXISTS [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation]
+
+CREATE TABLE [dbo].[TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation](
+	[DataID] [int] IDENTITY(1,1) NOT NULL,
+	[cif] [varchar](30) NOT NULL,
+	[customer_name] [varchar](150) NOT NULL,
+	[account_no] [varchar](30) NOT NULL,
+	[branch_code] [smallint] NOT NULL,
+	[postal_code] [varchar](6) NOT NULL
+) ON [PRIMARY]
+GO
+
+

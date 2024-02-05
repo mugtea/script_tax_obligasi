@@ -4,7 +4,7 @@ GO
 CREATE OR ALTER Proc TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert
 AS
 BEGIN
-	IF EXISTS (SELECT TOP 1 * FROM TAX_CSA_MONTH)
+	IF EXISTS (SELECT TOP 1 * FROM estatement.dbo.TAX_CSA_MONTH_SUMMARY)
 	BEGIN
 	INSERT INTO TaxCustomerDeductedAdvice_ObligasiSummary_History (npwp,
 	CIF,
@@ -34,7 +34,7 @@ BEGIN
 	  FROM TAX_CSA_MONTH_SUMMARY a
 	  WHERE NOT EXISTS (SELECT
 		NULL
-	  FROM TaxCustomerDeductedAdvice_ObligasiSummary_History
+	  FROM estatement.dbo.TaxCustomerDeductedAdvice_ObligasiSummary_History
 	  x
 	  WHERE x.cif = a.cif
 	  AND x.namaproduct = a.namaproduct
