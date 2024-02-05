@@ -227,13 +227,3 @@ INSERT INTO [dbo].[DatabaseFriendlyField] ( [FK_DatabaseFriendly_ID], [OriginalF
 GO
 
   
-use EngineStatement_BDI
-  select * From ReportParameter
-  select *From [StatementGeneratorStatementParameterMapping]
-
-  delete from [StatementGeneratorStatementParameterMapping] where ParameterNameField ='Fk_TaxRequestList'
-
-
-  select * From TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation
-
-  select * from FileData

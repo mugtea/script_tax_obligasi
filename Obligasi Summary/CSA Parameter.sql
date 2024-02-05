@@ -220,7 +220,7 @@ getdate(), --[ApprovedDate],
 
  
 
- INSERT INTO [dbo].[DatabaseFriendlyField] ( [FK_DatabaseFriendly_ID], [OriginalFieldName], [IsDisplayField], [ExpressionData], [FriendlyFieldName]) VALUES ((select top 1 PK_DatabaseFriendly_ID from DatabaseFriendly where OriginalTable = 'TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation'), 'DataID', '1', 'DataID', 'DataID');
+INSERT INTO [dbo].[DatabaseFriendlyField] ( [FK_DatabaseFriendly_ID], [OriginalFieldName], [IsDisplayField], [ExpressionData], [FriendlyFieldName]) VALUES ((select top 1 PK_DatabaseFriendly_ID from DatabaseFriendly where OriginalTable = 'TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation'), 'DataID', '1', 'DataID', 'DataID');
 INSERT INTO [dbo].[DatabaseFriendlyField] ( [FK_DatabaseFriendly_ID], [OriginalFieldName], [IsDisplayField], [ExpressionData], [FriendlyFieldName]) VALUES ((select top 1 PK_DatabaseFriendly_ID from DatabaseFriendly where OriginalTable = 'TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation'), 'branch_code', '1', 'branch_code', 'branch_code');
 INSERT INTO [dbo].[DatabaseFriendlyField] ( [FK_DatabaseFriendly_ID], [OriginalFieldName], [IsDisplayField], [ExpressionData], [FriendlyFieldName]) VALUES ((select top 1 PK_DatabaseFriendly_ID from DatabaseFriendly where OriginalTable = 'TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation'), 'cif', '1', 'cif', 'cif');
 INSERT INTO [dbo].[DatabaseFriendlyField] ( [FK_DatabaseFriendly_ID], [OriginalFieldName], [IsDisplayField], [ExpressionData], [FriendlyFieldName]) VALUES ((select top 1 PK_DatabaseFriendly_ID from DatabaseFriendly where OriginalTable = 'TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation'), 'postal_code', '1', 'postal_code', 'postal_code');

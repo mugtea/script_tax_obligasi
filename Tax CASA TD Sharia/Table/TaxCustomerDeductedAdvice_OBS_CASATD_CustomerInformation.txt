@@ -9,8 +9,13 @@ CREATE TABLE [dbo].[TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation](
 	[customer_name] [varchar](150) NOT NULL,
 	[account_no] [varchar](30) NOT NULL,
 	[branch_code] [smallint] NOT NULL,
-	[postal_code] [varchar](6) NOT NULL
+	[postal_code] [varchar](6) NOT NULL,
+	[fk_taxrequestlist] BIGINT NOT NULL
 ) ON [PRIMARY]
 GO
 
+OR 
 
+
+alter table TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation
+drop [fk_taxrequestlist] BIGINT NOT NULL

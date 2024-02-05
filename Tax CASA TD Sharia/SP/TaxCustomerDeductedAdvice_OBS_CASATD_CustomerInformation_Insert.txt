@@ -15,14 +15,16 @@ INSERT INTO
     customer_name,    
     account_no,    
     branch_code,    
-    postal_code    
+    postal_code,
+	FK_TaxRequestList    
   )    
 SELECT DISTINCT    
   E.cif,    
   E.customer_name,    
   E.account_no,    
   E.branch_code,    
-  0 postal_code   
+  TRL.id postal_code,
+  TRL.id as FK_TaxRequestList
 FROM    
   TaxCustomerDeductedAdvice_OBS_StagingData e    
   INNER JOIN TaxRequestList TRL ON TRL.CIF=E.cif
