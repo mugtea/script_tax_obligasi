@@ -1,0 +1,18 @@
+USE [Enginestatement_BDI]
+GO
+
+CREATE OR ALTER PROC TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert
+AS
+BEGIN
+	IF EXISTS (SELECT TOP 1 * FROM TaxCustomerDeductedAdvice_ObligasiDetail_History)
+	BEGIN
+		INSERT INTO TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation (CIF,customer_name,account_no,Fk_TaxRequestList)
+		SELECT distinct TRL.cif, TOH.NamaWajibPajak, '', trl.id FROM TaxRequestList TRL 
+		INNER JOIN TAXCUSTOMERDEDUCTEDADVICE_OBLIGASIDetail_HISTORY toh 
+			on trl.cif = toh.cif
+		WHERE toh.date_pr between TRL.period_end and TRL.period_end
+		AND trl.[status] in ('waiting')
+		AND not exists (select null from TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation x
+		where x.Fk_TaxRequestList = trl.id)
+	END
+END

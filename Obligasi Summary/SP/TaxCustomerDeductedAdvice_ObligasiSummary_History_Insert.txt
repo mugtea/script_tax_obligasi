@@ -1,0 +1,46 @@
+USE [Enginestatement_BDI]
+GO
+
+CREATE OR ALTER Proc TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert
+AS
+BEGIN
+	IF EXISTS (SELECT TOP 1 * FROM TAX_CSA_MONTH)
+	BEGIN
+	INSERT INTO TaxCustomerDeductedAdvice_ObligasiSummary_History (npwp,
+	CIF,
+	NamaNasabah,
+	NamaProduct,
+	TanggalPerolehan,
+	MataUang,
+	Nominal,
+	KeteranganTransaksi,
+	Bunga,
+	PPHFinal,
+	Param_ppn,
+	namapemotongpajak)
+	  SELECT
+		npwp,
+		CIF,
+		NamaNasabah,
+		NamaProduct,
+		TanggalPerolehan,
+		MataUang,
+		Nominal,
+		KeteranganTransaksi,
+		Bunga,
+		PPHFinal,
+		Param_ppn,
+		namapemotongpajak
+	  FROM TAX_CSA_MONTH_SUMMARY a
+	  WHERE NOT EXISTS (SELECT
+		NULL
+	  FROM TaxCustomerDeductedAdvice_ObligasiSummary_History
+	  x
+	  WHERE x.cif = a.cif
+	  AND x.namaproduct = a.namaproduct
+	  AND x.tanggalperolehan = a.tanggalperolehan
+	  AND x.KeteranganTransaksi = a.KeteranganTransaksi
+	  )
+	END
+END
+GO

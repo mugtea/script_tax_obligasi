@@ -1,0 +1,16 @@
+CREATE OR ALTER PROC TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert
+AS
+BEGIN
+	IF EXISTS (SELECT TOP 1 * FROM TaxCustomerDeductedAdvice_ObligasiSummary_History)
+	BEGIN
+		INSERT INTO TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation (CIF,customer_name,account_no,Fk_TaxRequestList)
+		SELECT distinct TRL.cif, TOH.NamaNasabah, '', trl.id FROM TaxRequestList TRL 
+		INNER JOIN TAXCUSTOMERDEDUCTEDADVICE_OBLIGASISUMMARY_HISTORY toh 
+			on trl.cif = toh.cif
+		WHERE CONVERT(date,LEFT(toh.tanggalperolehan,10)) >= TRL.period_start and convert(date,right(toh.tanggalperolehan,10))  <= TRL.period_end
+		AND trl.status in ('waiting')
+		AND not exists (select null from TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation x
+		where x.Fk_TaxRequestList = trl.id)
+
+	END
+END

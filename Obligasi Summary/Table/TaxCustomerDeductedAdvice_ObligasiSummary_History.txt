@@ -1,0 +1,23 @@
+USE [Enginestatement_BDI]
+GO
+
+DROP TABLE IF EXISTS [TaxCustomerDeductedAdvice_ObligasiSummary_History]
+
+CREATE TABLE [dbo].[TaxCustomerDeductedAdvice_ObligasiSummary_History](
+	[DataID] [int] IDENTITY(1,1) NOT NULL,
+	[npwp] [varchar](225) NULL,
+	[CIF] [varchar](255) NULL,
+	[NamaNasabah] [varchar](255) NULL,
+	[NamaProduct] [varchar](255) NULL,
+	[TanggalPerolehan] [varchar](83) NULL,
+	[MataUang] [varchar](3) NULL,
+	[Nominal] [numeric](38, 9) NULL,
+	[KeteranganTransaksi] [varchar](20) NULL,
+	[Bunga] [numeric](38, 9) NULL,
+	[PPHFinal] [numeric](38, 9) NULL,
+	[Param_ppn] [numeric](38, 9) NULL,
+	[namapemotongpajak] [varchar](18) NULL
+) ON [PRIMARY]
+GO
+
+

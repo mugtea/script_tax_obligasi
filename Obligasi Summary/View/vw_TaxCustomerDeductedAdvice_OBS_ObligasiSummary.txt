@@ -1,0 +1,24 @@
+USE [Enginestatement_BDI]
+GO
+
+CREATE or alter view [dbo].vw_TaxCustomerDeductedAdvice_OBS_ObligasiSummary
+as
+SELECT
+  trl.period_start  TanggalAwalPelaporan,
+  trl.period_end  TanggalAkhirPelaporan,
+  osh.npwp npwp,
+  osh.CIF CIF,
+  osh.NamaNasabah NamaNasabah,
+  osh.NamaProduct NamaProduct,
+  CONVERT(VARCHAR(10), CONVERT(DATE, REPLACE(SUBSTRING(osh.TanggalPerolehan, 1, 10), '-', '/')), 103) + ' - ' + CONVERT(VARCHAR(10), CONVERT(DATE, REPLACE(SUBSTRING(osh.TanggalPerolehan, 14, 10), '-', '/')), 103) AS TanggalPerolehan,
+  osh.MataUang MataUang,
+  cast(concat(osh.MataUang,' ', format (osh.Nominal, '#,##0', 'DE-de'))as varchar(255)) Nominal,
+  osh.KeteranganTransaksi KeteranganTransaksi,
+  cast(concat(osh.MataUang,' ', format (osh.Bunga, '#,##0', 'DE-de'))as varchar(255)) Bunga,
+  cast(concat(osh.MataUang,' ', format (osh.PPHFinal, '#,##0', 'DE-de'))as varchar(255)) PPHFinal,
+  trl.id
+FROM TaxCustomerDeductedAdvice_ObligasiSummary_History osh
+join TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation osci on osh.CIF = osci.cif
+join TaxRequestList trl on trl.id = osci.Fk_TaxRequestList
+where osh.tanggalperolehan = CONCAT(TRL.period_start,' - ',TRL.period_end)
+GO

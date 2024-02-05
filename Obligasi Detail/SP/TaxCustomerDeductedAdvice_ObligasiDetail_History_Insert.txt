@@ -1,0 +1,65 @@
+ USE [Enginestatement_BDI]
+GO
+
+ CREATE OR ALTER Proc TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert
+AS
+BEGIN
+	IF EXISTS (SELECT TOP 1 * FROM TAX_CSA_MONTH_TRANS_COUPON with(nolock))
+	BEGIN
+	INSERT INTO TaxCustomerDeductedAdvice_ObligasiDetail_History (
+		npwp,
+		NamaWajibPajak,
+		Alamat,
+		NamaObligasi,
+		JumlahNilaiNominal,
+		NomorSeri,
+		TingkatBunga,
+		JatuhTempo,
+		TanggalPerolehan,
+		TanggalPenjualan,
+		JumlahHargaPerolehanBersih,
+		JumlahHargaJualBersih,
+		diskonto,
+		accruedInterest,
+		jumlah,
+		taxAmount,
+		trx_desc,
+		currency,
+		date_pr,
+		Param_ppn,
+		namapemotongpajak,
+		cif)
+	  SELECT
+			npwp,
+			NamaWajibPajak,
+			Alamat,
+			NamaObligasi,
+			JumlahNilaiNominal,
+			NomorSeri,
+			TingkatBunga,
+			JatuhTempo,
+			TanggalPerolehan,
+			TanggalPenjualan,
+			JumlahHargaPerolehanBersih,
+			JumlahHargaJualBersih,
+			diskonto,
+			accruedInterest,
+			jumlah,
+			taxAmount,
+			trx_desc,
+			currency,
+			date_pr,
+			Param_ppn,
+			namapemotongpajak,
+			cif
+	  FROM TAX_CSA_MONTH_TRANS_COUPON a
+	  WHERE NOT EXISTS (SELECT
+		NULL
+	  FROM TaxCustomerDeductedAdvice_ObligasiDetail_History
+	  x
+	  WHERE x.cif = a.cif
+	  AND x.date_pr = a.date_pr
+	  )
+	END
+END
+GO

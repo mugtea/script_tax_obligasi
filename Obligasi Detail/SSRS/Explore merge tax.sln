@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Explore merge tax", "Explore merge tax\Explore merge tax.rptproj", "{00FF7961-17FD-457C-A7E2-60C796903CC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00FF7961-17FD-457C-A7E2-60C796903CC1}.Debug|Default.ActiveCfg = Debug
+		{00FF7961-17FD-457C-A7E2-60C796903CC1}.Debug|Default.Build.0 = Debug
+		{00FF7961-17FD-457C-A7E2-60C796903CC1}.Debug|Default.Deploy.0 = Debug
+		{00FF7961-17FD-457C-A7E2-60C796903CC1}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{00FF7961-17FD-457C-A7E2-60C796903CC1}.DebugLocal|Default.Build.0 = DebugLocal
+		{00FF7961-17FD-457C-A7E2-60C796903CC1}.Release|Default.ActiveCfg = Release
+		{00FF7961-17FD-457C-A7E2-60C796903CC1}.Release|Default.Build.0 = Release
+		{00FF7961-17FD-457C-A7E2-60C796903CC1}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00DE9396-C856-419B-A2A5-AF15E502F2D6}
+	EndGlobalSection
+EndGlobal
