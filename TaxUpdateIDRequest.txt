@@ -26,20 +26,32 @@ drop table if exists tempListUpdateIDRequestTax
 ----update trl set trl.status = 'Success' From TaxRequestList trl     
 ----   where trl.id in (select id from tempListUpdateIDRequestTax)    
     
-	 select trl.id , s.FK_TaxRequestList into tempListUpdateIDRequestTax  
+	-- select trl.id , s.FK_TaxRequestList into tempListUpdateIDRequestTax  
+	-- From FileData a     
+ --inner join MappingStatementFileData b on a.Pk_FileData_Id = b.Fk_FileData_Id    
+ --inner join Statement s on s.Pk_Statement_Id = b.Fk_Statement_Id    
+ --inner join TaxRequestList trl on trl.id = s.PostalCode --ini fk_taxrequestlist    
+ --where trl.status in ('waiting','failed')    
+ --  and s.FK_TaxRequestList is null  or s.FK_TaxRequestList <> trl.id 
+
+	-- UPDATE s set FK_TaxRequestList = trl.id  From FileData a     
+ --inner join MappingStatementFileData b on a.Pk_FileData_Id = b.Fk_FileData_Id    
+ --inner join Statement s on s.Pk_Statement_Id = b.Fk_Statement_Id    
+ --inner join TaxRequestList trl on trl.id = s.PostalCode --ini fk_taxrequestlist    
+ --where trl.status in ('waiting','failed')    
+ --  and s.FK_TaxRequestList is null  or s.FK_TaxRequestList <> trl.id 
+
+
+  select s.PostalCode AS ID , s.PostalCode AS FK_TaxRequestList into tempListUpdateIDRequestTax  
 	 From FileData a     
  inner join MappingStatementFileData b on a.Pk_FileData_Id = b.Fk_FileData_Id    
  inner join Statement s on s.Pk_Statement_Id = b.Fk_Statement_Id    
- inner join TaxRequestList trl on trl.id = s.PostalCode --ini fk_taxrequestlist    
- where trl.status in ('waiting','failed')    
-   and s.FK_TaxRequestList is null  or s.FK_TaxRequestList <> trl.id 
+ where s.FK_TaxRequestList is null  or s.FK_TaxRequestList <> s.PostalCode 
 
-	 UPDATE s set FK_TaxRequestList = trl.id  From FileData a     
+	 UPDATE s set FK_TaxRequestList = s.PostalCode  From FileData a     
  inner join MappingStatementFileData b on a.Pk_FileData_Id = b.Fk_FileData_Id    
  inner join Statement s on s.Pk_Statement_Id = b.Fk_Statement_Id    
- inner join TaxRequestList trl on trl.id = s.PostalCode --ini fk_taxrequestlist    
- where trl.status in ('waiting','failed')    
-   and s.FK_TaxRequestList is null  or s.FK_TaxRequestList <> trl.id 
+ where s.FK_TaxRequestList is null  or s.FK_TaxRequestList <> s.PostalCode
 
 
 end

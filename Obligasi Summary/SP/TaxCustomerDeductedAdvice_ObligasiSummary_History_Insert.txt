@@ -31,10 +31,10 @@ BEGIN
 		PPHFinal,
 		Param_ppn,
 		namapemotongpajak
-	  FROM TAX_CSA_MONTH_SUMMARY a
+	  FROM estatement.dbo.TAX_CSA_MONTH_SUMMARY a
 	  WHERE NOT EXISTS (SELECT
 		NULL
-	  FROM estatement.dbo.TaxCustomerDeductedAdvice_ObligasiSummary_History
+	  FROM TaxCustomerDeductedAdvice_ObligasiSummary_History
 	  x
 	  WHERE x.cif = a.cif
 	  AND x.namaproduct = a.namaproduct

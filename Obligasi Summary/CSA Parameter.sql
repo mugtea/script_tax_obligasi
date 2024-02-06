@@ -25,8 +25,8 @@ INSERT INTO [dbo].[MsStatementTemplate] (
 [JarakAtasEMaterai],
 [JarakKiriEMaterai]) VALUES (
 'Tax Obligasi Summary', --[StatementTemplateName],
-'TaxReports', --[ReportPath],
-'TaxCustomerDeductedAdvice_Oligasi_Summary', --[ReportName],
+'Danamon/TaxReports', --[ReportPath],
+'TaxCustomerDeductedAdvice_Obligasi_Summary', --[ReportName],
 '1', --[Activation],
 GETDATE(), --[CreatedDate],
 'system', --[CreatedBy],

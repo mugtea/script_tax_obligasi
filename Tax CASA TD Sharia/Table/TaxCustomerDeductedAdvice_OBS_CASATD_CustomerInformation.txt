@@ -14,8 +14,3 @@ CREATE TABLE [dbo].[TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation](
 ) ON [PRIMARY]
 GO
 
-OR 
-
-
-alter table TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation
-drop [fk_taxrequestlist] BIGINT NOT NULL

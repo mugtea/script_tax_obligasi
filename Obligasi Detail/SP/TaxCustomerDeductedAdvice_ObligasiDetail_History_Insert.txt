@@ -4,7 +4,7 @@ GO
  CREATE OR ALTER Proc TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert
 AS
 BEGIN
-	IF EXISTS (SELECT TOP 1 * FROM TAX_CSA_MONTH_TRANS_COUPON with(nolock))
+	IF EXISTS (SELECT TOP 1 * FROM estatement.dbo.TAX_CSA_MONTH_TRANS_COUPON with(nolock))
 	BEGIN
 	INSERT INTO TaxCustomerDeductedAdvice_ObligasiDetail_History (
 		npwp,
@@ -52,7 +52,7 @@ BEGIN
 			Param_ppn,
 			namapemotongpajak,
 			cif
-	  FROM TAX_CSA_MONTH_TRANS_COUPON a
+	  FROM estatement.dbo.TAX_CSA_MONTH_TRANS_COUPON a
 	  WHERE NOT EXISTS (SELECT
 		NULL
 	  FROM TaxCustomerDeductedAdvice_ObligasiDetail_History
