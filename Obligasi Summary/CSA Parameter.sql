@@ -195,6 +195,7 @@ INSERT INTO [dbo].[StatementGeneratorStatementParameterMapping] (
  'Fk_TaxRequestList', -- [ParameterNameField],
  '[TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList]'); -- [FieldMapping]
 
+
 DELETE FROM StatementGeneratorEmailTemplate WHERE FK_StatementGenerator_ID NOT IN (select PK_StatementGenerator_ID from StatementGenerator)
 INSERT INTO [dbo].[StatementGeneratorEmailTemplate] (
 [FK_StatementGenerator_ID],
@@ -228,7 +229,7 @@ INSERT INTO [dbo].[StatementGeneratorEmailTemplate] (
 [IsHavingAttachment],
 [AttachmentFileName],
 [NumberSplitAttachment]) VALUES (
-(select PK_StatementGenerator_ID from StatementGenerator where StatementGeneratorName = 'Tax Obligasi Summary'), --[FK_StatementGenerator_ID],
+(select PK_StatementGenerator_ID from StatementGenerator where StatementGeneratorName = 'Tax Obligasi Detail'), --[FK_StatementGenerator_ID],
 '0', --[IsUsedTableEmailAddressReference],
 (select top 1 PK_MsEmailIdendity_Id from MsEmailIdentity where Name = 'BUZZNET'), --[FK_EmailFrom_ID],
 '', --[EmailTo],
@@ -254,11 +255,12 @@ NULL, --[EmailConfirmationBody],
 1, --[NumberRetryIfFailed],
 1, --[TimeMinutesWaitBeforeRety],
 '0', --[IsUsedOrderBy],
-'<<[[TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[DataID]>>', --[ColumnOrderBy],
+'<<[[TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[DataID]>>', --[ColumnOrderBy],
 'ASC', --[OrderByWith],
 '0', --[IsHavingAttachment],
 '', --[AttachmentFileName],
 0); --[NumberSplitAttachment]
+
 
 
 INSERT INTO [dbo].[DatabaseFriendly] (

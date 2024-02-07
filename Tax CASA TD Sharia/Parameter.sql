@@ -66,31 +66,6 @@ INSERT INTO [dbo].[StatementGeneratorStatementParameterMapping] ([FK_StatementGe
 
 
 
-INSERT INTO [dbo].[DatabaseFriendly] (
- [OriginalTable],
- [FriendlyTableName],
- [IsView],
- [Activation],
- [CreatedDate],
- [CreatedBy],
- [LastUpdatedDate],
- [LastUpdatedBy],
- [ApprovedDate],
- [ApprovedBy]
- ) VALUES (
- 'TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation', --[OriginalTable],
- 'TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation', --[FriendlyTableName],
- '0', --[IsView],
- '1', --[Activation],
-getdate(), --[CreatedDate],
- 'system', --[CreatedBy],
- NULL, --[LastUpdatedDate],
- 'system', --[LastUpdatedBy],
-getdate(), --[ApprovedDate],
- 'system'); --[ApprovedBy]
- GO
- 
-
  ALTER TABLE [DatabaseFriendlyField]
  DROP CONSTRAINT if exists FK_DatabaseFriendlyField_DatabaseFriendly;
  GO
@@ -99,10 +74,52 @@ DELETE From DatabaseFriendlyField where FK_DatabaseFriendly_ID in (select PK_Dat
 
 DELETE From DatabaseFriendly where OriginalTable in ('CustomerTaxDeductedAdvice_OBS_CASATD_CustomerInformation','CustomerTaxDeductedAdvice_OBS_Syariah_CustomerInformation')
 
+INSERT INTO [dbo].[DatabaseFriendly] ( 
+[OriginalTable],
+[FriendlyTableName],
+[IsView],
+[Activation],
+[CreatedDate],
+[CreatedBy],
+[LastUpdatedDate],
+[LastUpdatedBy],
+[ApprovedDate],
+[ApprovedBy]) VALUES (
+'CustomerTaxDeductedAdvice_OBS_CASATD_CustomerInformation', --[OriginalTable],
+'CustomerTaxDeductedAdvice_OBS_CASATD_CustomerInformation', --[FriendlyTableName],
+'0', --[IsView],
+'1', --[Activation],
+getdate(), --[CreatedDate],
+'system', --[CreatedBy],
+NULL, --[LastUpdatedDate],
+'system', --[LastUpdatedBy],
+getdate(), --[ApprovedDate],
+'system'); --[ApprovedBy]
 
-INSERT INTO [dbo].[DatabaseFriendly] ( [OriginalTable], [FriendlyTableName], [IsView], [Activation], [CreatedDate], [CreatedBy], [LastUpdatedDate], [LastUpdatedBy], [ApprovedDate], [ApprovedBy]) VALUES ('CustomerTaxDeductedAdvice_OBS_CASATD_CustomerInformation', 'CustomerTaxDeductedAdvice_OBS_CASATD_CustomerInformation', '0', '1', getdate(), 'system', NULL, 'system', getdate(), 'system');
 
-INSERT INTO [dbo].[DatabaseFriendly] ( [OriginalTable], [FriendlyTableName], [IsView], [Activation], [CreatedDate], [CreatedBy], [LastUpdatedDate], [LastUpdatedBy], [ApprovedDate], [ApprovedBy]) VALUES ('CustomerTaxDeductedAdvice_OBS_SYARIAH_CustomerInformation', 'CustomerTaxDeductedAdvice_OBS_SYARIAH_CustomerInformation', '0', '1', getdate(), 'system', NULL, 'system', getdate(), 'system');
+INSERT INTO [dbo].[DatabaseFriendly] ( 
+[OriginalTable],
+[FriendlyTableName],
+[IsView],
+[Activation],
+[CreatedDate],
+[CreatedBy],
+[LastUpdatedDate],
+[LastUpdatedBy],
+[ApprovedDate],
+[ApprovedBy]) VALUES (
+'CustomerTaxDeductedAdvice_OBS_SYARIAH_CustomerInformation', --[OriginalTable],
+'CustomerTaxDeductedAdvice_OBS_SYARIAH_CustomerInformation', --[FriendlyTableName],
+'0', --[IsView],
+'1', --[Activation],
+getdate(), --[CreatedDate],
+'system', --[CreatedBy],
+NULL, --[LastUpdatedDate],
+'system', --[LastUpdatedBy],
+getdate(), --[ApprovedDate],
+'system'); --[ApprovedBy]
+
+
 
 INSERT INTO [dbo].[DatabaseFriendlyField] ( [FK_DatabaseFriendly_ID], [OriginalFieldName], [IsDisplayField], [ExpressionData], [FriendlyFieldName]) VALUES ((select top 1 PK_DatabaseFriendly_ID from DatabaseFriendly where OriginalTable = 'CustomerTaxDeductedAdvice_OBS_CASATD_CustomerInformation'), 'DataID', '1', 'DataID', 'DataID');
 INSERT INTO [dbo].[DatabaseFriendlyField] ( [FK_DatabaseFriendly_ID], [OriginalFieldName], [IsDisplayField], [ExpressionData], [FriendlyFieldName]) VALUES ((select top 1 PK_DatabaseFriendly_ID from DatabaseFriendly where OriginalTable = 'CustomerTaxDeductedAdvice_OBS_CASATD_CustomerInformation'), 'branch_code', '1', 'branch_code', 'branch_code');
