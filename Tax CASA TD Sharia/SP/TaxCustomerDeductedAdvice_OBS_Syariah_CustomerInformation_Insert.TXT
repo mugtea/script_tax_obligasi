@@ -21,8 +21,8 @@ INSERT INTO
 SELECT DISTINCT    
   E.cif,    
   E.customer_name,    
-  E.account_no,    
-  E.branch_code,    
+  '' as account_no, --E.account_no,    
+  '' as branch_code, --E.branch_code,    
   TRL.id postal_code,
   TRL.id as FK_TaxRequestList
 FROM    

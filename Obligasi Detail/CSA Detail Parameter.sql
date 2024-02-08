@@ -6,6 +6,7 @@ GO
 delete from [StatementGeneratorStatementParameterMapping] where FK_StatementGenerator_ID in (select PK_StatementGenerator_ID from StatementGenerator where Fk_MsStatementTemplate_Id in (select Pk_MsStatementTemplate_Id from MsStatementTemplate where StatementTemplateName = 'Tax Obligasi Detail'))
 DELETE FROM ReportParameter WHERE Fk_MsStatementTemplate_Id IN (select Pk_MsStatementTemplate_Id from MsStatementTemplate where [StatementTemplateName] IN ( 'Tax Obligasi Detail'))
 delete from StatementGeneratorPrimaryKey where FK_StatementGenerator_ID in (select PK_StatementGenerator_ID From StatementGenerator where StatementGeneratorName in ('Tax Obligasi Detail') )
+DELETE FROM StatementGeneratorEmailTemplate WHERE FK_StatementGenerator_ID NOT IN (select PK_StatementGenerator_ID from StatementGenerator) or FK_StatementGenerator_ID in (select PK_StatementGenerator_ID from StatementGenerator where StatementGeneratorName = 'Tax Obligasi Detail')
 DELETE FROM STATEMENTGENERATOR WHERE StatementGeneratorName IN ('Tax Obligasi Detail')
 DELETE FROM MSSTATEMENTTEMPLATE WHERE STATEMENTTEMPLATENAME in ( 'Tax Obligasi Detail')
 DELETE FROM [DatabaseFriendlyField] WHERE FK_DatabaseFriendly_ID in (select PK_DatabaseFriendly_ID from DatabaseFriendly WHERE [OriginalTable] = 'TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation')
@@ -28,7 +29,7 @@ INSERT INTO [dbo].[MsStatementTemplate] (
 [JarakAtasEMaterai],
 [JarakKiriEMaterai]) VALUES (
 'Tax Obligasi Detail', --[StatementTemplateName],
-'Danamon/TaxReports', --[ReportPath],
+'TaxReports', --[ReportPath],
 'TaxCustomerDeductedAdvice_Obligasi_Detail', --[ReportName],
 '1', --[Activation],
 GETDATE(), --[CreatedDate],
@@ -188,7 +189,7 @@ INSERT INTO [dbo].[StatementGeneratorStatementParameterMapping] (
  '[TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]'); -- [FieldMapping]
  GO
 
-DELETE FROM StatementGeneratorEmailTemplate WHERE FK_StatementGenerator_ID NOT IN (select PK_StatementGenerator_ID from StatementGenerator)
+
 INSERT INTO [dbo].[StatementGeneratorEmailTemplate] (
 [FK_StatementGenerator_ID],
 [IsUsedTableEmailAddressReference],
@@ -252,6 +253,12 @@ NULL, --[EmailConfirmationBody],
 '0', --[IsHavingAttachment],
 '', --[AttachmentFileName],
 0); --[NumberSplitAttachment]
+
+
+DELETE From DatabaseFriendlyField where FK_DatabaseFriendly_ID in (select PK_DatabaseFriendly_ID From DatabaseFriendly where OriginalTable in ('TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation'))
+
+DELETE From DatabaseFriendly where OriginalTable in ('TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation')
+
 
 INSERT INTO [dbo].[DatabaseFriendly] (
  [OriginalTable],

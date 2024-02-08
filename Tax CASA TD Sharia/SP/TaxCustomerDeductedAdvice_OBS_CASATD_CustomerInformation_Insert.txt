@@ -2,6 +2,7 @@ USE [Enginestatement_BDI]
 GO
 
 
+
 CREATE or alter PROCEDURE [dbo].[TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert] AS BEGIN IF EXISTS (    
   SELECT    
     TOP 1 *    
@@ -21,8 +22,8 @@ INSERT INTO
 SELECT DISTINCT    
   E.cif,    
   E.customer_name,    
-  E.account_no,    
-  E.branch_code,    
+  '' account_no,    
+  '' branch_code,    
   TRL.id postal_code,
   TRL.id as FK_TaxRequestList
 FROM    

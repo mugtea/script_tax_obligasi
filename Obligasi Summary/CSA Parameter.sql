@@ -196,7 +196,8 @@ INSERT INTO [dbo].[StatementGeneratorStatementParameterMapping] (
  '[TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList]'); -- [FieldMapping]
 
 
-DELETE FROM StatementGeneratorEmailTemplate WHERE FK_StatementGenerator_ID NOT IN (select PK_StatementGenerator_ID from StatementGenerator)
+DELETE FROM StatementGeneratorEmailTemplate WHERE FK_StatementGenerator_ID NOT IN (select PK_StatementGenerator_ID from StatementGenerator) or FK_StatementGenerator_ID in (select PK_StatementGenerator_ID from StatementGenerator where StatementGeneratorName = 'Tax Obligasi Summary')
+
 INSERT INTO [dbo].[StatementGeneratorEmailTemplate] (
 [FK_StatementGenerator_ID],
 [IsUsedTableEmailAddressReference],
@@ -229,7 +230,7 @@ INSERT INTO [dbo].[StatementGeneratorEmailTemplate] (
 [IsHavingAttachment],
 [AttachmentFileName],
 [NumberSplitAttachment]) VALUES (
-(select PK_StatementGenerator_ID from StatementGenerator where StatementGeneratorName = 'Tax Obligasi Detail'), --[FK_StatementGenerator_ID],
+(select PK_StatementGenerator_ID from StatementGenerator where StatementGeneratorName = 'Tax Obligasi Summary'), --[FK_StatementGenerator_ID],
 '0', --[IsUsedTableEmailAddressReference],
 (select top 1 PK_MsEmailIdendity_Id from MsEmailIdentity where Name = 'BUZZNET'), --[FK_EmailFrom_ID],
 '', --[EmailTo],
@@ -262,6 +263,10 @@ NULL, --[EmailConfirmationBody],
 0); --[NumberSplitAttachment]
 
 
+
+DELETE From DatabaseFriendlyField where FK_DatabaseFriendly_ID in (select PK_DatabaseFriendly_ID From DatabaseFriendly where OriginalTable in ('TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation'))
+
+DELETE From DatabaseFriendly where OriginalTable in ('TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation')
 
 INSERT INTO [dbo].[DatabaseFriendly] (
  [OriginalTable],

@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE [dbo].[TaxUpdateIDRequest]   
+ALTER   PROCEDURE [dbo].[TaxUpdateIDRequest]   
 as    
 begin    
     
@@ -53,5 +53,6 @@ drop table if exists tempListUpdateIDRequestTax
  inner join Statement s on s.Pk_Statement_Id = b.Fk_Statement_Id    
  where s.FK_TaxRequestList is null  or s.FK_TaxRequestList <> s.PostalCode
 
+ update a set a.FileDataName = b.FileName from FileData a inner join vw_TaxCustomerDeductedAdvice_OBS_GetUngeneratedFile b on a.Pk_FileData_Id = b.Pk_FileData_Id 
 
 end
