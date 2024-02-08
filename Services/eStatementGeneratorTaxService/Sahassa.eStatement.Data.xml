@@ -1,0 +1,130 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Sahassa.eStatement.Data
+</name>
+</assembly>
+<members>
+<member name="T:Sahassa.eStatement.Data.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Sahassa.eStatement.Data.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Sahassa.eStatement.Data.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="F:Sahassa.eStatement.Data.ScheduleItemLoader.ScheduleItem.DailyFrequency">
+ <summary>
+ Frequency job to start in a day.
+ Occurs Once At: Use this ctor New(ByVal StartingAt As TimeSpan)
+ Occurs Every: Use this ctor New(ByVal StartingAt As TimeSpan, ByVal EndingAt As TimeSpan, ByVal OccursEveryUnit As Integer, ByVal OccursEveryInterval As OccursEveryIntervalEnum)
+ </summary>
+</member>
+<member name="M:Sahassa.eStatement.Data.ScheduleItemLoader.ScheduleItem.#ctor(System.Int64,System.String,System.Int32,System.DateTime,System.TimeSpan)">
+ <summary>
+ To constructs The One-time occurrences schedule. Date and time must be greater than the current date and time.
+ </summary>
+ <param name="UniqueID">A Unique ID for this Configuration.</param>
+ <param name="UniqueName">A Unique Name for this Configuration.</param>
+ <param name="StartDate">Start date to run the schedule.</param>
+ <param name="StartingAt">Starting time to run schedule with format {HH:mm:ss AM/PM}.</param>
+</member>
+<member name="M:Sahassa.eStatement.Data.ScheduleItemLoader.ScheduleItem.#ctor(System.Int64,System.String,System.Int32,System.TimeSpan,System.DateTime,System.DateTime,System.Int32)">
+ <summary>
+ To constructs Daily occurrences schedule with Occurs Once At.
+ </summary>
+ <param name="UniqueID">A Unique ID for this Configuration.</param>
+ <param name="UniqueName">A Unique Name for this Configuration.</param>
+ <param name="StartDate">Start date to run the schedule.</param>
+ <param name="EndDate">End date of the schedule. Set End Date to MaxDate if no end date is prefered.</param>
+ <param name="RecurrsEvery">Occurss every N days.</param>
+</member>
+<member name="M:Sahassa.eStatement.Data.ScheduleItemLoader.ScheduleItem.#ctor(System.Int64,System.String,System.Int32,Sahassa.Schedules.DailyFrequency,System.DateTime,System.DateTime,System.Int32)">
+ <summary>
+ To constructs Daily occurrences schedule with Occurs Every set by Daily Frequency.
+ </summary>
+ <param name="UniqueID">A Unique ID for this Configuration.</param>
+ <param name="UniqueName">A Unique Name for this Configuration.</param>
+ <param name="StartDate">Start date to run the schedule.</param>
+ <param name="EndDate">End date of the schedule. Set End Date to MaxDate if no end date is prefered.</param>
+ <param name="RecurrsEvery">Occurss every N days.</param>
+</member>
+<member name="M:Sahassa.eStatement.Data.ScheduleItemLoader.ScheduleItem.#ctor(System.Int64,System.String,System.Int32,System.TimeSpan,System.DateTime,System.DateTime,System.Int32,Sahassa.Schedules.WeekOfDayList)">
+ <summary>
+ To constructs Weekly occurrences schedule on Weekdays with Occurs Once At set StartingAt only.
+ </summary>
+ <param name="UniqueID">A Unique ID for this Configuration.</param>
+ <param name="UniqueName">A Unique Name for this Configuration.</param>
+ <param name="StartDate">Start date to run the schedule.</param>
+ <param name="EndDate">End date of the schedule. Set End Date to MaxDate if no end date is prefered.</param>
+ <param name="RecurrsEvery">Occurss every N days.</param>
+ <param name="WeekDays">List of week of days to occurs on weekly schedule.</param>
+</member>
+<member name="M:Sahassa.eStatement.Data.ScheduleItemLoader.ScheduleItem.#ctor(System.Int64,System.String,System.Int32,Sahassa.Schedules.DailyFrequency,System.DateTime,System.DateTime,System.Int32,Sahassa.Schedules.WeekOfDayList)">
+ <summary>
+ To constructs Weekly occurrences schedule on Weekdays with Occurs Every set by Daily Frequency.
+ </summary>
+ <param name="UniqueID">A Unique ID for this Configuration.</param>
+ <param name="UniqueName">A Unique Name for this Configuration.</param>
+ <param name="StartDate">Start date to run the schedule.</param>
+ <param name="EndDate">End date of the schedule. Set End Date to MaxDate if no end date is prefered.</param>
+ <param name="RecurrsEvery">Occurss every N days.</param>
+ <param name="WeekDays">List of week of days to occurs on weekly schedule.</param>
+</member>
+<member name="M:Sahassa.eStatement.Data.ScheduleItemLoader.ScheduleItem.#ctor(System.Int64,System.String,System.Int32,System.TimeSpan,System.DateTime,System.DateTime,System.Int32,System.Int32)">
+ <summary>
+ To constructs Monthly occurrences schedule on every Nth of month with Occurs Every set by Daily Frequency.
+ </summary>
+ <param name="UniqueID">A Unique ID for this Configuration.</param>
+ <param name="UniqueName">A Unique Name for this Configuration.</param>
+ <param name="StartDate">Start date to run the schedule.</param>
+ <param name="EndDate">End date of the schedule. Set End Date to MaxDate if no end date is prefered.</param>
+ <param name="RecurrsEvery">Occurss every N days.</param>
+ <param name="Day">Day Nth to occurs on monthly schedule.</param>
+</member>
+<member name="M:Sahassa.eStatement.Data.ScheduleItemLoader.ScheduleItem.#ctor(System.Int64,System.String,System.Int32,System.TimeSpan,System.DateTime,System.DateTime,System.Int32,Sahassa.Schedules.TheDateRank,Sahassa.Schedules.TheDayOption)">
+ <summary>
+ To constructs Monthly occurrences schedule on The (Rank i.e. First, Second) day of week (Monday, Weekend) with Occurs Every set by Daily Frequency.
+ </summary>
+ <param name="UniqueID">A Unique ID for this Configuration.</param>
+ <param name="UniqueName">A Unique Name for this Configuration.</param>
+ <param name="StartDate">Start date to run the schedule.</param>
+ <param name="EndDate">End date of the schedule. Set End Date to MaxDate if no end date is prefered.</param>
+ <param name="RecurrsEvery">Occurss every N days.</param>
+ <param name="Rank">Rank of Day (First, Second) to occurs on monthly schedule.</param>
+ <param name="DayOption">Day Nth with weekend or weekdays option to occurs on monthly schedule.</param>
+</member>
+<member name="M:Sahassa.eStatement.Data.ScheduleItemLoader.ScheduleItem.#ctor(System.Int64,System.String,System.Int32,Sahassa.Schedules.DailyFrequency,System.DateTime,System.DateTime,System.Int32,System.Int32)">
+ <summary>
+ To constructs Monthly occurrences schedule on every Nth of month with Occurs Every set by Daily Frequency.
+ </summary>
+ <param name="UniqueID">A Unique ID for this Configuration.</param>
+ <param name="UniqueName">A Unique Name for this Configuration.</param>
+ <param name="StartDate">Start date to run the schedule.</param>
+ <param name="EndDate">End date of the schedule. Set End Date to MaxDate if no end date is prefered.</param>
+ <param name="RecurrsEvery">Occurss every N days.</param>
+ <param name="Day">Day Nth to occurs on monthly schedule.</param>
+</member>
+<member name="M:Sahassa.eStatement.Data.ScheduleItemLoader.ScheduleItem.#ctor(System.Int64,System.String,System.Int32,Sahassa.Schedules.DailyFrequency,System.DateTime,System.DateTime,System.Int32,Sahassa.Schedules.TheDateRank,Sahassa.Schedules.TheDayOption)">
+ <summary>
+ To constructs Monthly occurrences schedule on The (Rank i.e. First, Second) day of week (Monday, Weekend) with Occurs Every set by Daily Frequency.
+ </summary>
+ <param name="UniqueID">A Unique ID for this Configuration.</param>
+ <param name="UniqueName">A Unique Name for this Configuration.</param>
+ <param name="StartDate">Start date to run the schedule.</param>
+ <param name="EndDate">End date of the schedule. Set End Date to MaxDate if no end date is prefered.</param>
+ <param name="RecurrsEvery">Occurss every N days.</param>
+ <param name="Rank">Rank of Day (First, Second) to occurs on monthly schedule.</param>
+ <param name="DayOption">Day Nth with weekend or weekdays option to occurs on monthly schedule.</param>
+</member>
+</members>
+</doc>

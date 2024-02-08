@@ -1,0 +1,1371 @@
+ [4] INFO  SahassaLog OnStart eStatement EMaterai Services
+ 
+2024-02-07 00:06:37,995 [4] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:06:38,005 [5] INFO  SahassaLog StartServicePDF | 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,010 [5] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:06:38,043 [5] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Start',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:06:38,043 [5] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:06:38,047 [5] INFO  SahassaLog Start GetDataSource. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,047 [5] INFO  SahassaLog Start TaxCustomerReportingHistory_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,048 [5] INFO  SahassaLog End TaxCustomerReportingHistory_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,137 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,137 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,151 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,151 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,163 [5] INFO  SahassaLog END GetDataSource. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,163 [5] INFO  SahassaLog Start GetRequestTax. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,163 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,163 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,174 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,174 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,187 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,187 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,202 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,202 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,206 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,206 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,210 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,210 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,221 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,221 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,231 [5] INFO  SahassaLog END GetRequestTax. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,231 [5] INFO  SahassaLog Start TestXMLRPCAll. 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,231 [5] INFO  SahassaLog Start TestXMLRPCAll 07/02/2024 00:06:38
+ 
+2024-02-07 00:06:38,232 [7] INFO  SahassaLog OnStop eStatement EMaterai Services
+ 
+2024-02-07 00:06:42,624 [4] INFO  SahassaLog OnStart eStatement EMaterai Services
+ 
+2024-02-07 00:07:20,708 [4] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:07:20,722 [5] INFO  SahassaLog StartServicePDF | 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,728 [5] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:07:20,763 [5] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Start',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:07:20,763 [5] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:07:20,765 [5] INFO  SahassaLog Start GetDataSource. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,765 [5] INFO  SahassaLog Start TaxCustomerReportingHistory_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,766 [5] INFO  SahassaLog End TaxCustomerReportingHistory_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,826 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,826 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,841 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,841 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,856 [5] INFO  SahassaLog END GetDataSource. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,856 [5] INFO  SahassaLog Start GetRequestTax. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,856 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,857 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,869 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,869 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,885 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,885 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,900 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,900 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,905 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,905 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,909 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,909 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,921 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,921 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,933 [5] INFO  SahassaLog END GetRequestTax. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,933 [5] INFO  SahassaLog Start TestXMLRPCAll. 07/02/2024 00:07:20
+ 
+2024-02-07 00:07:20,933 [5] INFO  SahassaLog Start TestXMLRPCAll 07/02/2024 00:07:21
+ 
+2024-02-07 00:07:21,034 [5] INFO  SahassaLog Error TestXMLRPCAll The operation has timed out
+ 
+2024-02-07 00:09:01,099 [5] INFO  SahassaLog END TestXMLRPCAll. 07/02/2024 00:09:01
+ 
+2024-02-07 00:09:01,099 [5] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 00:09:01
+ 
+2024-02-07 00:09:01,099 [5] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 00:09:01
+ 
+2024-02-07 00:09:01,100 [5] INFO  SahassaLog End TaxUpdateIDRequest. 07/02/2024 00:09:01
+ 
+2024-02-07 00:09:01,112 [5] INFO  SahassaLog END TaxUpdateIDRequest. 07/02/2024 00:09:01
+ 
+2024-02-07 00:09:01,112 [5] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:09:01,114 [5] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:09:01,138 [5] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:09:01,138 [5] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:09:01,163 [5] INFO  SahassaLog There is no pdf needed extracted 
+ 
+2024-02-07 00:09:01,163 [5] INFO  SahassaLog list itm | 207
+ 
+2024-02-07 00:09:01,163 [5] INFO  SahassaLog list itm | 208
+ 
+2024-02-07 00:09:01,163 [5] INFO  SahassaLog EndServicePDF | 07/02/2024 00:09:01
+ 
+2024-02-07 00:09:01,163 [10] INFO  SahassaLog OnStop eStatement EMaterai Services
+ 
+2024-02-07 00:10:30,756 [4] INFO  SahassaLog OnStart eStatement EMaterai Services
+ 
+2024-02-07 00:10:37,494 [4] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:10:37,506 [5] INFO  SahassaLog StartServicePDF | 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,512 [5] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:10:37,544 [5] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Start',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:10:37,544 [5] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:10:37,546 [5] INFO  SahassaLog Start GetDataSource. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,547 [5] INFO  SahassaLog Start TaxCustomerReportingHistory_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,548 [5] INFO  SahassaLog End TaxCustomerReportingHistory_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,605 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,605 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,618 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,618 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,631 [5] INFO  SahassaLog END GetDataSource. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,631 [5] INFO  SahassaLog Start GetRequestTax. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,631 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,631 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,644 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,644 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,663 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,663 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,679 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,679 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,684 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,684 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,690 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,690 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,705 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,705 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,718 [5] INFO  SahassaLog END GetRequestTax. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,718 [5] INFO  SahassaLog Start TestXMLRPCAll. 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,718 [5] INFO  SahassaLog Start TestXMLRPCAll 07/02/2024 00:10:37
+ 
+2024-02-07 00:10:37,720 [5] INFO  SahassaLog End TestXMLRPCAll 07/02/2024 00:10:40
+ 
+2024-02-07 00:10:40,416 [5] INFO  SahassaLog END TestXMLRPCAll. 07/02/2024 00:10:40
+ 
+2024-02-07 00:10:40,416 [5] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 00:10:40
+ 
+2024-02-07 00:10:40,416 [5] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 00:10:40
+ 
+2024-02-07 00:10:40,417 [5] INFO  SahassaLog End TaxUpdateIDRequest. 07/02/2024 00:10:40
+ 
+2024-02-07 00:10:40,429 [5] INFO  SahassaLog END TaxUpdateIDRequest. 07/02/2024 00:10:40
+ 
+2024-02-07 00:10:40,429 [5] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:10:40,431 [5] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:10:40,457 [5] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:10:40,458 [5] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:10:40,481 [5] INFO  SahassaLog There is no pdf needed extracted 
+ 
+2024-02-07 00:10:40,481 [5] INFO  SahassaLog list itm | 207
+ 
+2024-02-07 00:10:40,482 [5] INFO  SahassaLog list itm | 208
+ 
+2024-02-07 00:10:40,482 [5] INFO  SahassaLog EndServicePDF | 07/02/2024 00:10:40
+ 
+2024-02-07 00:10:40,482 [7] INFO  SahassaLog OnStop eStatement EMaterai Services
+ 
+2024-02-07 00:12:14,184 [4] INFO  SahassaLog OnStart eStatement EMaterai Services
+ 
+2024-02-07 00:12:56,305 [4] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:12:56,315 [5] INFO  SahassaLog StartServicePDF | 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,321 [5] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:12:56,351 [5] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Start',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:12:56,351 [5] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:12:56,354 [5] INFO  SahassaLog Start GetDataSource. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,354 [5] INFO  SahassaLog Start TaxCustomerReportingHistory_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,355 [5] INFO  SahassaLog End TaxCustomerReportingHistory_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,405 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,405 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,416 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,416 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,428 [5] INFO  SahassaLog END GetDataSource. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,428 [5] INFO  SahassaLog Start GetRequestTax. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,428 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,429 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,441 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,441 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,455 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,455 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,469 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,469 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,474 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,474 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,477 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,477 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,488 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,488 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,499 [5] INFO  SahassaLog END GetRequestTax. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,499 [5] INFO  SahassaLog Start TestXMLRPCAll. 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,499 [5] INFO  SahassaLog Start TestXMLRPCAll 07/02/2024 00:12:56
+ 
+2024-02-07 00:12:56,596 [5] INFO  SahassaLog End TestXMLRPCAll 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,104 [5] INFO  SahassaLog END TestXMLRPCAll. 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,104 [5] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,104 [5] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,104 [5] INFO  SahassaLog End TaxUpdateIDRequest. 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,120 [5] INFO  SahassaLog END TaxUpdateIDRequest. 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,120 [5] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:13:17,121 [5] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:13:17,573 [5] INFO  SahassaLog Start exec TaxCustomerDeductedAdvice_OBS_SetGeneratedFile. 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,607 [5] INFO  SahassaLog End exec TaxCustomerDeductedAdvice_OBS_SetGeneratedFile. 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,616 [5] INFO  SahassaLog Start update trl set trl.status = 'Success' From TaxRequestList trl where trl.id in (select id from tempListUpdateIDRequestTax). 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,616 [5] INFO  SahassaLog End update trl set trl.status = 'Success' From TaxRequestList trl where trl.id in (select id from tempListUpdateIDRequestTax). 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,624 [5] INFO  SahassaLog Start EXEC TaxEmailAndAttachmentVerificationStatus. 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,624 [5] INFO  SahassaLog End EXEC TaxEmailAndAttachmentVerificationStatus. 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,624 [5] INFO  SahassaLog PDF succesfully generated
+ 
+2024-02-07 00:13:17,624 [5] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:13:17,624 [5] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:13:17,654 [5] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:13:17,654 [5] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:13:17,681 [5] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:13:17,681 [5] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:13:17,705 [5] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 00:13:17,705 [5] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 00:13:17,705 [5] INFO  SahassaLog list itm | 207
+ 
+2024-02-07 00:13:17,705 [5] INFO  SahassaLog list itm | 208
+ 
+2024-02-07 00:13:17,705 [5] INFO  SahassaLog EndServicePDF | 07/02/2024 00:13:17
+ 
+2024-02-07 00:13:17,705 [11] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:17:56,323 [11] INFO  SahassaLog StartServicePDF | 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,323 [11] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:17:56,326 [11] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Start',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:17:56,326 [11] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:17:56,328 [11] INFO  SahassaLog Start GetDataSource. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,328 [11] INFO  SahassaLog Start TaxCustomerReportingHistory_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,328 [11] INFO  SahassaLog End TaxCustomerReportingHistory_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,398 [11] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,398 [11] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,411 [11] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,411 [11] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,423 [11] INFO  SahassaLog END GetDataSource. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,423 [11] INFO  SahassaLog Start GetRequestTax. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,423 [11] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,423 [11] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,435 [11] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,435 [11] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,452 [11] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,453 [11] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,467 [11] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,467 [11] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,472 [11] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,472 [11] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,478 [11] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,478 [11] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,489 [11] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,489 [11] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,501 [11] INFO  SahassaLog END GetRequestTax. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,501 [11] INFO  SahassaLog Start TestXMLRPCAll. 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,501 [11] INFO  SahassaLog Start TestXMLRPCAll 07/02/2024 00:17:56
+ 
+2024-02-07 00:17:56,501 [11] INFO  SahassaLog End TestXMLRPCAll 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,178 [11] INFO  SahassaLog END TestXMLRPCAll. 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,178 [11] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,178 [11] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,178 [11] INFO  SahassaLog End TaxUpdateIDRequest. 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,195 [11] INFO  SahassaLog END TaxUpdateIDRequest. 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,195 [11] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:18:13,195 [11] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:18:13,217 [11] INFO  SahassaLog Start exec TaxCustomerDeductedAdvice_OBS_SetGeneratedFile. 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,239 [11] INFO  SahassaLog End exec TaxCustomerDeductedAdvice_OBS_SetGeneratedFile. 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,246 [11] INFO  SahassaLog Start update trl set trl.status = 'Success' From TaxRequestList trl where trl.id in (select id from tempListUpdateIDRequestTax). 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,246 [11] INFO  SahassaLog End update trl set trl.status = 'Success' From TaxRequestList trl where trl.id in (select id from tempListUpdateIDRequestTax). 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,251 [11] INFO  SahassaLog Start EXEC TaxEmailAndAttachmentVerificationStatus. 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,251 [11] INFO  SahassaLog End EXEC TaxEmailAndAttachmentVerificationStatus. 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,252 [11] INFO  SahassaLog PDF succesfully generated
+ 
+2024-02-07 00:18:13,252 [11] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:18:13,252 [11] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:18:13,269 [11] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:18:13,269 [11] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:18:13,286 [11] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:18:13,286 [11] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:18:13,304 [11] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 00:18:13,304 [11] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 00:18:13,304 [11] INFO  SahassaLog list itm | 207
+ 
+2024-02-07 00:18:13,304 [11] INFO  SahassaLog list itm | 208
+ 
+2024-02-07 00:18:13,304 [11] INFO  SahassaLog EndServicePDF | 07/02/2024 00:18:13
+ 
+2024-02-07 00:18:13,304 [18] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:22:56,336 [18] INFO  SahassaLog StartServicePDF | 07/02/2024 00:22:56
+ 
+2024-02-07 00:22:56,336 [18] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:22:56,339 [18] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:22:56,339 [18] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:22:56,340 [18] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 00:22:56,340 [18] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 00:22:56,340 [18] INFO  SahassaLog list itm | 209
+ 
+2024-02-07 00:22:56,340 [18] INFO  SahassaLog list itm | 210
+ 
+2024-02-07 00:22:56,340 [18] INFO  SahassaLog EndServicePDF | 07/02/2024 00:22:56
+ 
+2024-02-07 00:22:56,340 [8] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:27:56,352 [8] INFO  SahassaLog StartServicePDF | 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,352 [8] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:27:56,354 [8] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Start',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:27:56,354 [8] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:27:56,355 [8] INFO  SahassaLog Start GetDataSource. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,355 [8] INFO  SahassaLog Start TaxCustomerReportingHistory_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,355 [8] INFO  SahassaLog End TaxCustomerReportingHistory_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,448 [8] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,448 [8] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,471 [8] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,471 [8] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,494 [8] INFO  SahassaLog END GetDataSource. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,494 [8] INFO  SahassaLog Start GetRequestTax. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,494 [8] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,494 [8] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,512 [8] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,512 [8] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,531 [8] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,531 [8] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,548 [8] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,548 [8] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,559 [8] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,559 [8] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,569 [8] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,569 [8] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,581 [8] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,581 [8] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,594 [8] INFO  SahassaLog END GetRequestTax. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,594 [8] INFO  SahassaLog Start TestXMLRPCAll. 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,594 [8] INFO  SahassaLog Start TestXMLRPCAll 07/02/2024 00:27:56
+ 
+2024-02-07 00:27:56,594 [8] INFO  SahassaLog Error TestXMLRPCAll The request was aborted: The operation has timed out.
+ 
+2024-02-07 00:29:52,152 [8] INFO  SahassaLog END TestXMLRPCAll. 07/02/2024 00:29:52
+ 
+2024-02-07 00:29:52,152 [8] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 00:29:52
+ 
+2024-02-07 00:29:52,152 [8] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 00:29:52
+ 
+2024-02-07 00:29:52,152 [8] INFO  SahassaLog End TaxUpdateIDRequest. 07/02/2024 00:29:52
+ 
+2024-02-07 00:29:52,171 [8] INFO  SahassaLog END TaxUpdateIDRequest. 07/02/2024 00:29:52
+ 
+2024-02-07 00:29:52,171 [8] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:29:52,173 [8] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:29:54,287 [8] INFO  SahassaLog Start exec TaxCustomerDeductedAdvice_OBS_SetGeneratedFile. 07/02/2024 00:29:54
+ 
+2024-02-07 00:29:54,311 [8] INFO  SahassaLog End exec TaxCustomerDeductedAdvice_OBS_SetGeneratedFile. 07/02/2024 00:29:54
+ 
+2024-02-07 00:29:54,319 [8] INFO  SahassaLog Start update trl set trl.status = 'Success' From TaxRequestList trl where trl.id in (select id from tempListUpdateIDRequestTax). 07/02/2024 00:29:54
+ 
+2024-02-07 00:29:54,319 [8] INFO  SahassaLog End update trl set trl.status = 'Success' From TaxRequestList trl where trl.id in (select id from tempListUpdateIDRequestTax). 07/02/2024 00:29:54
+ 
+2024-02-07 00:29:54,326 [8] INFO  SahassaLog Start EXEC TaxEmailAndAttachmentVerificationStatus. 07/02/2024 00:29:54
+ 
+2024-02-07 00:29:54,326 [8] INFO  SahassaLog End EXEC TaxEmailAndAttachmentVerificationStatus. 07/02/2024 00:29:54
+ 
+2024-02-07 00:29:54,343 [8] INFO  SahassaLog PDF succesfully generated
+ 
+2024-02-07 00:29:54,343 [8] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:29:54,343 [8] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:29:54,363 [8] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:29:54,363 [8] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:29:54,382 [8] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:29:54,382 [8] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:29:54,405 [8] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 00:29:54,406 [8] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 00:29:54,406 [8] INFO  SahassaLog list itm | 209
+ 
+2024-02-07 00:29:54,406 [8] INFO  SahassaLog list itm | 210
+ 
+2024-02-07 00:29:54,406 [8] INFO  SahassaLog EndServicePDF | 07/02/2024 00:29:54
+ 
+2024-02-07 00:29:54,406 [27] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:32:56,367 [27] INFO  SahassaLog StartServicePDF | 07/02/2024 00:32:56
+ 
+2024-02-07 00:32:56,367 [27] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:32:56,368 [27] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:32:56,370 [27] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:32:56,374 [27] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 00:32:56,374 [27] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 00:32:56,374 [27] INFO  SahassaLog list itm | 209
+ 
+2024-02-07 00:32:56,374 [27] INFO  SahassaLog list itm | 210
+ 
+2024-02-07 00:32:56,374 [27] INFO  SahassaLog EndServicePDF | 07/02/2024 00:32:56
+ 
+2024-02-07 00:32:56,374 [36] INFO  SahassaLog OnStop eStatement EMaterai Services
+ 
+2024-02-07 00:36:56,188 [4] INFO  SahassaLog OnStart eStatement EMaterai Services
+ 
+2024-02-07 00:36:59,240 [4] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:36:59,250 [5] INFO  SahassaLog StartServicePDF | 07/02/2024 00:36:59
+ 
+2024-02-07 00:36:59,255 [5] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:36:59,284 [5] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:36:59,284 [5] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:36:59,285 [5] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 00:36:59,286 [5] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 00:36:59,286 [5] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 00:36:59,286 [5] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 00:36:59,286 [5] INFO  SahassaLog EndServicePDF | 07/02/2024 00:36:59
+ 
+2024-02-07 00:36:59,286 [7] INFO  SahassaLog OnStop eStatement EMaterai Services
+ 
+2024-02-07 00:37:43,979 [4] INFO  SahassaLog OnStart eStatement EMaterai Services
+ 
+2024-02-07 00:41:29,640 [4] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:41:29,650 [5] INFO  SahassaLog StartServicePDF | 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,655 [5] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:41:29,683 [5] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Start',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:41:29,684 [5] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:41:29,686 [5] INFO  SahassaLog Start GetDataSource. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,686 [5] INFO  SahassaLog Start TaxCustomerReportingHistory_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,687 [5] INFO  SahassaLog End TaxCustomerReportingHistory_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,768 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,768 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,784 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,784 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,796 [5] INFO  SahassaLog END GetDataSource. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,796 [5] INFO  SahassaLog Start GetRequestTax. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,796 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,796 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,808 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,808 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,823 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,823 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,839 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,839 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,843 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,843 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,847 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,847 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,860 [5] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,860 [5] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,870 [5] INFO  SahassaLog END GetRequestTax. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,870 [5] INFO  SahassaLog Start TestXMLRPCAll. 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,870 [5] INFO  SahassaLog Start TestXMLRPCAll 07/02/2024 00:41:29
+ 
+2024-02-07 00:41:29,872 [5] INFO  SahassaLog End TestXMLRPCAll 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,137 [5] INFO  SahassaLog END TestXMLRPCAll. 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,137 [5] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,137 [5] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,138 [5] INFO  SahassaLog End TaxUpdateIDRequest. 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,159 [5] INFO  SahassaLog END TaxUpdateIDRequest. 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,159 [5] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:41:55,161 [5] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:41:55,223 [5] INFO  SahassaLog Start exec TaxCustomerDeductedAdvice_OBS_SetGeneratedFile. 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,265 [5] INFO  SahassaLog End exec TaxCustomerDeductedAdvice_OBS_SetGeneratedFile. 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,276 [5] INFO  SahassaLog Start update trl set trl.status = 'Success' From TaxRequestList trl where trl.id in (select id from tempListUpdateIDRequestTax). 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,276 [5] INFO  SahassaLog End update trl set trl.status = 'Success' From TaxRequestList trl where trl.id in (select id from tempListUpdateIDRequestTax). 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,284 [5] INFO  SahassaLog Start EXEC TaxEmailAndAttachmentVerificationStatus. 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,284 [5] INFO  SahassaLog End EXEC TaxEmailAndAttachmentVerificationStatus. 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,286 [5] INFO  SahassaLog PDF succesfully generated
+ 
+2024-02-07 00:41:55,286 [5] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:41:55,286 [5] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:41:55,315 [5] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:41:55,315 [5] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:41:55,344 [5] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:41:55,344 [5] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 00:41:55,373 [5] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 00:41:55,373 [5] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 00:41:55,374 [5] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 00:41:55,374 [5] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 00:41:55,374 [5] INFO  SahassaLog EndServicePDF | 07/02/2024 00:41:55
+ 
+2024-02-07 00:41:55,374 [11] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:46:29,662 [11] INFO  SahassaLog StartServicePDF | 07/02/2024 00:46:29
+ 
+2024-02-07 00:46:29,663 [11] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:46:29,667 [11] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:46:29,667 [11] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:46:29,672 [11] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 00:46:29,673 [11] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 00:46:29,673 [11] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 00:46:29,673 [11] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 00:46:29,673 [11] INFO  SahassaLog EndServicePDF | 07/02/2024 00:46:29
+ 
+2024-02-07 00:46:29,673 [21] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:51:29,663 [21] INFO  SahassaLog StartServicePDF | 07/02/2024 00:51:29
+ 
+2024-02-07 00:51:29,663 [21] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:51:29,667 [21] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:51:29,667 [21] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:51:29,668 [21] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 00:51:29,669 [21] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 00:51:29,669 [21] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 00:51:29,669 [21] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 00:51:29,669 [21] INFO  SahassaLog EndServicePDF | 07/02/2024 00:51:29
+ 
+2024-02-07 00:51:29,669 [32] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 00:56:28,403 [32] INFO  SahassaLog StartServicePDF | 07/02/2024 00:56:28
+ 
+2024-02-07 00:56:28,403 [32] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 00:56:28,428 [32] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 00:56:28,428 [32] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 00:56:28,430 [32] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 00:56:28,431 [32] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 00:56:28,431 [32] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 00:56:28,431 [32] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 00:56:28,431 [32] INFO  SahassaLog EndServicePDF | 07/02/2024 00:56:28
+ 
+2024-02-07 00:56:28,431 [42] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 01:01:28,410 [42] INFO  SahassaLog StartServicePDF | 07/02/2024 01:01:28
+ 
+2024-02-07 01:01:28,410 [42] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 01:01:28,412 [42] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 01:01:28,412 [42] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 01:01:28,415 [42] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 01:01:28,416 [42] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 01:01:28,416 [42] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 01:01:28,416 [42] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 01:01:28,416 [42] INFO  SahassaLog EndServicePDF | 07/02/2024 01:01:28
+ 
+2024-02-07 01:01:28,416 [53] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 09:19:24,363 [53] INFO  SahassaLog StartServicePDF | 07/02/2024 09:19:24
+ 
+2024-02-07 09:19:24,363 [53] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 09:19:24,370 [53] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 09:19:24,370 [53] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 09:19:24,375 [53] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 09:19:24,406 [53] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 09:19:24,406 [53] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 09:19:24,406 [53] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 09:19:24,406 [53] INFO  SahassaLog EndServicePDF | 07/02/2024 09:19:24
+ 
+2024-02-07 09:19:24,406 [63] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 09:24:24,378 [63] INFO  SahassaLog StartServicePDF | 07/02/2024 09:24:24
+ 
+2024-02-07 09:24:24,378 [63] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 09:24:24,379 [63] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 09:24:24,379 [63] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 09:24:24,381 [63] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 09:24:24,382 [63] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 09:24:24,382 [63] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 09:24:24,382 [63] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 09:24:24,382 [63] INFO  SahassaLog EndServicePDF | 07/02/2024 09:24:24
+ 
+2024-02-07 09:24:24,382 [75] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 09:29:24,393 [75] INFO  SahassaLog StartServicePDF | 07/02/2024 09:29:24
+ 
+2024-02-07 09:29:24,393 [75] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 09:29:24,396 [75] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 09:29:24,396 [75] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 09:29:24,398 [75] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 09:29:24,399 [75] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 09:29:24,399 [75] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 09:29:24,399 [75] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 09:29:24,399 [75] INFO  SahassaLog EndServicePDF | 07/02/2024 09:29:24
+ 
+2024-02-07 09:29:24,399 [39] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 09:34:24,407 [39] INFO  SahassaLog StartServicePDF | 07/02/2024 09:34:24
+ 
+2024-02-07 09:34:24,407 [39] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 09:34:24,410 [39] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 09:34:24,410 [39] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 09:34:24,412 [39] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 09:34:24,413 [39] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 09:34:24,413 [39] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 09:34:24,413 [39] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 09:34:24,413 [39] INFO  SahassaLog EndServicePDF | 07/02/2024 09:34:24
+ 
+2024-02-07 09:34:24,413 [29] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 09:39:24,413 [29] INFO  SahassaLog StartServicePDF | 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,413 [29] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 09:39:24,424 [29] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Start',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 09:39:24,424 [29] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 09:39:24,442 [29] INFO  SahassaLog Start GetDataSource. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,443 [29] INFO  SahassaLog Start TaxCustomerReportingHistory_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,443 [29] INFO  SahassaLog End TaxCustomerReportingHistory_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,584 [29] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,584 [29] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,604 [29] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,604 [29] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,623 [29] INFO  SahassaLog END GetDataSource. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,624 [29] INFO  SahassaLog Start GetRequestTax. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,624 [29] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,624 [29] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,693 [29] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,693 [29] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,709 [29] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,709 [29] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,738 [29] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,738 [29] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,746 [29] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,746 [29] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,752 [29] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,752 [29] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,763 [29] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,763 [29] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,774 [29] INFO  SahassaLog END GetRequestTax. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,774 [29] INFO  SahassaLog Start TestXMLRPCAll. 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,774 [29] INFO  SahassaLog Start TestXMLRPCAll 07/02/2024 09:39:24
+ 
+2024-02-07 09:39:24,774 [29] INFO  SahassaLog End TestXMLRPCAll 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,461 [29] INFO  SahassaLog END TestXMLRPCAll. 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,461 [29] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,461 [29] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,461 [29] INFO  SahassaLog End TaxUpdateIDRequest. 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,480 [29] INFO  SahassaLog END TaxUpdateIDRequest. 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,480 [29] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:42:32,481 [29] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:42:32,505 [29] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:42:32,505 [29] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:42:32,523 [29] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:42:32,523 [29] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:42:32,545 [29] INFO  SahassaLog Start exec TaxCustomerDeductedAdvice_OBS_SetGeneratedFile. 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,595 [29] INFO  SahassaLog End exec TaxCustomerDeductedAdvice_OBS_SetGeneratedFile. 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,602 [29] INFO  SahassaLog Start update trl set trl.status = 'Success' From TaxRequestList trl where trl.id in (select id from tempListUpdateIDRequestTax). 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,602 [29] INFO  SahassaLog End update trl set trl.status = 'Success' From TaxRequestList trl where trl.id in (select id from tempListUpdateIDRequestTax). 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,606 [29] INFO  SahassaLog Start EXEC TaxEmailAndAttachmentVerificationStatus. 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,607 [29] INFO  SahassaLog End EXEC TaxEmailAndAttachmentVerificationStatus. 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,623 [29] INFO  SahassaLog PDF succesfully generated
+ 
+2024-02-07 09:42:32,623 [29] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:42:32,623 [29] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:42:32,649 [29] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 09:42:32,649 [29] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 09:42:32,649 [29] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 09:42:32,649 [29] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 09:42:32,649 [29] INFO  SahassaLog EndServicePDF | 07/02/2024 09:42:32
+ 
+2024-02-07 09:42:32,649 [17] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 09:44:24,426 [17] INFO  SahassaLog StartServicePDF | 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,426 [17] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 09:44:24,427 [17] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Start',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 09:44:24,427 [17] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 09:44:24,430 [17] INFO  SahassaLog Start GetDataSource. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,430 [17] INFO  SahassaLog Start TaxCustomerReportingHistory_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,430 [17] INFO  SahassaLog End TaxCustomerReportingHistory_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,555 [17] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,555 [17] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,580 [17] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,580 [17] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,601 [17] INFO  SahassaLog END GetDataSource. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,601 [17] INFO  SahassaLog Start GetRequestTax. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,601 [17] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,601 [17] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Summary_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,619 [17] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,619 [17] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,638 [17] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,638 [17] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,655 [17] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,655 [17] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_CASATD_Consolidated_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,675 [17] INFO  SahassaLog Start TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,675 [17] INFO  SahassaLog End TaxCustomerDeductedAdvice_OBS_Syariah_Consolidated_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,681 [17] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,681 [17] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,693 [17] INFO  SahassaLog Start TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,693 [17] INFO  SahassaLog End TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,705 [17] INFO  SahassaLog END GetRequestTax. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,705 [17] INFO  SahassaLog Start TestXMLRPCAll. 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,705 [17] INFO  SahassaLog Start TestXMLRPCAll 07/02/2024 09:44:24
+ 
+2024-02-07 09:44:24,705 [17] INFO  SahassaLog End TestXMLRPCAll 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,531 [17] INFO  SahassaLog END TestXMLRPCAll. 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,531 [17] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,531 [17] INFO  SahassaLog Start TaxUpdateIDRequest. 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,531 [17] INFO  SahassaLog End TaxUpdateIDRequest. 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,545 [17] INFO  SahassaLog END TaxUpdateIDRequest. 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,545 [17] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:44:32,547 [17] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:44:32,574 [17] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:44:32,574 [17] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:44:32,594 [17] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:44:32,594 [17] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:44:32,620 [17] INFO  SahassaLog Start exec TaxCustomerDeductedAdvice_OBS_SetGeneratedFile. 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,652 [17] INFO  SahassaLog End exec TaxCustomerDeductedAdvice_OBS_SetGeneratedFile. 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,660 [17] INFO  SahassaLog Start update trl set trl.status = 'Success' From TaxRequestList trl where trl.id in (select id from tempListUpdateIDRequestTax). 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,660 [17] INFO  SahassaLog End update trl set trl.status = 'Success' From TaxRequestList trl where trl.id in (select id from tempListUpdateIDRequestTax). 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,665 [17] INFO  SahassaLog Start EXEC TaxEmailAndAttachmentVerificationStatus. 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,665 [17] INFO  SahassaLog End EXEC TaxEmailAndAttachmentVerificationStatus. 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,666 [17] INFO  SahassaLog PDF succesfully generated
+ 
+2024-02-07 09:44:32,666 [17] INFO  SahassaLog Start CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:44:32,666 [17] INFO  SahassaLog End CheckIfReportIsExistGenerated
+ 
+2024-02-07 09:44:32,684 [17] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 09:44:32,685 [17] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 09:44:32,685 [17] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 09:44:32,685 [17] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 09:44:32,685 [17] INFO  SahassaLog EndServicePDF | 07/02/2024 09:44:32
+ 
+2024-02-07 09:44:32,685 [8] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 09:49:24,434 [8] INFO  SahassaLog StartServicePDF | 07/02/2024 09:49:24
+ 
+2024-02-07 09:49:24,434 [8] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 09:49:24,438 [8] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 09:49:24,438 [8] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 09:49:24,440 [8] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 09:49:24,441 [8] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 09:49:24,441 [8] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 09:49:24,441 [8] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 09:49:24,441 [8] INFO  SahassaLog EndServicePDF | 07/02/2024 09:49:24
+ 
+2024-02-07 09:49:24,441 [85] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 09:54:24,442 [85] INFO  SahassaLog StartServicePDF | 07/02/2024 09:54:24
+ 
+2024-02-07 09:54:24,442 [85] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 09:54:24,445 [85] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 09:54:24,445 [85] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 09:54:24,448 [85] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 09:54:24,449 [85] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 09:54:24,449 [85] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 09:54:24,449 [85] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 09:54:24,449 [85] INFO  SahassaLog EndServicePDF | 07/02/2024 09:54:24
+ 
+2024-02-07 09:54:24,449 [96] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 09:59:24,446 [96] INFO  SahassaLog StartServicePDF | 07/02/2024 09:59:24
+ 
+2024-02-07 09:59:24,446 [96] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 09:59:24,449 [96] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 09:59:24,449 [96] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 09:59:24,451 [96] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 09:59:24,451 [96] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 09:59:24,451 [96] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 09:59:24,451 [96] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 09:59:24,451 [96] INFO  SahassaLog EndServicePDF | 07/02/2024 09:59:24
+ 
+2024-02-07 09:59:24,451 [107] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 10:04:24,457 [107] INFO  SahassaLog StartServicePDF | 07/02/2024 10:04:24
+ 
+2024-02-07 10:04:24,457 [107] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 10:04:24,461 [107] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 10:04:24,461 [107] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 10:04:24,463 [107] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 10:04:24,464 [107] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 10:04:24,464 [107] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 10:04:24,464 [107] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 10:04:24,464 [107] INFO  SahassaLog EndServicePDF | 07/02/2024 10:04:24
+ 
+2024-02-07 10:04:24,464 [101] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 10:09:24,470 [101] INFO  SahassaLog StartServicePDF | 07/02/2024 10:09:24
+ 
+2024-02-07 10:09:24,470 [101] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 10:09:24,475 [101] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 10:09:24,475 [101] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 10:09:24,477 [101] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 10:09:24,478 [101] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 10:09:24,478 [101] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 10:09:24,478 [101] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 10:09:24,478 [101] INFO  SahassaLog EndServicePDF | 07/02/2024 10:09:24
+ 
+2024-02-07 10:09:24,478 [89] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 10:14:24,485 [89] INFO  SahassaLog StartServicePDF | 07/02/2024 10:14:24
+ 
+2024-02-07 10:14:24,485 [89] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 10:14:24,486 [89] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 10:14:24,487 [89] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 10:14:24,488 [89] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 10:14:24,488 [89] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 10:14:24,488 [89] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 10:14:24,488 [89] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 10:14:24,488 [89] INFO  SahassaLog EndServicePDF | 07/02/2024 10:14:24
+ 
+2024-02-07 10:14:24,488 [79] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 10:19:24,490 [79] INFO  SahassaLog StartServicePDF | 07/02/2024 10:19:24
+ 
+2024-02-07 10:19:24,490 [79] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 10:19:24,491 [79] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 10:19:24,491 [79] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 10:19:24,493 [79] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 10:19:24,494 [79] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 10:19:24,494 [79] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 10:19:24,494 [79] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 10:19:24,494 [79] INFO  SahassaLog EndServicePDF | 07/02/2024 10:19:24
+ 
+2024-02-07 10:19:24,494 [13] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 10:24:24,499 [13] INFO  SahassaLog StartServicePDF | 07/02/2024 10:24:24
+ 
+2024-02-07 10:24:24,499 [13] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 10:24:24,501 [13] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 10:24:24,501 [13] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 10:24:24,504 [13] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 10:24:24,504 [13] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 10:24:24,505 [13] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 10:24:24,505 [13] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 10:24:24,505 [13] INFO  SahassaLog EndServicePDF | 07/02/2024 10:24:24
+ 
+2024-02-07 10:24:24,505 [22] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 10:29:24,507 [22] INFO  SahassaLog StartServicePDF | 07/02/2024 10:29:24
+ 
+2024-02-07 10:29:24,507 [22] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 10:29:24,508 [22] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 10:29:24,508 [22] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 10:29:24,510 [22] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 10:29:24,510 [22] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 10:29:24,510 [22] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 10:29:24,510 [22] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 10:29:24,510 [22] INFO  SahassaLog EndServicePDF | 07/02/2024 10:29:24
+ 
+2024-02-07 10:29:24,510 [34] INFO  SahassaLog Service scheduled to run after: 0 day(s) 0 hour(s) 5 minute(s) 0 seconds(s) {0}
+ 
+2024-02-07 10:34:24,509 [34] INFO  SahassaLog StartServicePDF | 07/02/2024 10:34:24
+ 
+2024-02-07 10:34:24,509 [34] INFO  SahassaLog UpdateProcessTaxRequestList
+ 
+2024-02-07 10:34:24,511 [34] INFO  SahassaLog UPDATE [dbo].[SystemParameter]      SET [ParameterValue] =  'Idle',     [LastUpdatedDate] = getdate()     WHERE  [ParameterName] = 'EngineTaxStatus';    
+ 
+2024-02-07 10:34:24,511 [34] INFO  SahassaLog Done UpdateProcessTaxRequestList
+ 
+2024-02-07 10:34:24,513 [34] INFO  SahassaLog list itm | 150
+ 
+2024-02-07 10:34:24,514 [34] INFO  SahassaLog list itm | 128
+ 
+2024-02-07 10:34:24,514 [34] INFO  SahassaLog list itm | 211
+ 
+2024-02-07 10:34:24,514 [34] INFO  SahassaLog list itm | 212
+ 
+2024-02-07 10:34:24,514 [34] INFO  SahassaLog EndServicePDF | 07/02/2024 10:34:24
+ 
+2024-02-07 10:34:24,514 [43] INFO  SahassaLog OnStop eStatement EMaterai Services
+ 
+2024-02-07 10:38:45,021

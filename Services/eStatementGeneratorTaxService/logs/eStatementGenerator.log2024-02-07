@@ -1,0 +1,2795 @@
+ [4] INFO  eStatementAgentLog eStatementGeneratorService started at 07/02/2024 22:24:59
+ 
+2024-02-07 22:24:59,088 [9] INFO  eStatementAgentLog IsUsingGenerateSchedule: False. QueryCheckUsingSchedule:  select a.NextProcessTime, a.Fk_statementTemplate_id from [MsScheduleGeneratePDF] a with (nolock)  where isnull(a.IsEnable,0)=1 and isnull(a.IsNextProcessEnable,0)=1 and a.ProxyUrl like '%'+'http://127.0.0.1'+'%'+'11002'+'%' 
+ 
+2024-02-07 22:24:59,141 [9] INFO  eStatementAgentLog Start Getting MsStatement Template ID
+ 
+2024-02-07 22:24:59,141 [9] INFO  eStatementAgentLog Query : select Fk_StatementTemplate_Id from MsScheduleGeneratePDF where ProxyURL = 'http://127.0.0.1:11002/'
+ 
+2024-02-07 22:24:59,144 [9] INFO  eStatementAgentLog Start Getting Data
+ 
+2024-02-07 22:24:59,146 [9] INFO  eStatementAgentLog Statement Template ID : 
+ 
+2024-02-07 22:24:59,146 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 22:36:27,683 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 22:36:27,683 [5] INFO  eStatementAgentLog Process statement template 128
+ 
+2024-02-07 22:36:27,683 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 22:36:27,685 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 22:36:27,686 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 22:36:27,768 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 22:36:27,783 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 22:36:27,787 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 22:36:27,839 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 22:36:27,840 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 22:36:27,847 [5] INFO  eStatementAgentLog Done insert Remaining Data in 0,0009973 seconds. Executed query is SELECT	[account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 22:36:27,878 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0,0009969 seconds. Executed query is 			SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 22:36:27,880 [5] INFO  eStatementAgentLog Save Statement Verification started
+ 
+2024-02-07 22:36:27,883 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 22:36:27,887 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 22:36:27,900 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '128','10429','2024-02-07'
+ 
+2024-02-07 22:36:27,900 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 22:36:27,901 [5] INFO  eStatementAgentLog Check Masking File Formula 57 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 22:36:27,905 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database skipped
+ 
+2024-02-07 22:36:27,905 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database started
+ 
+2024-02-07 22:36:27,906 [5] INFO  eStatementAgentLog Save Remaining Module: Insert process log detail
+ 
+2024-02-07 22:36:27,934 [17] INFO  eStatementAgentLog ReportServiceUserName : acer
+ 
+2024-02-07 22:36:28,048 [17] INFO  eStatementAgentLog ReportServicePwd : 12345
+ 
+2024-02-07 22:36:28,049 [17] INFO  eStatementAgentLog ReportServiceDomain : laptop-eh0ljrh7
+ 
+2024-02-07 22:36:28,049 [17] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:36:28,119 [17] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:36:28,119 [17] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:36:28,119 [17] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:36:28,120 [17] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:36:28,204 [17] INFO  eStatementAgentLog ReportingService2010SoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:36:28,204 [17] INFO  eStatementAgentLog ReportingService2010SoapClient AllowNtlm
+ 
+2024-02-07 22:36:28,204 [17] INFO  eStatementAgentLog ReportingService2010SoapClient ClientCredential
+ 
+2024-02-07 22:36:28,204 [17] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:36:28,264 [17] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:36:28,277 [17] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:36:28,277 [17] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:36:28,277 [17] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:36:28,277 [17] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList]
+ 
+2024-02-07 22:36:28,290 [17] INFO  eStatementAgentLog CleanFieldName : Fk_TaxRequestList
+ 
+2024-02-07 22:36:28,291 [17] INFO  eStatementAgentLog ParameterNameField : Fk_TaxRequestList
+ 
+2024-02-07 22:36:28,291 [17] INFO  eStatementAgentLog MappingRow Item : 234
+ 
+2024-02-07 22:36:28,291 [17] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList] - Fk_TaxRequestList
+ 
+2024-02-07 22:36:28,291 [17] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Summary
+ 
+2024-02-07 22:36:28,293 [17] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:36:28,293 [17] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:36:28,293 [17] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Summary
+ 
+2024-02-07 22:36:28,293 [17] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:36:28,298 [17] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:36:30,392 [17] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:36:30,392 [17] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Summary
+ 
+2024-02-07 22:36:30,700 [17] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:36:30,700 [17] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:36:30,700 [17] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Summary
+ 
+2024-02-07 22:36:30,700 [17] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:36:30,700 [17] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:36:30,715 [17] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:36:30,715 [17] INFO  eStatementAgentLog params IsReportParameterExists : Sahassa.ReportService.ItemParameter[]
+ 
+2024-02-07 22:36:30,761 [17] INFO  eStatementAgentLog Save Remaining Parallel Module: Variable initialize
+ 
+2024-02-07 22:36:30,767 [17] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList]
+ 
+2024-02-07 22:36:30,787 [17] INFO  eStatementAgentLog CleanFieldName : Fk_TaxRequestList
+ 
+2024-02-07 22:36:30,787 [17] INFO  eStatementAgentLog ParameterNameField : Fk_TaxRequestList
+ 
+2024-02-07 22:36:30,787 [17] INFO  eStatementAgentLog MappingRow Item : 234
+ 
+2024-02-07 22:36:30,787 [17] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList] - Fk_TaxRequestList
+ 
+2024-02-07 22:36:30,787 [17] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 22:36:30,789 [17] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 22:36:30,789 [17] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 22:36:30,875 [17] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 22:36:30,875 [17] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 22:36:30,920 [17] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 22:36:31,354 [17] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 22:36:31,356 [17] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 22:36:31,356 [17] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 22:36:31,363 [17] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 22:36:31,514 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification started
+ 
+2024-02-07 22:36:31,528 [5] INFO  eStatementAgentLog Distribute Statement started
+ 
+2024-02-07 22:36:31,537 [5] INFO  eStatementAgentLog Report Distribution Module: Variable initialize
+ 
+2024-02-07 22:36:31,561 [5] INFO  eStatementAgentLog Calling XML RPC Send Email started
+ 
+2024-02-07 22:36:31,577 [5] INFO  eStatementAgentLog True
+ 
+2024-02-07 22:36:31,583 [5] INFO  eStatementAgentLog Success Insert VerificationDataSource with statementVerificationID = 10429
+ 
+2024-02-07 22:36:31,586 [5] INFO  eStatementAgentLog Check Queue of Call Process Generate Email
+ 
+2024-02-07 22:36:31,592 [5] INFO  eStatementAgentLog Calling XML RPC Send Email
+ 
+2024-02-07 22:36:33,616 [5] INFO  eStatementAgentLog Calling XML RPC Send Email success
+ 
+2024-02-07 22:36:33,704 [5] INFO  eStatementAgentLog Build Statement Paths started
+ 
+2024-02-07 22:36:33,704 [5] INFO  eStatementAgentLog Save List Statement Distribution started
+ 
+2024-02-07 22:36:33,738 [5] INFO  eStatementAgentLog Search Query
+ 
+2024-02-07 22:36:33,743 [5] INFO  eStatementAgentLog Splitting data source by Customer skipped
+ 
+2024-02-07 22:36:33,749 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 22:36:33,753 [5] INFO  eStatementAgentLog started VerificationTax
+ 
+2024-02-07 22:36:33,753 [5] INFO  eStatementAgentLog SetStatementVerificationValid.
+ 
+2024-02-07 22:36:33,754 [5] INFO  eStatementAgentLog Failed SetStatementVerificationValid : There Is Unfinished Email Generated
+ 
+2024-02-07 22:36:33,756 [5] INFO  eStatementAgentLog Finish SetStatementVerificationValid.
+ 
+2024-02-07 22:36:33,756 [5] INFO  eStatementAgentLog end VerificationTax
+ 
+2024-02-07 22:36:33,756 [5] INFO  eStatementAgentLog All phases proceed. No Error occur.
+ 
+2024-02-07 22:36:33,756 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 22:36:33,758 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 22:36:33,763 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 22:36:33,763 [5] INFO  eStatementAgentLog Process statement template 211
+ 
+2024-02-07 22:36:33,763 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 22:36:33,763 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 22:36:33,763 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 22:36:33,807 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 22:36:33,808 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 22:36:33,810 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 22:36:33,822 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 22:36:33,822 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 22:36:33,824 [15] INFO  eStatementAgentLog Done insert Remaining Data in 0 seconds. Executed query is SELECT	[account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 22:36:33,827 [15] INFO  eStatementAgentLog Done Load Sampling Data in 0 seconds. Executed query is 			SELECT [account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 22:36:33,827 [5] INFO  eStatementAgentLog Save Statement Verification started
+ 
+2024-02-07 22:36:33,828 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 22:36:33,830 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 22:36:33,835 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '211','10430','2024-02-07'
+ 
+2024-02-07 22:36:33,835 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 22:36:33,835 [5] INFO  eStatementAgentLog Check Masking File Formula 139 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 22:36:33,836 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database skipped
+ 
+2024-02-07 22:36:33,836 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database started
+ 
+2024-02-07 22:36:33,837 [5] INFO  eStatementAgentLog Save Remaining Module: Insert process log detail
+ 
+2024-02-07 22:36:33,838 [5] INFO  eStatementAgentLog ReportServiceUserName : acer
+ 
+2024-02-07 22:36:33,850 [5] INFO  eStatementAgentLog ReportServicePwd : 12345
+ 
+2024-02-07 22:36:33,850 [5] INFO  eStatementAgentLog ReportServiceDomain : laptop-eh0ljrh7
+ 
+2024-02-07 22:36:33,850 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:36:33,861 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:36:33,861 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:36:33,861 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:36:33,861 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:36:33,915 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:36:33,915 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowNtlm
+ 
+2024-02-07 22:36:33,915 [5] INFO  eStatementAgentLog ReportingService2010SoapClient ClientCredential
+ 
+2024-02-07 22:36:33,915 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:36:33,965 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:36:33,977 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:36:33,977 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:36:33,977 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:36:33,977 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[fk_taxrequestlist]
+ 
+2024-02-07 22:36:33,982 [5] INFO  eStatementAgentLog CleanFieldName : fk_taxrequestlist
+ 
+2024-02-07 22:36:33,982 [5] INFO  eStatementAgentLog ParameterNameField : fk_taxrequestlist
+ 
+2024-02-07 22:36:33,982 [5] INFO  eStatementAgentLog MappingRow Item : 234
+ 
+2024-02-07 22:36:33,982 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[fk_taxrequestlist] - fk_taxrequestlist
+ 
+2024-02-07 22:36:33,982 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_OBS_CASATD
+ 
+2024-02-07 22:36:33,982 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:36:33,982 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:36:33,982 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_OBS_CASATD
+ 
+2024-02-07 22:36:33,983 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:36:33,983 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:36:34,125 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:36:34,126 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_OBS_CASATD
+ 
+2024-02-07 22:36:34,165 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:36:34,165 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:36:34,165 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_OBS_CASATD
+ 
+2024-02-07 22:36:34,165 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:36:34,165 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:36:34,178 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:36:34,180 [5] INFO  eStatementAgentLog params IsReportParameterExists : Sahassa.ReportService.ItemParameter[]
+ 
+2024-02-07 22:36:34,198 [5] INFO  eStatementAgentLog Save Remaining Parallel Module: Variable initialize
+ 
+2024-02-07 22:36:34,200 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[fk_taxrequestlist]
+ 
+2024-02-07 22:36:34,204 [5] INFO  eStatementAgentLog CleanFieldName : fk_taxrequestlist
+ 
+2024-02-07 22:36:34,204 [5] INFO  eStatementAgentLog ParameterNameField : fk_taxrequestlist
+ 
+2024-02-07 22:36:34,204 [5] INFO  eStatementAgentLog MappingRow Item : 234
+ 
+2024-02-07 22:36:34,204 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[fk_taxrequestlist] - fk_taxrequestlist
+ 
+2024-02-07 22:36:34,204 [5] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 22:36:34,204 [5] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 22:36:34,204 [5] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 22:36:34,236 [5] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 22:36:34,236 [5] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 22:36:34,265 [5] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 22:36:35,930 [5] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 22:36:35,930 [5] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 22:36:35,930 [5] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 22:36:35,932 [5] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 22:36:35,939 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification started
+ 
+2024-02-07 22:36:35,945 [5] INFO  eStatementAgentLog Distribute Statement started
+ 
+2024-02-07 22:36:35,947 [5] INFO  eStatementAgentLog Report Distribution Module: Variable initialize
+ 
+2024-02-07 22:36:35,947 [5] INFO  eStatementAgentLog Calling XML RPC Send Email started
+ 
+2024-02-07 22:36:35,948 [5] INFO  eStatementAgentLog True
+ 
+2024-02-07 22:36:35,951 [5] INFO  eStatementAgentLog Success Insert VerificationDataSource with statementVerificationID = 10430
+ 
+2024-02-07 22:36:35,952 [5] INFO  eStatementAgentLog Check Queue of Call Process Generate Email
+ 
+2024-02-07 22:36:35,957 [5] INFO  eStatementAgentLog Calling XML RPC Send Email
+ 
+2024-02-07 22:36:37,961 [5] INFO  eStatementAgentLog Calling XML RPC Send Email success
+ 
+2024-02-07 22:36:37,968 [5] INFO  eStatementAgentLog Build Statement Paths started
+ 
+2024-02-07 22:36:37,968 [5] INFO  eStatementAgentLog Save List Statement Distribution started
+ 
+2024-02-07 22:36:37,973 [5] INFO  eStatementAgentLog Search Query
+ 
+2024-02-07 22:36:37,974 [5] INFO  eStatementAgentLog Splitting data source by Customer skipped
+ 
+2024-02-07 22:36:37,982 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 22:36:37,987 [5] INFO  eStatementAgentLog started VerificationTax
+ 
+2024-02-07 22:36:37,987 [5] INFO  eStatementAgentLog SetStatementVerificationValid.
+ 
+2024-02-07 22:36:37,987 [5] INFO  eStatementAgentLog Finish SetStatementVerificationValid.
+ 
+2024-02-07 22:36:37,993 [5] INFO  eStatementAgentLog end VerificationTax
+ 
+2024-02-07 22:36:37,993 [5] INFO  eStatementAgentLog All phases proceed. No Error occur.
+ 
+2024-02-07 22:36:37,993 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 22:36:37,995 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 22:36:37,996 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 22:36:37,996 [5] INFO  eStatementAgentLog Process statement template 212
+ 
+2024-02-07 22:36:37,996 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 22:36:37,996 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 22:36:37,996 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 22:36:38,028 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 22:36:38,030 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 22:36:38,030 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 22:36:38,036 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 22:36:38,038 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 22:36:38,041 [11] INFO  eStatementAgentLog Done insert Remaining Data in 0,0009977 seconds. Executed query is SELECT	[account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 22:36:38,048 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0 seconds. Executed query is 			SELECT [account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 22:36:38,048 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 22:36:38,050 [5] INFO  eStatementAgentLog Save Statement Verification  canceled
+ 
+2024-02-07 22:36:38,052 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 22:36:38,053 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '212','10431','2024-02-07'
+ 
+2024-02-07 22:36:38,053 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 22:36:38,053 [5] INFO  eStatementAgentLog Check Masking File Formula 140 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 22:36:38,054 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database  canceled
+ 
+2024-02-07 22:36:38,054 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database  canceled
+ 
+2024-02-07 22:36:38,055 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification  canceled
+ 
+2024-02-07 22:36:38,055 [5] INFO  eStatementAgentLog Distribute Statement  canceled
+ 
+2024-02-07 22:36:38,056 [5] INFO  eStatementAgentLog Calling XML RPC Send Email  canceled
+ 
+2024-02-07 22:36:38,056 [5] INFO  eStatementAgentLog Build Statement Paths  canceled
+ 
+2024-02-07 22:36:38,057 [5] INFO  eStatementAgentLog Save List Statement Distribution  canceled
+ 
+2024-02-07 22:36:38,057 [5] INFO  eStatementAgentLog Splitting data source by Customer  canceled
+ 
+2024-02-07 22:36:38,058 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 22:36:38,058 [5] INFO  eStatementAgentLog  canceled
+ 
+2024-02-07 22:36:38,058 [5] INFO  eStatementAgentLog Cleaning started
+ 
+2024-02-07 22:36:38,058 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 22:36:38,060 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 22:37:12,988 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 22:37:12,988 [5] INFO  eStatementAgentLog Process statement template 128
+ 
+2024-02-07 22:37:12,988 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 22:37:12,988 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 22:37:12,988 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 22:37:13,012 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 22:37:13,024 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 22:37:13,026 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 22:37:13,037 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 22:37:13,038 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 22:37:13,040 [5] INFO  eStatementAgentLog Done insert Remaining Data in 0 seconds. Executed query is SELECT	[account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 22:37:13,042 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0 seconds. Executed query is 			SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 22:37:13,043 [5] INFO  eStatementAgentLog Save Statement Verification started
+ 
+2024-02-07 22:37:13,044 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 22:37:13,044 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 22:37:13,046 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '128','10432','2024-02-07'
+ 
+2024-02-07 22:37:13,046 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 22:37:13,046 [5] INFO  eStatementAgentLog Check Masking File Formula 57 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 22:37:13,047 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database skipped
+ 
+2024-02-07 22:37:13,047 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database started
+ 
+2024-02-07 22:37:13,048 [5] INFO  eStatementAgentLog Save Remaining Module: Insert process log detail
+ 
+2024-02-07 22:37:13,049 [5] INFO  eStatementAgentLog ReportServiceUserName : acer
+ 
+2024-02-07 22:37:13,054 [5] INFO  eStatementAgentLog ReportServicePwd : 12345
+ 
+2024-02-07 22:37:13,054 [5] INFO  eStatementAgentLog ReportServiceDomain : laptop-eh0ljrh7
+ 
+2024-02-07 22:37:13,054 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:37:13,065 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:37:13,065 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:37:13,065 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:37:13,065 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:37:13,091 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:37:13,091 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowNtlm
+ 
+2024-02-07 22:37:13,091 [5] INFO  eStatementAgentLog ReportingService2010SoapClient ClientCredential
+ 
+2024-02-07 22:37:13,091 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:37:13,126 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:37:13,137 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:37:13,138 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:37:13,138 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:37:13,138 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList]
+ 
+2024-02-07 22:37:13,147 [5] INFO  eStatementAgentLog CleanFieldName : Fk_TaxRequestList
+ 
+2024-02-07 22:37:13,148 [5] INFO  eStatementAgentLog ParameterNameField : Fk_TaxRequestList
+ 
+2024-02-07 22:37:13,148 [5] INFO  eStatementAgentLog MappingRow Item : 235
+ 
+2024-02-07 22:37:13,148 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList] - Fk_TaxRequestList
+ 
+2024-02-07 22:37:13,148 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Summary
+ 
+2024-02-07 22:37:13,148 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:37:13,148 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:37:13,148 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Summary
+ 
+2024-02-07 22:37:13,148 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:37:13,148 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:37:13,228 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:37:13,228 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Summary
+ 
+2024-02-07 22:37:13,257 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:37:13,258 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:37:13,258 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Summary
+ 
+2024-02-07 22:37:13,258 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:37:13,258 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:37:13,274 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:37:13,274 [5] INFO  eStatementAgentLog params IsReportParameterExists : Sahassa.ReportService.ItemParameter[]
+ 
+2024-02-07 22:37:13,293 [5] INFO  eStatementAgentLog Save Remaining Parallel Module: Variable initialize
+ 
+2024-02-07 22:37:13,294 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList]
+ 
+2024-02-07 22:37:13,295 [5] INFO  eStatementAgentLog CleanFieldName : Fk_TaxRequestList
+ 
+2024-02-07 22:37:13,295 [5] INFO  eStatementAgentLog ParameterNameField : Fk_TaxRequestList
+ 
+2024-02-07 22:37:13,295 [5] INFO  eStatementAgentLog MappingRow Item : 235
+ 
+2024-02-07 22:37:13,295 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList] - Fk_TaxRequestList
+ 
+2024-02-07 22:37:13,295 [5] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 22:37:13,295 [5] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 22:37:13,295 [5] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 22:37:13,324 [5] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 22:37:13,324 [5] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 22:37:13,350 [5] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 22:37:13,754 [5] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 22:37:13,754 [5] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 22:37:13,754 [5] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 22:37:13,756 [5] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 22:37:13,762 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification started
+ 
+2024-02-07 22:37:13,768 [5] INFO  eStatementAgentLog Distribute Statement started
+ 
+2024-02-07 22:37:13,769 [5] INFO  eStatementAgentLog Report Distribution Module: Variable initialize
+ 
+2024-02-07 22:37:13,770 [5] INFO  eStatementAgentLog Calling XML RPC Send Email started
+ 
+2024-02-07 22:37:13,772 [5] INFO  eStatementAgentLog True
+ 
+2024-02-07 22:37:13,773 [5] INFO  eStatementAgentLog Success Insert VerificationDataSource with statementVerificationID = 10432
+ 
+2024-02-07 22:37:13,774 [5] INFO  eStatementAgentLog Check Queue of Call Process Generate Email
+ 
+2024-02-07 22:37:13,778 [5] INFO  eStatementAgentLog Calling XML RPC Send Email
+ 
+2024-02-07 22:37:15,796 [5] INFO  eStatementAgentLog Calling XML RPC Send Email success
+ 
+2024-02-07 22:37:15,803 [5] INFO  eStatementAgentLog Build Statement Paths started
+ 
+2024-02-07 22:37:15,803 [5] INFO  eStatementAgentLog Save List Statement Distribution started
+ 
+2024-02-07 22:37:15,810 [5] INFO  eStatementAgentLog Search Query
+ 
+2024-02-07 22:37:15,812 [5] INFO  eStatementAgentLog Splitting data source by Customer skipped
+ 
+2024-02-07 22:37:15,813 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 22:37:15,815 [5] INFO  eStatementAgentLog started VerificationTax
+ 
+2024-02-07 22:37:15,815 [5] INFO  eStatementAgentLog SetStatementVerificationValid.
+ 
+2024-02-07 22:37:15,815 [5] INFO  eStatementAgentLog Finish SetStatementVerificationValid.
+ 
+2024-02-07 22:37:15,818 [5] INFO  eStatementAgentLog end VerificationTax
+ 
+2024-02-07 22:37:15,818 [5] INFO  eStatementAgentLog All phases proceed. No Error occur.
+ 
+2024-02-07 22:37:15,818 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 22:37:15,820 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 22:37:15,822 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 22:37:15,822 [5] INFO  eStatementAgentLog Process statement template 211
+ 
+2024-02-07 22:37:15,822 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 22:37:15,823 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 22:37:15,823 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 22:37:15,863 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 22:37:15,864 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 22:37:15,865 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 22:37:15,875 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 22:37:15,876 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 22:37:15,878 [15] INFO  eStatementAgentLog Done insert Remaining Data in 0,0010222 seconds. Executed query is SELECT	[account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 22:37:15,881 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0 seconds. Executed query is 			SELECT [account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 22:37:15,881 [5] INFO  eStatementAgentLog Save Statement Verification started
+ 
+2024-02-07 22:37:15,882 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 22:37:15,883 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 22:37:15,884 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '211','10433','2024-02-07'
+ 
+2024-02-07 22:37:15,885 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 22:37:15,885 [5] INFO  eStatementAgentLog Check Masking File Formula 139 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 22:37:15,885 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database skipped
+ 
+2024-02-07 22:37:15,886 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database started
+ 
+2024-02-07 22:37:15,886 [5] INFO  eStatementAgentLog Save Remaining Module: Insert process log detail
+ 
+2024-02-07 22:37:15,887 [5] INFO  eStatementAgentLog ReportServiceUserName : acer
+ 
+2024-02-07 22:37:15,896 [5] INFO  eStatementAgentLog ReportServicePwd : 12345
+ 
+2024-02-07 22:37:15,896 [5] INFO  eStatementAgentLog ReportServiceDomain : laptop-eh0ljrh7
+ 
+2024-02-07 22:37:15,896 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:37:15,914 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:37:15,915 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:37:15,915 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:37:15,915 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:37:15,958 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:37:15,958 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowNtlm
+ 
+2024-02-07 22:37:15,958 [5] INFO  eStatementAgentLog ReportingService2010SoapClient ClientCredential
+ 
+2024-02-07 22:37:15,958 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:37:16,007 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:37:16,015 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:37:16,015 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:37:16,015 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:37:16,015 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[fk_taxrequestlist]
+ 
+2024-02-07 22:37:16,020 [5] INFO  eStatementAgentLog CleanFieldName : fk_taxrequestlist
+ 
+2024-02-07 22:37:16,020 [5] INFO  eStatementAgentLog ParameterNameField : fk_taxrequestlist
+ 
+2024-02-07 22:37:16,020 [5] INFO  eStatementAgentLog MappingRow Item : 235
+ 
+2024-02-07 22:37:16,020 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[fk_taxrequestlist] - fk_taxrequestlist
+ 
+2024-02-07 22:37:16,020 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_OBS_CASATD
+ 
+2024-02-07 22:37:16,020 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:37:16,020 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:37:16,020 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_OBS_CASATD
+ 
+2024-02-07 22:37:16,020 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:37:16,020 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:37:16,122 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:37:16,122 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_OBS_CASATD
+ 
+2024-02-07 22:37:16,153 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:37:16,154 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:37:16,154 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_OBS_CASATD
+ 
+2024-02-07 22:37:16,154 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:37:16,154 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:37:16,168 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:37:16,168 [5] INFO  eStatementAgentLog params IsReportParameterExists : Sahassa.ReportService.ItemParameter[]
+ 
+2024-02-07 22:37:16,188 [5] INFO  eStatementAgentLog Save Remaining Parallel Module: Variable initialize
+ 
+2024-02-07 22:37:16,188 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[fk_taxrequestlist]
+ 
+2024-02-07 22:37:16,193 [5] INFO  eStatementAgentLog CleanFieldName : fk_taxrequestlist
+ 
+2024-02-07 22:37:16,193 [5] INFO  eStatementAgentLog ParameterNameField : fk_taxrequestlist
+ 
+2024-02-07 22:37:16,193 [5] INFO  eStatementAgentLog MappingRow Item : 235
+ 
+2024-02-07 22:37:16,193 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[fk_taxrequestlist] - fk_taxrequestlist
+ 
+2024-02-07 22:37:16,193 [5] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 22:37:16,193 [5] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 22:37:16,193 [5] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 22:37:16,223 [5] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 22:37:16,223 [5] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 22:37:16,248 [5] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 22:37:17,870 [5] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 22:37:17,870 [5] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 22:37:17,870 [5] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 22:37:17,871 [5] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 22:37:17,878 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification started
+ 
+2024-02-07 22:37:17,884 [5] INFO  eStatementAgentLog Distribute Statement started
+ 
+2024-02-07 22:37:17,886 [5] INFO  eStatementAgentLog Report Distribution Module: Variable initialize
+ 
+2024-02-07 22:37:17,887 [5] INFO  eStatementAgentLog Calling XML RPC Send Email started
+ 
+2024-02-07 22:37:17,889 [5] INFO  eStatementAgentLog True
+ 
+2024-02-07 22:37:17,890 [5] INFO  eStatementAgentLog Success Insert VerificationDataSource with statementVerificationID = 10433
+ 
+2024-02-07 22:37:17,890 [5] INFO  eStatementAgentLog Check Queue of Call Process Generate Email
+ 
+2024-02-07 22:37:17,895 [5] INFO  eStatementAgentLog Calling XML RPC Send Email
+ 
+2024-02-07 22:37:19,904 [5] INFO  eStatementAgentLog Calling XML RPC Send Email success
+ 
+2024-02-07 22:37:19,911 [5] INFO  eStatementAgentLog Build Statement Paths started
+ 
+2024-02-07 22:37:19,911 [5] INFO  eStatementAgentLog Save List Statement Distribution started
+ 
+2024-02-07 22:37:19,914 [5] INFO  eStatementAgentLog Search Query
+ 
+2024-02-07 22:37:19,915 [5] INFO  eStatementAgentLog Splitting data source by Customer skipped
+ 
+2024-02-07 22:37:19,917 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 22:37:19,918 [5] INFO  eStatementAgentLog started VerificationTax
+ 
+2024-02-07 22:37:19,918 [5] INFO  eStatementAgentLog SetStatementVerificationValid.
+ 
+2024-02-07 22:37:19,918 [5] INFO  eStatementAgentLog Finish SetStatementVerificationValid.
+ 
+2024-02-07 22:37:19,918 [5] INFO  eStatementAgentLog end VerificationTax
+ 
+2024-02-07 22:37:19,919 [5] INFO  eStatementAgentLog All phases proceed. No Error occur.
+ 
+2024-02-07 22:37:19,919 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 22:37:19,921 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 22:37:19,922 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 22:37:19,922 [5] INFO  eStatementAgentLog Process statement template 212
+ 
+2024-02-07 22:37:19,922 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 22:37:19,922 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 22:37:19,922 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 22:37:19,948 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 22:37:19,953 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 22:37:19,955 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 22:37:19,962 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 22:37:19,963 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 22:37:19,965 [5] INFO  eStatementAgentLog Done insert Remaining Data in 0 seconds. Executed query is SELECT	[account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 22:37:19,967 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0,0009988 seconds. Executed query is 			SELECT [account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 22:37:19,968 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 22:37:19,968 [5] INFO  eStatementAgentLog Save Statement Verification  canceled
+ 
+2024-02-07 22:37:19,971 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 22:37:19,972 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '212','10434','2024-02-07'
+ 
+2024-02-07 22:37:19,972 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 22:37:19,972 [5] INFO  eStatementAgentLog Check Masking File Formula 140 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 22:37:19,973 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database  canceled
+ 
+2024-02-07 22:37:19,973 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database  canceled
+ 
+2024-02-07 22:37:19,974 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification  canceled
+ 
+2024-02-07 22:37:19,975 [5] INFO  eStatementAgentLog Distribute Statement  canceled
+ 
+2024-02-07 22:37:19,975 [5] INFO  eStatementAgentLog Calling XML RPC Send Email  canceled
+ 
+2024-02-07 22:37:19,976 [5] INFO  eStatementAgentLog Build Statement Paths  canceled
+ 
+2024-02-07 22:37:19,976 [5] INFO  eStatementAgentLog Save List Statement Distribution  canceled
+ 
+2024-02-07 22:37:19,977 [5] INFO  eStatementAgentLog Splitting data source by Customer  canceled
+ 
+2024-02-07 22:37:19,978 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 22:37:19,978 [5] INFO  eStatementAgentLog  canceled
+ 
+2024-02-07 22:37:19,978 [5] INFO  eStatementAgentLog Cleaning started
+ 
+2024-02-07 22:37:19,978 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 22:37:19,980 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 22:44:00,660 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 22:44:00,660 [5] INFO  eStatementAgentLog Process statement template 150
+ 
+2024-02-07 22:44:00,660 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 22:44:00,660 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 22:44:00,660 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 22:44:00,758 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 22:44:00,769 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 22:44:00,783 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 22:44:03,419 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 22:44:03,421 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 22:44:03,437 [8] INFO  eStatementAgentLog Done insert Remaining Data in 0,0053252 seconds. Executed query is SELECT	[account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 22:44:03,464 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0,0065265 seconds. Executed query is 			SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 22:44:03,472 [5] INFO  eStatementAgentLog Save Statement Verification started
+ 
+2024-02-07 22:44:03,480 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 22:44:03,485 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 22:44:03,496 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '150','10435','2024-02-07'
+ 
+2024-02-07 22:44:03,496 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 22:44:03,496 [5] INFO  eStatementAgentLog Check Masking File Formula 78 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 22:44:03,509 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database skipped
+ 
+2024-02-07 22:44:03,510 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database started
+ 
+2024-02-07 22:44:03,516 [5] INFO  eStatementAgentLog Save Remaining Module: Insert process log detail
+ 
+2024-02-07 22:44:03,533 [5] INFO  eStatementAgentLog ReportServiceUserName : acer
+ 
+2024-02-07 22:44:03,607 [13] INFO  eStatementAgentLog ReportServiceUserName : acer
+ 
+2024-02-07 22:44:03,607 [13] INFO  eStatementAgentLog ReportServicePwd : 12345
+ 
+2024-02-07 22:44:03,608 [13] INFO  eStatementAgentLog ReportServiceDomain : laptop-eh0ljrh7
+ 
+2024-02-07 22:44:03,608 [5] INFO  eStatementAgentLog ReportServicePwd : 12345
+ 
+2024-02-07 22:44:03,608 [5] INFO  eStatementAgentLog ReportServiceDomain : laptop-eh0ljrh7
+ 
+2024-02-07 22:44:03,608 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:44:03,708 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:44:03,708 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:44:03,708 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:44:03,708 [13] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:44:03,760 [13] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:44:03,760 [13] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:44:03,761 [13] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:44:03,761 [13] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:44:04,011 [13] INFO  eStatementAgentLog ReportingService2010SoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:44:04,011 [13] INFO  eStatementAgentLog ReportingService2010SoapClient AllowNtlm
+ 
+2024-02-07 22:44:04,011 [13] INFO  eStatementAgentLog ReportingService2010SoapClient ClientCredential
+ 
+2024-02-07 22:44:04,011 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:44:04,013 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:44:04,013 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowNtlm
+ 
+2024-02-07 22:44:04,013 [5] INFO  eStatementAgentLog ReportingService2010SoapClient ClientCredential
+ 
+2024-02-07 22:44:04,013 [13] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:44:04,065 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:44:04,066 [13] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:44:04,081 [13] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:44:04,081 [13] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:44:04,081 [13] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:44:04,081 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:44:04,081 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:44:04,082 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:44:04,082 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:44:04,082 [13] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 22:44:04,084 [13] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 22:44:04,084 [13] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 22:44:04,084 [13] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 22:44:04,084 [13] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 22:44:04,084 [13] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 22:44:04,084 [13] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:44:04,084 [13] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:44:04,084 [13] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 22:44:04,084 [13] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:44:04,084 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 22:44:04,084 [5] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 22:44:04,084 [5] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 22:44:04,084 [5] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 22:44:04,084 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 22:44:04,084 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 22:44:04,084 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:44:04,084 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:44:04,084 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 22:44:04,084 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:44:04,084 [13] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:44:04,168 [13] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:44:04,168 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:44:04,174 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:44:04,174 [13] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 22:44:04,191 [13] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:44:04,191 [13] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:44:04,191 [13] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 22:44:04,191 [13] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:44:04,191 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 22:44:04,196 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:44:04,196 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:44:04,196 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 22:44:04,196 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:44:04,196 [13] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:44:04,198 [13] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:44:04,198 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:44:04,202 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:44:04,202 [13] INFO  eStatementAgentLog params IsReportParameterExists : Sahassa.ReportService.ItemParameter[]
+ 
+2024-02-07 22:44:04,206 [13] INFO  eStatementAgentLog Save Remaining Parallel Module: Variable initialize
+ 
+2024-02-07 22:44:04,206 [13] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 22:44:04,207 [13] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 22:44:04,207 [13] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 22:44:04,207 [13] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 22:44:04,207 [13] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 22:44:04,207 [13] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 22:44:04,207 [13] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 22:44:04,207 [5] INFO  eStatementAgentLog params IsReportParameterExists : Sahassa.ReportService.ItemParameter[]
+ 
+2024-02-07 22:44:04,212 [5] INFO  eStatementAgentLog Save Remaining Parallel Module: Variable initialize
+ 
+2024-02-07 22:44:04,213 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 22:44:04,213 [5] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 22:44:04,213 [5] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 22:44:04,213 [5] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 22:44:04,213 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 22:44:04,213 [5] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 22:44:04,213 [5] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 22:44:04,213 [13] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 22:44:04,241 [13] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 22:44:04,241 [5] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 22:44:04,241 [5] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 22:44:04,241 [13] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 22:44:04,255 [5] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 22:44:04,255 [13] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 22:44:05,878 [13] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 22:44:05,878 [13] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 22:44:05,878 [13] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 22:44:05,903 [13] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 22:44:05,976 [13] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 22:44:05,976 [13] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 22:44:05,976 [13] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 22:44:05,977 [13] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 22:44:05,977 [13] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 22:44:05,977 [13] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 22:44:05,977 [13] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 22:44:05,977 [5] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 22:44:06,345 [13] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 22:44:06,346 [13] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 22:44:06,346 [5] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 22:44:06,346 [5] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 22:44:06,346 [5] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 22:44:06,352 [5] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 22:44:06,403 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 22:44:06,403 [5] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 22:44:06,404 [5] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 22:44:06,404 [5] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 22:44:06,404 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 22:44:06,404 [5] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 22:44:06,405 [5] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 22:44:06,405 [13] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 22:44:06,535 [5] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 22:44:06,793 [5] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 22:44:06,794 [5] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 22:44:07,016 [13] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 22:44:07,212 [13] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 22:44:07,212 [13] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 22:44:07,212 [13] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 22:44:07,213 [13] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 22:44:07,216 [5] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 22:44:07,283 [5] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 22:44:07,283 [5] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 22:44:07,283 [5] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 22:44:07,285 [5] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 22:44:07,290 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 22:44:07,290 [5] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 22:44:07,290 [5] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 22:44:07,290 [5] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 22:44:07,290 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 22:44:07,290 [5] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 22:44:07,291 [5] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 22:44:07,291 [5] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 22:44:07,323 [5] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 22:44:07,323 [5] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 22:44:07,341 [5] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 22:44:07,480 [5] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 22:44:07,480 [5] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 22:44:07,480 [5] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 22:44:07,481 [5] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 22:44:07,484 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification started
+ 
+2024-02-07 22:44:07,486 [5] INFO  eStatementAgentLog Distribute Statement started
+ 
+2024-02-07 22:44:07,488 [5] INFO  eStatementAgentLog Report Distribution Module: Variable initialize
+ 
+2024-02-07 22:44:07,488 [5] INFO  eStatementAgentLog Calling XML RPC Send Email started
+ 
+2024-02-07 22:44:07,490 [5] INFO  eStatementAgentLog True
+ 
+2024-02-07 22:44:07,491 [5] INFO  eStatementAgentLog Success Insert VerificationDataSource with statementVerificationID = 10435
+ 
+2024-02-07 22:44:07,492 [5] INFO  eStatementAgentLog Check Queue of Call Process Generate Email
+ 
+2024-02-07 22:44:07,494 [5] INFO  eStatementAgentLog Calling XML RPC Send Email
+ 
+2024-02-07 22:44:09,495 [5] INFO  eStatementAgentLog Calling XML RPC Send Email success
+ 
+2024-02-07 22:44:09,499 [5] INFO  eStatementAgentLog Build Statement Paths started
+ 
+2024-02-07 22:44:09,499 [5] INFO  eStatementAgentLog Save List Statement Distribution started
+ 
+2024-02-07 22:44:09,503 [5] INFO  eStatementAgentLog Search Query
+ 
+2024-02-07 22:44:09,503 [5] INFO  eStatementAgentLog Splitting data source by Customer skipped
+ 
+2024-02-07 22:44:09,505 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 22:44:09,505 [5] INFO  eStatementAgentLog started VerificationTax
+ 
+2024-02-07 22:44:09,505 [5] INFO  eStatementAgentLog SetStatementVerificationValid.
+ 
+2024-02-07 22:44:09,505 [5] INFO  eStatementAgentLog Finish SetStatementVerificationValid.
+ 
+2024-02-07 22:44:09,505 [5] INFO  eStatementAgentLog end VerificationTax
+ 
+2024-02-07 22:44:09,506 [5] INFO  eStatementAgentLog All phases proceed. No Error occur.
+ 
+2024-02-07 22:44:09,506 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 22:44:09,506 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 22:49:59,587 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 22:49:59,587 [5] INFO  eStatementAgentLog Process statement template 150
+ 
+2024-02-07 22:49:59,587 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 22:49:59,587 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 22:49:59,589 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 22:49:59,652 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 22:49:59,654 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 22:49:59,655 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 22:49:59,671 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 22:49:59,671 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 22:49:59,673 [5] INFO  eStatementAgentLog Done insert Remaining Data in 0,0009962 seconds. Executed query is SELECT	[account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 22:49:59,676 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0,0009991 seconds. Executed query is 			SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 22:49:59,677 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 22:49:59,679 [5] INFO  eStatementAgentLog Save Statement Verification  canceled
+ 
+2024-02-07 22:49:59,681 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 22:49:59,681 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '150','10436','2024-02-07'
+ 
+2024-02-07 22:49:59,681 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 22:49:59,681 [5] INFO  eStatementAgentLog Check Masking File Formula 78 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 22:49:59,683 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database  canceled
+ 
+2024-02-07 22:49:59,683 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database  canceled
+ 
+2024-02-07 22:49:59,684 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification  canceled
+ 
+2024-02-07 22:49:59,684 [5] INFO  eStatementAgentLog Distribute Statement  canceled
+ 
+2024-02-07 22:49:59,685 [5] INFO  eStatementAgentLog Calling XML RPC Send Email  canceled
+ 
+2024-02-07 22:49:59,685 [5] INFO  eStatementAgentLog Build Statement Paths  canceled
+ 
+2024-02-07 22:49:59,686 [5] INFO  eStatementAgentLog Save List Statement Distribution  canceled
+ 
+2024-02-07 22:49:59,686 [5] INFO  eStatementAgentLog Splitting data source by Customer  canceled
+ 
+2024-02-07 22:49:59,687 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 22:49:59,687 [5] INFO  eStatementAgentLog  canceled
+ 
+2024-02-07 22:49:59,687 [5] INFO  eStatementAgentLog Cleaning started
+ 
+2024-02-07 22:49:59,687 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 22:49:59,688 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 22:50:28,172 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 22:50:28,172 [5] INFO  eStatementAgentLog Process statement template 150
+ 
+2024-02-07 22:50:28,172 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 22:50:28,172 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 22:50:28,172 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 22:50:28,183 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 22:50:28,184 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 22:50:28,184 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 22:50:28,191 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 22:50:28,191 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 22:50:28,192 [4] INFO  eStatementAgentLog Done insert Remaining Data in 0 seconds. Executed query is SELECT	[account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 22:50:28,193 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0 seconds. Executed query is 			SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 22:50:28,193 [5] INFO  eStatementAgentLog Save Statement Verification started
+ 
+2024-02-07 22:50:28,193 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 22:50:28,194 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 22:50:28,195 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '150','10437','2024-02-07'
+ 
+2024-02-07 22:50:28,195 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 22:50:28,195 [5] INFO  eStatementAgentLog Check Masking File Formula 78 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 22:50:28,195 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database skipped
+ 
+2024-02-07 22:50:28,195 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database started
+ 
+2024-02-07 22:50:28,195 [5] INFO  eStatementAgentLog Save Remaining Module: Insert process log detail
+ 
+2024-02-07 22:50:28,196 [5] INFO  eStatementAgentLog ReportServiceUserName : acer
+ 
+2024-02-07 22:50:28,202 [5] INFO  eStatementAgentLog ReportServicePwd : 12345
+ 
+2024-02-07 22:50:28,202 [5] INFO  eStatementAgentLog ReportServiceDomain : laptop-eh0ljrh7
+ 
+2024-02-07 22:50:28,202 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:50:28,207 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:50:28,207 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:50:28,207 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:50:28,207 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:50:28,241 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:50:28,241 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowNtlm
+ 
+2024-02-07 22:50:28,241 [5] INFO  eStatementAgentLog ReportingService2010SoapClient ClientCredential
+ 
+2024-02-07 22:50:28,241 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:50:28,260 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 22:50:28,269 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 22:50:28,269 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 22:50:28,269 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 22:50:28,269 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 22:50:28,271 [5] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 22:50:28,271 [5] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 22:50:28,271 [5] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 22:50:28,271 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 22:50:28,271 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 22:50:28,271 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:50:28,271 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:50:28,271 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 22:50:28,271 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:50:28,271 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:50:28,323 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:50:28,323 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 22:50:28,339 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 22:50:28,339 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 22:50:28,339 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 22:50:28,339 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 22:50:28,339 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 22:50:28,348 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 22:50:28,348 [5] INFO  eStatementAgentLog params IsReportParameterExists : Sahassa.ReportService.ItemParameter[]
+ 
+2024-02-07 22:50:28,356 [5] INFO  eStatementAgentLog Save Remaining Parallel Module: Variable initialize
+ 
+2024-02-07 22:50:28,357 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 22:50:28,360 [5] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 22:50:28,360 [5] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 22:50:28,360 [5] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 22:50:28,360 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 22:50:28,360 [5] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 22:50:28,360 [5] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 22:50:28,360 [5] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 22:50:28,382 [5] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 22:50:28,382 [5] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 22:50:28,396 [5] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 22:50:28,540 [5] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 22:50:28,540 [5] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 22:50:28,540 [5] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 22:50:28,541 [5] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 22:50:28,545 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification started
+ 
+2024-02-07 22:50:28,547 [5] INFO  eStatementAgentLog Distribute Statement started
+ 
+2024-02-07 22:50:28,549 [5] INFO  eStatementAgentLog Report Distribution Module: Variable initialize
+ 
+2024-02-07 22:50:28,549 [5] INFO  eStatementAgentLog Calling XML RPC Send Email started
+ 
+2024-02-07 22:50:28,549 [5] INFO  eStatementAgentLog True
+ 
+2024-02-07 22:50:28,549 [5] INFO  eStatementAgentLog Success Insert VerificationDataSource with statementVerificationID = 10437
+ 
+2024-02-07 22:50:28,551 [5] INFO  eStatementAgentLog Check Queue of Call Process Generate Email
+ 
+2024-02-07 22:50:28,554 [5] INFO  eStatementAgentLog Calling XML RPC Send Email
+ 
+2024-02-07 22:50:30,565 [5] INFO  eStatementAgentLog Calling XML RPC Send Email success
+ 
+2024-02-07 22:50:30,579 [5] INFO  eStatementAgentLog Build Statement Paths started
+ 
+2024-02-07 22:50:30,579 [5] INFO  eStatementAgentLog Save List Statement Distribution started
+ 
+2024-02-07 22:50:30,583 [5] INFO  eStatementAgentLog Search Query
+ 
+2024-02-07 22:50:30,584 [5] INFO  eStatementAgentLog Splitting data source by Customer skipped
+ 
+2024-02-07 22:50:30,586 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 22:50:30,587 [5] INFO  eStatementAgentLog started VerificationTax
+ 
+2024-02-07 22:50:30,587 [5] INFO  eStatementAgentLog SetStatementVerificationValid.
+ 
+2024-02-07 22:50:30,587 [5] INFO  eStatementAgentLog Finish SetStatementVerificationValid.
+ 
+2024-02-07 22:50:30,587 [5] INFO  eStatementAgentLog end VerificationTax
+ 
+2024-02-07 22:50:30,587 [5] INFO  eStatementAgentLog All phases proceed. No Error occur.
+ 
+2024-02-07 22:50:30,587 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 22:50:30,589 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 23:10:51,453 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 23:10:51,453 [5] INFO  eStatementAgentLog Process statement template 150
+ 
+2024-02-07 23:10:51,453 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 23:10:51,454 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 23:10:51,454 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 23:10:51,469 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 23:10:51,471 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 23:10:51,472 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 23:10:51,483 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 23:10:51,483 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 23:10:51,486 [21] INFO  eStatementAgentLog Done insert Remaining Data in 0,0010001 seconds. Executed query is SELECT	[account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 23:10:51,490 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0,0009995 seconds. Executed query is 			SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 23:10:51,491 [5] INFO  eStatementAgentLog Save Statement Verification started
+ 
+2024-02-07 23:10:51,492 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 23:10:51,493 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 23:10:51,495 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '150','10438','2024-02-07'
+ 
+2024-02-07 23:10:51,495 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 23:10:51,495 [5] INFO  eStatementAgentLog Check Masking File Formula 78 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 23:10:51,501 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database skipped
+ 
+2024-02-07 23:10:51,501 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database started
+ 
+2024-02-07 23:10:51,501 [5] INFO  eStatementAgentLog Save Remaining Module: Insert process log detail
+ 
+2024-02-07 23:10:51,502 [5] INFO  eStatementAgentLog ReportServiceUserName : acer
+ 
+2024-02-07 23:10:51,509 [5] INFO  eStatementAgentLog ReportServicePwd : 12345
+ 
+2024-02-07 23:10:51,509 [5] INFO  eStatementAgentLog ReportServiceDomain : laptop-eh0ljrh7
+ 
+2024-02-07 23:10:51,509 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:10:51,518 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:10:51,518 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 23:10:51,518 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 23:10:51,518 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:10:51,550 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:10:51,550 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowNtlm
+ 
+2024-02-07 23:10:51,550 [5] INFO  eStatementAgentLog ReportingService2010SoapClient ClientCredential
+ 
+2024-02-07 23:10:51,550 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:10:51,576 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:10:51,583 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:10:51,583 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 23:10:51,583 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 23:10:51,583 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 23:10:51,586 [5] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 23:10:51,586 [5] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 23:10:51,586 [5] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 23:10:51,586 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 23:10:51,586 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 23:10:51,586 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 23:10:51,586 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 23:10:51,586 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 23:10:51,586 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 23:10:51,586 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 23:10:51,642 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 23:10:51,642 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 23:10:51,660 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 23:10:51,660 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 23:10:51,660 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 23:10:51,660 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 23:10:51,660 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 23:10:51,666 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 23:10:51,666 [5] INFO  eStatementAgentLog params IsReportParameterExists : Sahassa.ReportService.ItemParameter[]
+ 
+2024-02-07 23:10:51,676 [5] INFO  eStatementAgentLog Save Remaining Parallel Module: Variable initialize
+ 
+2024-02-07 23:10:51,677 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 23:10:51,677 [5] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 23:10:51,677 [5] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 23:10:51,677 [5] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 23:10:51,677 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 23:10:51,677 [5] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 23:10:51,677 [5] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 23:10:51,677 [5] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 23:10:51,705 [5] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 23:10:51,705 [5] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 23:10:51,719 [5] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 23:10:51,896 [5] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 23:10:51,896 [5] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 23:10:51,896 [5] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 23:10:51,897 [5] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 23:10:51,904 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification started
+ 
+2024-02-07 23:10:51,907 [5] INFO  eStatementAgentLog Distribute Statement started
+ 
+2024-02-07 23:10:51,909 [5] INFO  eStatementAgentLog Report Distribution Module: Variable initialize
+ 
+2024-02-07 23:10:51,910 [5] INFO  eStatementAgentLog Calling XML RPC Send Email started
+ 
+2024-02-07 23:10:51,911 [5] INFO  eStatementAgentLog True
+ 
+2024-02-07 23:10:51,912 [5] INFO  eStatementAgentLog Success Insert VerificationDataSource with statementVerificationID = 10438
+ 
+2024-02-07 23:10:51,914 [5] INFO  eStatementAgentLog Check Queue of Call Process Generate Email
+ 
+2024-02-07 23:10:51,918 [5] INFO  eStatementAgentLog Calling XML RPC Send Email
+ 
+2024-02-07 23:10:53,934 [5] INFO  eStatementAgentLog Calling XML RPC Send Email success
+ 
+2024-02-07 23:10:53,941 [5] INFO  eStatementAgentLog Build Statement Paths started
+ 
+2024-02-07 23:10:53,941 [5] INFO  eStatementAgentLog Save List Statement Distribution started
+ 
+2024-02-07 23:10:53,943 [5] INFO  eStatementAgentLog Search Query
+ 
+2024-02-07 23:10:53,944 [5] INFO  eStatementAgentLog Splitting data source by Customer skipped
+ 
+2024-02-07 23:10:53,949 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 23:10:53,950 [5] INFO  eStatementAgentLog started VerificationTax
+ 
+2024-02-07 23:10:53,950 [5] INFO  eStatementAgentLog SetStatementVerificationValid.
+ 
+2024-02-07 23:10:53,950 [5] INFO  eStatementAgentLog Finish SetStatementVerificationValid.
+ 
+2024-02-07 23:10:53,953 [5] INFO  eStatementAgentLog end VerificationTax
+ 
+2024-02-07 23:10:53,953 [5] INFO  eStatementAgentLog All phases proceed. No Error occur.
+ 
+2024-02-07 23:10:53,953 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 23:10:53,954 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 23:15:36,333 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 23:15:36,333 [5] INFO  eStatementAgentLog Process statement template 150
+ 
+2024-02-07 23:15:36,333 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 23:15:36,333 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 23:15:36,333 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 23:15:36,344 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 23:15:36,344 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 23:15:36,345 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 23:15:36,350 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 23:15:36,351 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 23:15:36,353 [5] INFO  eStatementAgentLog Done insert Remaining Data in 0 seconds. Executed query is SELECT	[account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 23:15:36,354 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0,0009971 seconds. Executed query is 			SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 23:15:36,355 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 23:15:36,355 [5] INFO  eStatementAgentLog Save Statement Verification  canceled
+ 
+2024-02-07 23:15:36,356 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 23:15:36,357 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '150','10439','2024-02-07'
+ 
+2024-02-07 23:15:36,357 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 23:15:36,357 [5] INFO  eStatementAgentLog Check Masking File Formula 78 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 23:15:36,358 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database  canceled
+ 
+2024-02-07 23:15:36,358 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database  canceled
+ 
+2024-02-07 23:15:36,358 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification  canceled
+ 
+2024-02-07 23:15:36,358 [5] INFO  eStatementAgentLog Distribute Statement  canceled
+ 
+2024-02-07 23:15:36,359 [5] INFO  eStatementAgentLog Calling XML RPC Send Email  canceled
+ 
+2024-02-07 23:15:36,359 [5] INFO  eStatementAgentLog Build Statement Paths  canceled
+ 
+2024-02-07 23:15:36,360 [5] INFO  eStatementAgentLog Save List Statement Distribution  canceled
+ 
+2024-02-07 23:15:36,360 [5] INFO  eStatementAgentLog Splitting data source by Customer  canceled
+ 
+2024-02-07 23:15:36,360 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 23:15:36,360 [5] INFO  eStatementAgentLog  canceled
+ 
+2024-02-07 23:15:36,360 [5] INFO  eStatementAgentLog Cleaning started
+ 
+2024-02-07 23:15:36,360 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 23:15:36,361 [8] INFO  eStatementAgentLog eStatementGeneratorService ended at 07/02/2024 23:45:11
+ 
+2024-02-07 23:45:11,056 [4] INFO  eStatementAgentLog eStatementGeneratorService started at 07/02/2024 23:45:45
+ 
+2024-02-07 23:45:45,971 [9] INFO  eStatementAgentLog IsUsingGenerateSchedule: False. QueryCheckUsingSchedule:  select a.NextProcessTime, a.Fk_statementTemplate_id from [MsScheduleGeneratePDF] a with (nolock)  where isnull(a.IsEnable,0)=1 and isnull(a.IsNextProcessEnable,0)=1 and a.ProxyUrl like '%'+'http://127.0.0.1'+'%'+'11002'+'%' 
+ 
+2024-02-07 23:45:47,533 [9] INFO  eStatementAgentLog Start Getting MsStatement Template ID
+ 
+2024-02-07 23:45:47,535 [9] INFO  eStatementAgentLog Query : select Fk_StatementTemplate_Id from MsScheduleGeneratePDF where ProxyURL = 'http://127.0.0.1:11002/'
+ 
+2024-02-07 23:45:47,537 [9] INFO  eStatementAgentLog Start Getting Data
+ 
+2024-02-07 23:45:47,538 [9] INFO  eStatementAgentLog Statement Template ID : 
+ 
+2024-02-07 23:45:47,538 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 23:46:10,635 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 23:46:10,635 [5] INFO  eStatementAgentLog Process statement template 150
+ 
+2024-02-07 23:46:10,635 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 23:46:10,635 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 23:46:10,638 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 23:46:10,663 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 23:46:10,671 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 23:46:10,673 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 23:46:10,744 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 23:46:10,745 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 23:46:10,750 [5] INFO  eStatementAgentLog Done insert Remaining Data in 0 seconds. Executed query is SELECT	[account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 23:46:10,765 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0,0010002 seconds. Executed query is 			SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 23:46:10,767 [5] INFO  eStatementAgentLog Save Statement Verification started
+ 
+2024-02-07 23:46:10,769 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 23:46:10,771 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 23:46:10,780 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '150','10440','2024-02-07'
+ 
+2024-02-07 23:46:10,780 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 23:46:10,780 [5] INFO  eStatementAgentLog Check Masking File Formula 78 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 23:46:10,783 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database skipped
+ 
+2024-02-07 23:46:10,783 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database started
+ 
+2024-02-07 23:46:10,783 [5] INFO  eStatementAgentLog Save Remaining Module: Insert process log detail
+ 
+2024-02-07 23:46:10,798 [7] INFO  eStatementAgentLog ReportServiceUserName : acer
+ 
+2024-02-07 23:46:10,861 [7] INFO  eStatementAgentLog ReportServicePwd : 12345
+ 
+2024-02-07 23:46:10,861 [7] INFO  eStatementAgentLog ReportServiceDomain : laptop-eh0ljrh7
+ 
+2024-02-07 23:46:10,861 [7] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:46:10,894 [7] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:46:10,895 [7] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 23:46:10,895 [7] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 23:46:10,895 [7] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:46:10,928 [7] INFO  eStatementAgentLog ReportingService2010SoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:46:10,928 [7] INFO  eStatementAgentLog ReportingService2010SoapClient AllowNtlm
+ 
+2024-02-07 23:46:10,928 [7] INFO  eStatementAgentLog ReportingService2010SoapClient ClientCredential
+ 
+2024-02-07 23:46:10,928 [7] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:46:10,956 [7] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:46:10,960 [7] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:46:10,960 [7] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 23:46:10,960 [7] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 23:46:10,960 [7] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 23:46:10,967 [7] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 23:46:10,967 [7] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 23:46:10,967 [7] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 23:46:10,967 [7] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 23:46:10,967 [7] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 23:46:10,968 [7] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 23:46:10,968 [7] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 23:46:10,968 [7] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 23:46:10,968 [7] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 23:46:10,970 [7] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 23:46:11,993 [7] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 23:46:11,994 [7] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 23:46:12,145 [7] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 23:46:12,145 [7] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 23:46:12,145 [7] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 23:46:12,145 [7] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 23:46:12,145 [7] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 23:46:12,152 [7] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 23:46:12,152 [7] INFO  eStatementAgentLog params IsReportParameterExists : Sahassa.ReportService.ItemParameter[]
+ 
+2024-02-07 23:46:12,174 [7] INFO  eStatementAgentLog Save Remaining Parallel Module: Variable initialize
+ 
+2024-02-07 23:46:12,176 [7] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 23:46:12,186 [7] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 23:46:12,186 [7] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 23:46:12,186 [7] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 23:46:12,186 [7] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 23:46:12,186 [7] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 23:46:12,187 [7] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 23:46:12,187 [7] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 23:46:12,246 [7] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 23:46:12,246 [7] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 23:46:12,268 [7] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 23:46:12,445 [7] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 23:46:12,446 [7] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 23:46:12,446 [7] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 23:46:12,449 [7] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 23:46:12,702 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification started
+ 
+2024-02-07 23:46:12,721 [5] INFO  eStatementAgentLog Distribute Statement started
+ 
+2024-02-07 23:46:12,729 [5] INFO  eStatementAgentLog Report Distribution Module: Variable initialize
+ 
+2024-02-07 23:46:12,743 [5] INFO  eStatementAgentLog Calling XML RPC Send Email started
+ 
+2024-02-07 23:46:12,751 [5] INFO  eStatementAgentLog True
+ 
+2024-02-07 23:46:12,753 [5] INFO  eStatementAgentLog Success Insert VerificationDataSource with statementVerificationID = 10440
+ 
+2024-02-07 23:46:12,755 [5] INFO  eStatementAgentLog Check Queue of Call Process Generate Email
+ 
+2024-02-07 23:46:12,758 [5] INFO  eStatementAgentLog Calling XML RPC Send Email
+ 
+2024-02-07 23:46:14,777 [5] INFO  eStatementAgentLog start update file name custom
+ 
+2024-02-07 23:46:14,777 [5] INFO  eStatementAgentLog end update file name custom
+ 
+2024-02-07 23:46:14,819 [5] INFO  eStatementAgentLog Calling XML RPC Send Email success
+ 
+2024-02-07 23:46:14,857 [5] INFO  eStatementAgentLog Build Statement Paths started
+ 
+2024-02-07 23:46:14,858 [5] INFO  eStatementAgentLog Save List Statement Distribution started
+ 
+2024-02-07 23:46:14,866 [5] INFO  eStatementAgentLog Search Query
+ 
+2024-02-07 23:46:14,869 [5] INFO  eStatementAgentLog Splitting data source by Customer skipped
+ 
+2024-02-07 23:46:14,872 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 23:46:14,873 [5] INFO  eStatementAgentLog started VerificationTax
+ 
+2024-02-07 23:46:14,873 [5] INFO  eStatementAgentLog SetStatementVerificationValid.
+ 
+2024-02-07 23:46:14,873 [5] INFO  eStatementAgentLog Failed SetStatementVerificationValid : There Is Unfinished Email Generated
+ 
+2024-02-07 23:46:14,875 [5] INFO  eStatementAgentLog Finish SetStatementVerificationValid.
+ 
+2024-02-07 23:46:14,875 [5] INFO  eStatementAgentLog end VerificationTax
+ 
+2024-02-07 23:46:14,875 [5] INFO  eStatementAgentLog All phases proceed. No Error occur.
+ 
+2024-02-07 23:46:14,875 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 23:46:14,877 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 23:48:36,890 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 23:48:36,890 [5] INFO  eStatementAgentLog Process statement template 150
+ 
+2024-02-07 23:48:36,890 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 23:48:36,890 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 23:48:36,890 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 23:48:36,902 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 23:48:36,903 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 23:48:36,903 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 23:48:36,908 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 23:48:36,909 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 23:48:36,910 [7] INFO  eStatementAgentLog Done insert Remaining Data in 0 seconds. Executed query is SELECT	[account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 23:48:36,911 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0 seconds. Executed query is 			SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 23:48:36,911 [5] INFO  eStatementAgentLog Save Statement Verification started
+ 
+2024-02-07 23:48:36,911 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 23:48:36,912 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 23:48:36,913 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '150','10441','2024-02-07'
+ 
+2024-02-07 23:48:36,913 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 23:48:36,913 [5] INFO  eStatementAgentLog Check Masking File Formula 78 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 23:48:36,913 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database skipped
+ 
+2024-02-07 23:48:36,913 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database started
+ 
+2024-02-07 23:48:36,913 [5] INFO  eStatementAgentLog Save Remaining Module: Insert process log detail
+ 
+2024-02-07 23:48:36,914 [5] INFO  eStatementAgentLog ReportServiceUserName : acer
+ 
+2024-02-07 23:48:36,920 [5] INFO  eStatementAgentLog ReportServicePwd : 12345
+ 
+2024-02-07 23:48:36,920 [5] INFO  eStatementAgentLog ReportServiceDomain : laptop-eh0ljrh7
+ 
+2024-02-07 23:48:36,920 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:48:36,925 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:48:36,925 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 23:48:36,925 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 23:48:36,925 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:48:36,954 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:48:36,954 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowNtlm
+ 
+2024-02-07 23:48:36,954 [5] INFO  eStatementAgentLog ReportingService2010SoapClient ClientCredential
+ 
+2024-02-07 23:48:36,954 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:48:36,982 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:48:36,994 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:48:36,994 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 23:48:36,994 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 23:48:36,994 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 23:48:36,996 [5] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 23:48:36,996 [5] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 23:48:36,996 [5] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 23:48:36,996 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 23:48:36,996 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 23:48:36,996 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 23:48:36,996 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 23:48:36,996 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 23:48:36,996 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 23:48:36,996 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 23:48:37,070 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 23:48:37,070 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 23:48:37,089 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 23:48:37,089 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 23:48:37,089 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Detail
+ 
+2024-02-07 23:48:37,089 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 23:48:37,089 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 23:48:37,097 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 23:48:37,097 [5] INFO  eStatementAgentLog params IsReportParameterExists : Sahassa.ReportService.ItemParameter[]
+ 
+2024-02-07 23:48:37,110 [5] INFO  eStatementAgentLog Save Remaining Parallel Module: Variable initialize
+ 
+2024-02-07 23:48:37,111 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif]
+ 
+2024-02-07 23:48:37,113 [5] INFO  eStatementAgentLog CleanFieldName : cif
+ 
+2024-02-07 23:48:37,113 [5] INFO  eStatementAgentLog ParameterNameField : cif
+ 
+2024-02-07 23:48:37,113 [5] INFO  eStatementAgentLog MappingRow Item : 17972
+ 
+2024-02-07 23:48:37,113 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation].[cif] - cif
+ 
+2024-02-07 23:48:37,113 [5] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 23:48:37,113 [5] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 23:48:37,113 [5] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 23:48:37,143 [5] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 23:48:37,143 [5] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 23:48:37,159 [5] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 23:48:37,319 [5] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 23:48:37,319 [5] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 23:48:37,319 [5] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 23:48:37,320 [5] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 23:48:37,326 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification started
+ 
+2024-02-07 23:48:37,331 [5] INFO  eStatementAgentLog Distribute Statement started
+ 
+2024-02-07 23:48:37,332 [5] INFO  eStatementAgentLog Report Distribution Module: Variable initialize
+ 
+2024-02-07 23:48:37,333 [5] INFO  eStatementAgentLog Calling XML RPC Send Email started
+ 
+2024-02-07 23:48:37,334 [5] INFO  eStatementAgentLog True
+ 
+2024-02-07 23:48:37,335 [5] INFO  eStatementAgentLog Success Insert VerificationDataSource with statementVerificationID = 10441
+ 
+2024-02-07 23:48:37,335 [5] INFO  eStatementAgentLog Check Queue of Call Process Generate Email
+ 
+2024-02-07 23:48:37,339 [5] INFO  eStatementAgentLog Calling XML RPC Send Email
+ 
+2024-02-07 23:48:39,343 [5] INFO  eStatementAgentLog start update file name custom
+ 
+2024-02-07 23:48:39,343 [5] INFO  eStatementAgentLog end update file name custom
+ 
+2024-02-07 23:48:39,346 [5] INFO  eStatementAgentLog Calling XML RPC Send Email success
+ 
+2024-02-07 23:48:39,350 [5] INFO  eStatementAgentLog Build Statement Paths started
+ 
+2024-02-07 23:48:39,350 [5] INFO  eStatementAgentLog Save List Statement Distribution started
+ 
+2024-02-07 23:48:39,352 [5] INFO  eStatementAgentLog Search Query
+ 
+2024-02-07 23:48:39,352 [5] INFO  eStatementAgentLog Splitting data source by Customer skipped
+ 
+2024-02-07 23:48:39,353 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 23:48:39,354 [5] INFO  eStatementAgentLog started VerificationTax
+ 
+2024-02-07 23:48:39,354 [5] INFO  eStatementAgentLog SetStatementVerificationValid.
+ 
+2024-02-07 23:48:39,354 [5] INFO  eStatementAgentLog Finish SetStatementVerificationValid.
+ 
+2024-02-07 23:48:39,355 [5] INFO  eStatementAgentLog end VerificationTax
+ 
+2024-02-07 23:48:39,355 [5] INFO  eStatementAgentLog All phases proceed. No Error occur.
+ 
+2024-02-07 23:48:39,355 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 23:48:39,356 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 23:48:39,362 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 23:48:39,362 [5] INFO  eStatementAgentLog Process statement template 128
+ 
+2024-02-07 23:48:39,362 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 23:48:39,362 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 23:48:39,362 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 23:48:39,379 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 23:48:39,380 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 23:48:39,380 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 23:48:39,389 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 23:48:39,390 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 23:48:39,392 [7] INFO  eStatementAgentLog Done insert Remaining Data in 0,0010306 seconds. Executed query is SELECT	[account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 23:48:39,396 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0,0010007 seconds. Executed query is 			SELECT [account_no], [cif], [Fk_TaxRequestList], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 23:48:39,397 [5] INFO  eStatementAgentLog Save Statement Verification started
+ 
+2024-02-07 23:48:39,398 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 23:48:39,399 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 23:48:39,400 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '128','10442','2024-02-07'
+ 
+2024-02-07 23:48:39,400 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 23:48:39,400 [5] INFO  eStatementAgentLog Check Masking File Formula 57 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 23:48:39,401 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database skipped
+ 
+2024-02-07 23:48:39,401 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database started
+ 
+2024-02-07 23:48:39,402 [5] INFO  eStatementAgentLog Save Remaining Module: Insert process log detail
+ 
+2024-02-07 23:48:39,403 [5] INFO  eStatementAgentLog ReportServiceUserName : acer
+ 
+2024-02-07 23:48:39,407 [5] INFO  eStatementAgentLog ReportServicePwd : 12345
+ 
+2024-02-07 23:48:39,407 [5] INFO  eStatementAgentLog ReportServiceDomain : laptop-eh0ljrh7
+ 
+2024-02-07 23:48:39,407 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:48:39,411 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:48:39,411 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 23:48:39,411 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 23:48:39,411 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:48:39,434 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:48:39,434 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowNtlm
+ 
+2024-02-07 23:48:39,434 [5] INFO  eStatementAgentLog ReportingService2010SoapClient ClientCredential
+ 
+2024-02-07 23:48:39,434 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:48:39,457 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:48:39,463 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:48:39,463 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 23:48:39,463 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 23:48:39,463 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList]
+ 
+2024-02-07 23:48:39,466 [5] INFO  eStatementAgentLog CleanFieldName : Fk_TaxRequestList
+ 
+2024-02-07 23:48:39,466 [5] INFO  eStatementAgentLog ParameterNameField : Fk_TaxRequestList
+ 
+2024-02-07 23:48:39,466 [5] INFO  eStatementAgentLog MappingRow Item : 240
+ 
+2024-02-07 23:48:39,466 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList] - Fk_TaxRequestList
+ 
+2024-02-07 23:48:39,466 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Summary
+ 
+2024-02-07 23:48:39,466 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 23:48:39,466 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 23:48:39,466 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Summary
+ 
+2024-02-07 23:48:39,466 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 23:48:39,466 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 23:48:39,529 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 23:48:39,530 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_Obligasi_Summary
+ 
+2024-02-07 23:48:39,545 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 23:48:39,545 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 23:48:39,545 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_Obligasi_Summary
+ 
+2024-02-07 23:48:39,545 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 23:48:39,545 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 23:48:39,552 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 23:48:39,552 [5] INFO  eStatementAgentLog params IsReportParameterExists : Sahassa.ReportService.ItemParameter[]
+ 
+2024-02-07 23:48:39,562 [5] INFO  eStatementAgentLog Save Remaining Parallel Module: Variable initialize
+ 
+2024-02-07 23:48:39,563 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList]
+ 
+2024-02-07 23:48:39,563 [5] INFO  eStatementAgentLog CleanFieldName : Fk_TaxRequestList
+ 
+2024-02-07 23:48:39,563 [5] INFO  eStatementAgentLog ParameterNameField : Fk_TaxRequestList
+ 
+2024-02-07 23:48:39,563 [5] INFO  eStatementAgentLog MappingRow Item : 240
+ 
+2024-02-07 23:48:39,563 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_ObligasiSummary_CustomerInformation].[Fk_TaxRequestList] - Fk_TaxRequestList
+ 
+2024-02-07 23:48:39,563 [5] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 23:48:39,563 [5] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 23:48:39,563 [5] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 23:48:39,579 [5] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 23:48:39,579 [5] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 23:48:39,590 [5] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 23:48:39,845 [5] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 23:48:39,845 [5] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 23:48:39,845 [5] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 23:48:39,846 [5] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 23:48:39,850 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification started
+ 
+2024-02-07 23:48:39,853 [5] INFO  eStatementAgentLog Distribute Statement started
+ 
+2024-02-07 23:48:39,854 [5] INFO  eStatementAgentLog Report Distribution Module: Variable initialize
+ 
+2024-02-07 23:48:39,855 [5] INFO  eStatementAgentLog Calling XML RPC Send Email started
+ 
+2024-02-07 23:48:39,856 [5] INFO  eStatementAgentLog True
+ 
+2024-02-07 23:48:39,857 [5] INFO  eStatementAgentLog Success Insert VerificationDataSource with statementVerificationID = 10442
+ 
+2024-02-07 23:48:39,858 [5] INFO  eStatementAgentLog Check Queue of Call Process Generate Email
+ 
+2024-02-07 23:48:39,862 [5] INFO  eStatementAgentLog Calling XML RPC Send Email
+ 
+2024-02-07 23:48:41,869 [5] INFO  eStatementAgentLog start update file name custom
+ 
+2024-02-07 23:48:41,869 [5] INFO  eStatementAgentLog end update file name custom
+ 
+2024-02-07 23:48:41,870 [5] INFO  eStatementAgentLog Calling XML RPC Send Email success
+ 
+2024-02-07 23:48:41,874 [5] INFO  eStatementAgentLog Build Statement Paths started
+ 
+2024-02-07 23:48:41,874 [5] INFO  eStatementAgentLog Save List Statement Distribution started
+ 
+2024-02-07 23:48:41,877 [5] INFO  eStatementAgentLog Search Query
+ 
+2024-02-07 23:48:41,877 [5] INFO  eStatementAgentLog Splitting data source by Customer skipped
+ 
+2024-02-07 23:48:41,880 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 23:48:41,880 [5] INFO  eStatementAgentLog started VerificationTax
+ 
+2024-02-07 23:48:41,880 [5] INFO  eStatementAgentLog SetStatementVerificationValid.
+ 
+2024-02-07 23:48:41,880 [5] INFO  eStatementAgentLog Finish SetStatementVerificationValid.
+ 
+2024-02-07 23:48:41,881 [5] INFO  eStatementAgentLog end VerificationTax
+ 
+2024-02-07 23:48:41,881 [5] INFO  eStatementAgentLog All phases proceed. No Error occur.
+ 
+2024-02-07 23:48:41,881 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 23:48:41,882 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 23:48:41,883 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 23:48:41,883 [5] INFO  eStatementAgentLog Process statement template 211
+ 
+2024-02-07 23:48:41,883 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 23:48:41,883 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 23:48:41,883 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 23:48:41,898 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 23:48:41,899 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 23:48:41,899 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 23:48:41,905 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 23:48:41,905 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 23:48:41,908 [5] INFO  eStatementAgentLog Done insert Remaining Data in 0,0009969 seconds. Executed query is SELECT	[account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 23:48:41,911 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0,0009989 seconds. Executed query is 			SELECT [account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 23:48:41,912 [5] INFO  eStatementAgentLog Save Statement Verification started
+ 
+2024-02-07 23:48:41,913 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 23:48:41,913 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 23:48:41,915 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '211','10443','2024-02-07'
+ 
+2024-02-07 23:48:41,915 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 23:48:41,915 [5] INFO  eStatementAgentLog Check Masking File Formula 139 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 23:48:41,917 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database skipped
+ 
+2024-02-07 23:48:41,917 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database started
+ 
+2024-02-07 23:48:41,918 [5] INFO  eStatementAgentLog Save Remaining Module: Insert process log detail
+ 
+2024-02-07 23:48:41,919 [5] INFO  eStatementAgentLog ReportServiceUserName : acer
+ 
+2024-02-07 23:48:41,923 [5] INFO  eStatementAgentLog ReportServicePwd : 12345
+ 
+2024-02-07 23:48:41,923 [5] INFO  eStatementAgentLog ReportServiceDomain : laptop-eh0ljrh7
+ 
+2024-02-07 23:48:41,923 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:48:41,927 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:48:41,927 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 23:48:41,927 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 23:48:41,927 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:48:41,949 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:48:41,949 [5] INFO  eStatementAgentLog ReportingService2010SoapClient AllowNtlm
+ 
+2024-02-07 23:48:41,949 [5] INFO  eStatementAgentLog ReportingService2010SoapClient ClientCredential
+ 
+2024-02-07 23:48:41,949 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:48:41,970 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient
+ 
+2024-02-07 23:48:41,975 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowedImpersonationLevel
+ 
+2024-02-07 23:48:41,975 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient AllowNtlm
+ 
+2024-02-07 23:48:41,975 [5] INFO  eStatementAgentLog ReportExecutionServiceSoapClient ClientCredential
+ 
+2024-02-07 23:48:41,975 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[fk_taxrequestlist]
+ 
+2024-02-07 23:48:41,978 [5] INFO  eStatementAgentLog CleanFieldName : fk_taxrequestlist
+ 
+2024-02-07 23:48:41,978 [5] INFO  eStatementAgentLog ParameterNameField : fk_taxrequestlist
+ 
+2024-02-07 23:48:41,978 [5] INFO  eStatementAgentLog MappingRow Item : 240
+ 
+2024-02-07 23:48:41,978 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[fk_taxrequestlist] - fk_taxrequestlist
+ 
+2024-02-07 23:48:41,978 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_OBS_CASATD
+ 
+2024-02-07 23:48:41,978 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 23:48:41,978 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 23:48:41,978 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_OBS_CASATD
+ 
+2024-02-07 23:48:41,978 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 23:48:41,979 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 23:48:42,038 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 23:48:42,038 [5] INFO  eStatementAgentLog Report IsReportExists : /TaxReports/TaxCustomerDeductedAdvice_OBS_CASATD
+ 
+2024-02-07 23:48:42,053 [5] INFO  eStatementAgentLog idx IsReportExists : 12
+ 
+2024-02-07 23:48:42,053 [5] INFO  eStatementAgentLog reportPath IsReportExists: /TaxReports
+ 
+2024-02-07 23:48:42,053 [5] INFO  eStatementAgentLog reportName IsReportExists: TaxCustomerDeductedAdvice_OBS_CASATD
+ 
+2024-02-07 23:48:42,053 [5] INFO  eStatementAgentLog Path IsItemExists : /TaxReports
+ 
+2024-02-07 23:48:42,053 [5] INFO  eStatementAgentLog SvrInfoHeader IsItemExists
+ 
+2024-02-07 23:48:42,060 [5] INFO  eStatementAgentLog IsReportExists : True
+ 
+2024-02-07 23:48:42,060 [5] INFO  eStatementAgentLog params IsReportParameterExists : Sahassa.ReportService.ItemParameter[]
+ 
+2024-02-07 23:48:42,070 [5] INFO  eStatementAgentLog Save Remaining Parallel Module: Variable initialize
+ 
+2024-02-07 23:48:42,071 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[fk_taxrequestlist]
+ 
+2024-02-07 23:48:42,071 [5] INFO  eStatementAgentLog CleanFieldName : fk_taxrequestlist
+ 
+2024-02-07 23:48:42,071 [5] INFO  eStatementAgentLog ParameterNameField : fk_taxrequestlist
+ 
+2024-02-07 23:48:42,071 [5] INFO  eStatementAgentLog MappingRow Item : 240
+ 
+2024-02-07 23:48:42,071 [5] INFO  eStatementAgentLog FieldMapping : [TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation].[fk_taxrequestlist] - fk_taxrequestlist
+ 
+2024-02-07 23:48:42,071 [5] INFO  eStatementAgentLog Before Report CleanReportString
+ 
+2024-02-07 23:48:42,071 [5] INFO  eStatementAgentLog After Report CleanReportString
+ 
+2024-02-07 23:48:42,071 [5] INFO  eStatementAgentLog After ExecHeader
+ 
+2024-02-07 23:48:42,087 [5] INFO  eStatementAgentLog ParamValues
+ 
+2024-02-07 23:48:42,087 [5] INFO  eStatementAgentLog SetExecutionParameters
+ 
+2024-02-07 23:48:42,100 [5] INFO  eStatementAgentLog SvrInfoHeader
+ 
+2024-02-07 23:48:42,892 [5] INFO  eStatementAgentLog password db pararel remaining: 
+ 
+2024-02-07 23:48:42,892 [5] INFO  eStatementAgentLog start stmt.InsertStatement
+ 
+2024-02-07 23:48:42,892 [5] INFO  eStatementAgentLog finish stmt.InsertStatement
+ 
+2024-02-07 23:48:42,893 [5] INFO  eStatementAgentLog insert statement email count 1
+ 
+2024-02-07 23:48:42,896 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification started
+ 
+2024-02-07 23:48:42,899 [5] INFO  eStatementAgentLog Distribute Statement started
+ 
+2024-02-07 23:48:42,900 [5] INFO  eStatementAgentLog Report Distribution Module: Variable initialize
+ 
+2024-02-07 23:48:42,900 [5] INFO  eStatementAgentLog Calling XML RPC Send Email started
+ 
+2024-02-07 23:48:42,901 [5] INFO  eStatementAgentLog True
+ 
+2024-02-07 23:48:42,901 [5] INFO  eStatementAgentLog Success Insert VerificationDataSource with statementVerificationID = 10443
+ 
+2024-02-07 23:48:42,901 [5] INFO  eStatementAgentLog Check Queue of Call Process Generate Email
+ 
+2024-02-07 23:48:42,903 [5] INFO  eStatementAgentLog Calling XML RPC Send Email
+ 
+2024-02-07 23:48:44,908 [5] INFO  eStatementAgentLog start update file name custom
+ 
+2024-02-07 23:48:44,908 [5] INFO  eStatementAgentLog end update file name custom
+ 
+2024-02-07 23:48:44,910 [5] INFO  eStatementAgentLog Calling XML RPC Send Email success
+ 
+2024-02-07 23:48:44,915 [5] INFO  eStatementAgentLog Build Statement Paths started
+ 
+2024-02-07 23:48:44,915 [5] INFO  eStatementAgentLog Save List Statement Distribution started
+ 
+2024-02-07 23:48:44,917 [5] INFO  eStatementAgentLog Search Query
+ 
+2024-02-07 23:48:44,917 [5] INFO  eStatementAgentLog Splitting data source by Customer skipped
+ 
+2024-02-07 23:48:44,919 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 23:48:44,920 [5] INFO  eStatementAgentLog started VerificationTax
+ 
+2024-02-07 23:48:44,920 [5] INFO  eStatementAgentLog SetStatementVerificationValid.
+ 
+2024-02-07 23:48:44,920 [5] INFO  eStatementAgentLog Finish SetStatementVerificationValid.
+ 
+2024-02-07 23:48:44,920 [5] INFO  eStatementAgentLog end VerificationTax
+ 
+2024-02-07 23:48:44,920 [5] INFO  eStatementAgentLog All phases proceed. No Error occur.
+ 
+2024-02-07 23:48:44,920 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 23:48:44,921 [5] INFO  eStatementAgentLog Start Declare Variable
+ 
+2024-02-07 23:48:44,922 [5] INFO  eStatementAgentLog End Declare Variable
+ 
+2024-02-07 23:48:44,922 [5] INFO  eStatementAgentLog Process statement template 212
+ 
+2024-02-07 23:48:44,922 [5] INFO  eStatementAgentLog Open Database Connection started
+ 
+2024-02-07 23:48:44,922 [5] INFO  eStatementAgentLog Check If The Same Statement Is Still Processing started
+ 
+2024-02-07 23:48:44,922 [5] INFO  eStatementAgentLog Load Statement Generator Parameter started
+ 
+2024-02-07 23:48:44,935 [5] INFO  eStatementAgentLog Period Validationskipped
+ 
+2024-02-07 23:48:44,935 [5] INFO  eStatementAgentLog Delete Related Data Before Processing started
+ 
+2024-02-07 23:48:44,936 [5] INFO  eStatementAgentLog Download Data skipped
+ 
+2024-02-07 23:48:44,938 [5] INFO  eStatementAgentLog Validation Date started
+ 
+2024-02-07 23:48:44,939 [5] INFO  eStatementAgentLog Load Report Data started
+ 
+2024-02-07 23:48:44,942 [7] INFO  eStatementAgentLog Done insert Remaining Data in 0,0009978 seconds. Executed query is SELECT	[account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID]
+FROM 
+( 
+     SELECT [account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID], ROW_NUMBER() OVER (ORDER BY DataID) AS NOURUT 
+     FROM [TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation]
+     WITH (NOLOCK) 
+) A
+
+ 
+2024-02-07 23:48:44,945 [5] INFO  eStatementAgentLog Done Load Sampling Data in 0,0005048 seconds. Executed query is 			SELECT [account_no], [cif], [fk_taxrequestlist], [customer_name], [DataID]
+         FROM [TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation]
+                 WITH (NOLOCK) 
+         
+
+ 
+2024-02-07 23:48:44,945 [5] INFO  eStatementAgentLog Insert Statment Verification Module: Saving
+ 
+2024-02-07 23:48:44,947 [5] INFO  eStatementAgentLog Save Statement Verification  canceled
+ 
+2024-02-07 23:48:44,948 [5] INFO  eStatementAgentLog Execute SP : 
+ 
+2024-02-07 23:48:44,948 [5] INFO  eStatementAgentLog exec usp_InsertStatementVerificationScheduller '212','10444','2024-02-07'
+ 
+2024-02-07 23:48:44,948 [5] INFO  eStatementAgentLog Executing.
+ 
+2024-02-07 23:48:44,948 [5] INFO  eStatementAgentLog Check Masking File Formula 140 Flag=0, Efective= 07/02/2024 00:00:00, Result= False
+ 
+2024-02-07 23:48:44,950 [5] INFO  eStatementAgentLog Generate Statement and Save Sampling To Database  canceled
+ 
+2024-02-07 23:48:44,950 [5] INFO  eStatementAgentLog Generate Statement and Save Statement To Database  canceled
+ 
+2024-02-07 23:48:44,950 [5] INFO  eStatementAgentLog Save Email Count and Statement Checksum Verification  canceled
+ 
+2024-02-07 23:48:44,951 [5] INFO  eStatementAgentLog Distribute Statement  canceled
+ 
+2024-02-07 23:48:44,951 [5] INFO  eStatementAgentLog Calling XML RPC Send Email  canceled
+ 
+2024-02-07 23:48:44,952 [5] INFO  eStatementAgentLog Build Statement Paths  canceled
+ 
+2024-02-07 23:48:44,952 [5] INFO  eStatementAgentLog Save List Statement Distribution  canceled
+ 
+2024-02-07 23:48:44,952 [5] INFO  eStatementAgentLog Splitting data source by Customer  canceled
+ 
+2024-02-07 23:48:44,953 [5] INFO  eStatementAgentLog Start part of mukti
+ 
+2024-02-07 23:48:44,953 [5] INFO  eStatementAgentLog  canceled
+ 
+2024-02-07 23:48:44,953 [5] INFO  eStatementAgentLog Cleaning started
+ 
+2024-02-07 23:48:44,953 [5] INFO  eStatementAgentLog Finalizing started
+ 
+2024-02-07 23:48:44,953

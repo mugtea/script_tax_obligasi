@@ -1,0 +1,68 @@
+﻿Installing assembly 'D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.InstallLog
+Installing service eStatement Generator Tax Service Scheduller...
+Creating EventLog source eStatement Generator Tax Service Scheduller in log Application...
+Rolling back assembly 'D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.InstallLog
+Restoring event log to previous state for source eStatement Generator Tax Service Scheduller.
+An exception occurred during the Rollback phase of the System.Diagnostics.EventLogInstaller installer.
+System.Security.SecurityException: The source was not found, but some or all event logs could not be searched.  Inaccessible logs: Security.
+An exception occurred during the Rollback phase of the installation. This exception will be ignored and the rollback will continue. However, the machine might not fully revert to its initial state after the rollback is complete.
+Installing assembly 'D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.InstallLog
+Installing service eStatement Generator Tax Service Scheduller...
+Service eStatement Generator Tax Service Scheduller has been successfully installed.
+Creating EventLog source eStatement Generator Tax Service Scheduller in log Application...
+Committing assembly 'D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.InstallLog
+Installing assembly 'D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.InstallLog
+Installing service eStatement Generator Tax Service Scheduller...
+Service eStatement Generator Tax Service Scheduller has been successfully installed.
+Creating EventLog source eStatement Generator Tax Service Scheduller in log Application...
+Committing assembly 'D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.InstallLog
+Installing assembly 'D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.InstallLog
+Installing service eStatement Generator Tax Service Scheduller...
+Service eStatement Generator Tax Service Scheduller has been successfully installed.
+Creating EventLog source eStatement Generator Tax Service Scheduller in log Application...
+Committing assembly 'D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.InstallLog
+Installing assembly 'D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.InstallLog
+Installing service eStatement Generator Tax Service Scheduller...
+Service eStatement Generator Tax Service Scheduller has been successfully installed.
+Creating EventLog source eStatement Generator Tax Service Scheduller in log Application...
+Committing assembly 'D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\SERVICES\EmailAgentService\bin\Debug\eStatementGeneratorTaxServiceScheduller.InstallLog

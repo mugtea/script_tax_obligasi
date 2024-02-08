@@ -1,0 +1,1990 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+SahassaLib
+</name>
+</assembly>
+<members>
+<member name="T:Sahassa.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Sahassa.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Sahassa.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:Sahassa.DataAccess.DataTableIndex">
+ <summary>
+		Allows quick lookups on DataTables based on column values instead of using the super
+		slow Select method of a DataTable.
+ </summary>
+ 
+</member>
+<member name="M:Sahassa.DataAccess.DataTableIndex.Find(System.Object[])">
+ <summary>
+		Searches for DataRow's using an indexed lookup.
+ </summary>
+ <param name="value">
+		Value order must directly match the order of the columns passed in to the constructor.
+ </param>
+ <returns>
+		The matching DataRow's.
+ </returns>
+</member>
+<member name="T:Sahassa.DataAccess.VarBinaryStream">
+ <summary>
+ The VarBinaryStream class inherits from Stream. It uses a
+ VarBinarySource class to execute the actual TSQL.
+ </summary>
+</member>
+<member name="T:Sahassa.DataAccess.VarBinarySource">
+ <summary>
+ The VarBinarySource class constructs the TSQL used
+ to read to / write from the VARBINARY(MAX) column.
+ IT is currently specialised for a table with a single
+ int column for a PK, but this can be easily generalised
+ for compound keys.
+ </summary>
+</member>
+<member name="T:Sahassa.Encryption.Hash">
+ <summary>
+ Hash functions are fundamental to modern cryptography. These functions map binary 
+ strings of an arbitrary length to small binary strings of a fixed length, known as 
+ hash values. A cryptographic hash function has the property that it is computationally
+ infeasible to find two distinct inputs that hash to the same value. Hash functions 
+ are commonly used with digital signatures and for data integrity.
+ </summary>
+</member>
+<member name="T:Sahassa.Encryption.Hash.Provider">
+ <summary>
+ Type of hash; some are security oriented, others are fast and simple
+ </summary>
+</member>
+<member name="F:Sahassa.Encryption.Hash.Provider.CRC32">
+ <summary>
+ Cyclic Redundancy Check provider, 32-bit
+ </summary>
+</member>
+<member name="F:Sahassa.Encryption.Hash.Provider.SHA1">
+ <summary>
+ Secure Hashing Algorithm provider, SHA-1 variant, 160-bit
+ </summary>
+</member>
+<member name="F:Sahassa.Encryption.Hash.Provider.SHA256">
+ <summary>
+ Secure Hashing Algorithm provider, SHA-2 variant, 256-bit
+ </summary>
+</member>
+<member name="F:Sahassa.Encryption.Hash.Provider.SHA384">
+ <summary>
+ Secure Hashing Algorithm provider, SHA-2 variant, 384-bit
+ </summary>
+</member>
+<member name="F:Sahassa.Encryption.Hash.Provider.SHA512">
+ <summary>
+ Secure Hashing Algorithm provider, SHA-2 variant, 512-bit
+ </summary>
+</member>
+<member name="F:Sahassa.Encryption.Hash.Provider.MD5">
+ <summary>
+ Message Digest algorithm 5, 128-bit
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Hash.#ctor(Sahassa.Encryption.Hash.Provider)">
+ <summary>
+ Instantiate a new hash of the specified type
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Hash.Value">
+ <summary>
+ Returns the previously calculated hash
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Hash.Calculate(System.IO.Stream@)">
+ <summary>
+ Calculates hash on a stream of arbitrary length
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Hash.Calculate(Sahassa.Encryption.Data)">
+ <summary>
+ Calculates hash for fixed length <see cref="T:Sahassa.Encryption.Data"/>
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Hash.Calculate(Sahassa.Encryption.Data,Sahassa.Encryption.Data)">
+ <summary>
+ Calculates hash for a string with a prefixed salt value. 
+ A "salt" is random data prefixed to every hashed value to prevent 
+ common dictionary attacks.
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Hash.CalculatePrivate(System.Byte[])">
+ <summary>
+ Calculates hash for an array of bytes
+ </summary>
+</member>
+<member name="T:Sahassa.Encryption.Symmetric">
+ <summary>
+ Symmetric encryption uses a single key to encrypt and decrypt. 
+ Both parties (encryptor and decryptor) must share the same secret key.
+ </summary>
+</member>
+<member name="F:Sahassa.Encryption.Symmetric.Provider.DES">
+ <summary>
+ The Data Encryption Standard provider supports a 64 bit key only
+ </summary>
+</member>
+<member name="F:Sahassa.Encryption.Symmetric.Provider.RC2">
+ <summary>
+ The Rivest Cipher 2 provider supports keys ranging from 40 to 128 bits, default is 128 bits
+ </summary>
+</member>
+<member name="F:Sahassa.Encryption.Symmetric.Provider.Rijndael">
+ <summary>
+ The Rijndael (also known as AES) provider supports keys of 128, 192, or 256 bits with a default of 256 bits
+ </summary>
+</member>
+<member name="F:Sahassa.Encryption.Symmetric.Provider.TripleDES">
+ <summary>
+ The TripleDES provider (also known as 3DES) supports keys of 128 or 192 bits with a default of 192 bits
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.#ctor(Sahassa.Encryption.Symmetric.Provider,System.Boolean)">
+ <summary>
+ Instantiates a new symmetric encryption object using the specified provider.
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Symmetric.KeySizeBytes">
+ <summary>
+ Key size in bytes. We use the default key size for any given provider; if you 
+ want to force a specific key size, set this property
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Symmetric.KeySizeBits">
+ <summary>
+ Key size in bits. We use the default key size for any given provider; if you 
+ want to force a specific key size, set this property
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Symmetric.Key">
+ <summary>
+ The key used to encrypt/decrypt data
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Symmetric.IntializationVector">
+ <summary>
+ Using the default Cipher Block Chaining (CBC) mode, all data blocks are processed using
+ the value derived from the previous block; the first data block has no previous data block
+ to use, so it needs an InitializationVector to feed the first block
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.RandomInitializationVector">
+ <summary>
+ generates a random Initialization Vector, if one was not provided
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.RandomKey">
+ <summary>
+ generates a random Key, if one was not provided
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.ValidateKeyAndIv(System.Boolean)">
+ <summary>
+ Ensures that _crypto object has valid Key and IV
+ prior to any attempt to encrypt/decrypt anything
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.Encrypt(Sahassa.Encryption.Data,Sahassa.Encryption.Data)">
+ <summary>
+ Encrypts the specified Data using provided key
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.Encrypt(Sahassa.Encryption.Data)">
+ <summary>
+ Encrypts the specified Data using preset key and preset initialization vector
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.Encrypt(System.IO.Stream,Sahassa.Encryption.Data,Sahassa.Encryption.Data)">
+ <summary>
+ Encrypts the stream to memory using provided key and provided initialization vector
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.Encrypt(System.IO.Stream,Sahassa.Encryption.Data)">
+ <summary>
+ Encrypts the stream to memory using specified key
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.Encrypt(System.IO.Stream)">
+ <summary>
+ Encrypts the specified stream to memory using preset key and preset initialization vector
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.Decrypt(Sahassa.Encryption.Data,Sahassa.Encryption.Data)">
+ <summary>
+ Decrypts the specified data using provided key and preset initialization vector
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.Decrypt(System.IO.Stream,Sahassa.Encryption.Data)">
+ <summary>
+ Decrypts the specified stream using provided key and preset initialization vector
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.Decrypt(System.IO.Stream)">
+ <summary>
+ Decrypts the specified stream using preset key and preset initialization vector
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Symmetric.Decrypt(Sahassa.Encryption.Data)">
+ <summary>
+ Decrypts the specified data using preset key and preset initialization vector
+ </summary>
+</member>
+<member name="T:Sahassa.Encryption.Asymmetric">
+ <summary>
+ Asymmetric encryption uses a pair of keys to encrypt and decrypt.
+ There is a "public" key which is used to encrypt. Decrypting, on the other hand, 
+ requires both the "public" key and an additional "private" key. The advantage is 
+ that people can send you encrypted messages without being able to decrypt them.
+ </summary>
+ <remarks>
+ The only provider supported is the <see cref="T:System.Security.Cryptography.RSACryptoServiceProvider"/>
+ </remarks>
+</member>
+<member name="T:Sahassa.Encryption.Asymmetric.PublicKey">
+ <summary>
+ Represents a public encryption key. Intended to be shared, it 
+ contains only the Modulus and Exponent.
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.PublicKey.ToConfigSection">
+ <summary>
+ Returns *.config file XML section representing this public key
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.PublicKey.ExportToConfigFile(System.String)">
+ <summary>
+ Writes the *.config file representation of this public key to a file
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.PublicKey.LoadFromXml(System.String)">
+ <summary>
+ Loads the public key from its XML string
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.PublicKey.ToParameters">
+ <summary>
+ Converts this public key to an RSAParameters object
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.PublicKey.ToXml">
+ <summary>
+ Converts this public key to its XML string representation
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.PublicKey.ExportToXmlFile(System.String)">
+ <summary>
+ Writes the Xml representation of this public key to a file
+ </summary>
+</member>
+<member name="T:Sahassa.Encryption.Asymmetric.PrivateKey">
+ <summary>
+ Represents a private encryption key. Not intended to be shared, as it 
+ contains all the elements that make up the key.
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.PrivateKey.ToParameters">
+ <summary>
+ Converts this private key to an RSAParameters object
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.PrivateKey.ToConfigSection">
+ <summary>
+ Returns *.config file XML section representing this private key
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.PrivateKey.ExportToConfigFile(System.String)">
+ <summary>
+ Writes the *.config file representation of this private key to a file
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.PrivateKey.LoadFromXml(System.String)">
+ <summary>
+ Loads the private key from its XML string
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.PrivateKey.ToXml">
+ <summary>
+ Converts this private key to its XML string representation
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.PrivateKey.ExportToXmlFile(System.String)">
+ <summary>
+ Writes the Xml representation of this private key to a file
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.#ctor">
+ <summary>
+ Instantiates a new asymmetric encryption session using the default key size; 
+ this is usally 1024 bits
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.#ctor(System.Int32)">
+ <summary>
+ Instantiates a new asymmetric encryption session using a specific key size
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Asymmetric.KeyContainerName">
+ <summary>
+ Sets the name of the key container used to store this key on disk; this is an 
+ unavoidable side effect of the underlying Microsoft CryptoAPI. 
+ </summary>
+ <remarks>
+ http://support.microsoft.com/default.aspx?scid=http://support.microsoft.com:80/support/kb/articles/q322/3/71.asp&amp;NoWebContent=1
+ </remarks>
+</member>
+<member name="P:Sahassa.Encryption.Asymmetric.KeySizeBits">
+ <summary>
+ Returns the current key size, in bits
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Asymmetric.KeySizeMaxBits">
+ <summary>
+ Returns the maximum supported key size, in bits
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Asymmetric.KeySizeMinBits">
+ <summary>
+ Returns the minimum supported key size, in bits
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Asymmetric.KeySizeStepBits">
+ <summary>
+ Returns valid key step sizes, in bits
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.GenerateNewKeyset(Sahassa.Encryption.Asymmetric.PublicKey@,Sahassa.Encryption.Asymmetric.PrivateKey@)">
+ <summary>
+ Generates a new public/private key pair as objects
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.GenerateNewKeyset(System.String@,System.String@)">
+ <summary>
+ Generates a new public/private key pair as XML strings
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.Encrypt(Sahassa.Encryption.Data,Sahassa.Encryption.Asymmetric.PublicKey)">
+ <summary>
+ Encrypts data using the provided public key
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.Encrypt(Sahassa.Encryption.Data,System.String)">
+ <summary>
+ Encrypts data using the provided public key as XML
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.Decrypt(Sahassa.Encryption.Data,Sahassa.Encryption.Asymmetric.PrivateKey)">
+ <summary>
+ Decrypts data using the provided private key
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.Decrypt(Sahassa.Encryption.Data,System.String)">
+ <summary>
+ Decrypts data using the provided private key as XML
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Asymmetric.GetRSAProvider">
+ <summary>
+ gets the default RSA provider using the specified key size; 
+ note that Microsoft's CryptoAPI has an underlying file system dependency that is unavoidable
+ </summary>
+ <remarks>
+ http://support.microsoft.com/default.aspx?scid=http://support.microsoft.com:80/support/kb/articles/q322/3/71.asp&amp;NoWebContent=1
+ </remarks>
+</member>
+<member name="T:Sahassa.Encryption.Data">
+ <summary>
+ represents Hex, Byte, Base64, or String data to encrypt/decrypt;
+ use the .Text property to set/get a string representation 
+ use the .Hex property to set/get a string-based Hexadecimal representation 
+ use the .Base64 to set/get a string-based Base64 representation 
+ </summary>
+</member>
+<member name="F:Sahassa.Encryption.Data.DefaultEncoding">
+ <summary>
+ Determines the default text encoding across ALL Data instances
+ </summary>
+</member>
+<member name="F:Sahassa.Encryption.Data.Encoding">
+ <summary>
+ Determines the default text encoding for this Data instance
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Data.#ctor">
+ <summary>
+ Creates new, empty encryption data
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Data.#ctor(System.Byte[])">
+ <summary>
+ Creates new encryption data with the specified byte array
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Data.#ctor(System.String)">
+ <summary>
+ Creates new encryption data with the specified string; 
+ will be converted to byte array using default encoding
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Data.#ctor(System.String,System.Text.Encoding)">
+ <summary>
+ Creates new encryption data using the specified string and the 
+ specified encoding to convert the string to a byte array.
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Data.IsEmpty">
+ <summary>
+ returns true if no data is present
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Data.StepBytes">
+ <summary>
+ allowed step interval, in bytes, for this data; if 0, no limit
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Data.StepBits">
+ <summary>
+ allowed step interval, in bits, for this data; if 0, no limit
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Data.MinBytes">
+ <summary>
+ minimum number of bytes allowed for this data; if 0, no limit
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Data.MinBits">
+ <summary>
+ minimum number of bits allowed for this data; if 0, no limit
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Data.MaxBytes">
+ <summary>
+ maximum number of bytes allowed for this data; if 0, no limit
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Data.MaxBits">
+ <summary>
+ maximum number of bits allowed for this data; if 0, no limit
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Data.Bytes">
+ <summary>
+ Returns the byte representation of the data; 
+ This will be padded to MinBytes and trimmed to MaxBytes as necessary!
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Data.Text">
+ <summary>
+ Sets or returns text representation of bytes using the default text encoding
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Data.Hex">
+ <summary>
+ Sets or returns Hex string representation of this data
+ </summary>
+</member>
+<member name="P:Sahassa.Encryption.Data.Base64">
+ <summary>
+ Sets or returns Base64 string representation of this data
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Data.ToString">
+ <summary>
+ Returns text representation of bytes using the default text encoding
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Data.ToBase64">
+ <summary>
+ returns Base64 string representation of this data
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Data.ToHex">
+ <summary>
+ returns Hex string representation of this data
+ </summary>
+</member>
+<member name="T:Sahassa.Encryption.Utils">
+ <summary>
+ Friend class for shared utility methods used by multiple Encryption classes
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Utils.ToHex(System.Byte[])">
+ <summary>
+ converts an array of bytes to a string Hex representation
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Utils.FromHex(System.String)">
+ <summary>
+ converts from a string Hex representation to an array of bytes
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Utils.FromBase64(System.String)">
+ <summary>
+ converts from a string Base64 representation to an array of bytes
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Utils.ToBase64(System.Byte[])">
+ <summary>
+ converts from an array of bytes to a string Base64 representation
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Utils.GetXmlElement(System.String,System.String)">
+ <summary>
+ retrieve an element from an XML string
+ </summary>
+</member>
+<member name="M:Sahassa.Encryption.Utils.WriteConfigKey(System.String,System.String)">
+ <summary>
+ Returns the specified string value from the application .config file
+ </summary>
+</member>
+<member name="T:Sahassa.ReportExecution.TrustedUserHeader">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.TrustedUserHeader.UserName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.TrustedUserHeader.UserToken">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.TrustedUserHeader.AnyAttr">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.Extension">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.Extension.ExtensionType">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.Extension.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.Extension.LocalizedName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.Extension.Visible">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.Extension.IsModelGenerationSupported">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ExtensionTypeEnum">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ExtensionTypeEnum.Delivery">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ExtensionTypeEnum.Render">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ExtensionTypeEnum.Data">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ExtensionTypeEnum.All">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.DocumentMapNode">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.DocumentMapNode.Label">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.DocumentMapNode.UniqueName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.DocumentMapNode.Children">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ParameterValueOrFieldReference">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ParameterValue">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ParameterValue.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ParameterValue.Value">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ParameterValue.Label">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.DataSourceCredentials">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.DataSourceCredentials.DataSourceName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.DataSourceCredentials.UserName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.DataSourceCredentials.Password">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.Warning">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.Warning.Code">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.Warning.Severity">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.Warning.ObjectName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.Warning.ObjectType">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.Warning.Message">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ExecutionHeader">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionHeader.ExecutionID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionHeader.AnyAttr">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ReportMargins">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportMargins.Top">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportMargins.Bottom">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportMargins.Left">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportMargins.Right">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ReportPaperSize">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportPaperSize.Height">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportPaperSize.Width">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.PageSettings">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.PageSettings.PaperSize">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.PageSettings.Margins">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.DataSourcePrompt">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.DataSourcePrompt.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.DataSourcePrompt.DataSourceID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.DataSourcePrompt.Prompt">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ValidValue">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ValidValue.Label">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ValidValue.Value">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ReportParameter">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.Type">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.TypeSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.Nullable">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.NullableSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.AllowBlank">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.AllowBlankSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.MultiValue">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.MultiValueSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.QueryParameter">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.QueryParameterSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.Prompt">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.PromptUser">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.PromptUserSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.Dependencies">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.ValidValuesQueryBased">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.ValidValuesQueryBasedSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.ValidValues">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.DefaultValuesQueryBased">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.DefaultValuesQueryBasedSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.DefaultValues">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.State">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.StateSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ReportParameter.ErrorMessage">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ParameterTypeEnum">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ParameterTypeEnum.Boolean">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ParameterTypeEnum.DateTime">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ParameterTypeEnum.Integer">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ParameterTypeEnum.Float">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ParameterTypeEnum.String">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ParameterStateEnum">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ParameterStateEnum.HasValidValue">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ParameterStateEnum.MissingValidValue">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ParameterStateEnum.HasOutstandingDependencies">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.ParameterStateEnum.DynamicValuesUnavailable">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ExecutionInfo">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.HasSnapshot">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.NeedsProcessing">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.AllowQueryExecution">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.CredentialsRequired">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.ParametersRequired">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.ExpirationDateTime">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.ExecutionDateTime">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.NumPages">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.Parameters">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.DataSourcePrompts">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.HasDocumentMap">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.ExecutionID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.ReportPath">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.HistoryID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.ReportPageSettings">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo.AutoRefreshInterval">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ExecutionInfo2">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ExecutionInfo2.PageCountMode">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.PageCountMode">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.PageCountMode.Actual">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.PageCountMode.Estimate">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.ServerInfoHeader">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ServerInfoHeader.ReportServerVersionNumber">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ServerInfoHeader.ReportServerEdition">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ServerInfoHeader.ReportServerVersion">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ServerInfoHeader.ReportServerDateTime">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportExecution.ServerInfoHeader.AnyAttr">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportExecution.SortDirectionEnum">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.SortDirectionEnum.None">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.SortDirectionEnum.Ascending">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportExecution.SortDirectionEnum.Descending">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.TrustedUserHeader">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.TrustedUserHeader.UserName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.TrustedUserHeader.UserToken">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.TrustedUserHeader.AnyAttr">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.CacheRefreshPlan">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CacheRefreshPlan.CacheRefreshPlanID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CacheRefreshPlan.ItemPath">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CacheRefreshPlan.Description">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CacheRefreshPlan.State">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CacheRefreshPlan.LastExecuted">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CacheRefreshPlan.ModifiedDate">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CacheRefreshPlan.ModifiedBy">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CacheRefreshPlan.LastRunStatus">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.CacheRefreshPlanState">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CacheRefreshPlanState.MissingParameterValue">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CacheRefreshPlanState.InvalidParameterValue">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CacheRefreshPlanState.UnknownItemParameter">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CacheRefreshPlanState.CachingNotEnabledOnItem">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.Job">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Job.JobID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Job.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Job.Path">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Job.Description">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Job.Machine">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Job.User">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Job.StartDateTime">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Job.JobActionName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Job.JobTypeName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Job.JobStatusName">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.Event">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Event.Type">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.Extension">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Extension.ExtensionTypeName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Extension.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Extension.LocalizedName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Extension.Visible">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Extension.IsModelGenerationSupported">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ExpirationDefinition">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ScheduleExpiration">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ScheduleExpiration.Item">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ScheduleDefinition">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ScheduleDefinition.StartDateTime">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ScheduleDefinition.EndDate">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ScheduleDefinition.EndDateSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ScheduleDefinition.Item">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.DailyRecurrence">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DailyRecurrence.DaysInterval">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.RecurrencePattern">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.MinuteRecurrence">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MinuteRecurrence.MinutesInterval">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.WeeklyRecurrence">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.WeeklyRecurrence.WeeksInterval">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.WeeklyRecurrence.WeeksIntervalSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.WeeklyRecurrence.DaysOfWeek">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.DaysOfWeekSelector">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DaysOfWeekSelector.Sunday">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DaysOfWeekSelector.Monday">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DaysOfWeekSelector.Tuesday">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DaysOfWeekSelector.Wednesday">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DaysOfWeekSelector.Thursday">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DaysOfWeekSelector.Friday">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DaysOfWeekSelector.Saturday">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.MonthlyDOWRecurrence">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthlyDOWRecurrence.WhichWeek">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthlyDOWRecurrence.WhichWeekSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthlyDOWRecurrence.DaysOfWeek">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthlyDOWRecurrence.MonthsOfYear">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.WeekNumberEnum">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.WeekNumberEnum.FirstWeek">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.WeekNumberEnum.SecondWeek">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.WeekNumberEnum.ThirdWeek">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.WeekNumberEnum.FourthWeek">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.WeekNumberEnum.LastWeek">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.MonthsOfYearSelector">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthsOfYearSelector.January">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthsOfYearSelector.February">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthsOfYearSelector.March">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthsOfYearSelector.April">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthsOfYearSelector.May">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthsOfYearSelector.June">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthsOfYearSelector.July">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthsOfYearSelector.August">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthsOfYearSelector.September">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthsOfYearSelector.October">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthsOfYearSelector.November">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthsOfYearSelector.December">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.MonthlyRecurrence">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthlyRecurrence.Days">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.MonthlyRecurrence.MonthsOfYear">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ScheduleDefinitionOrReference">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ScheduleReference">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ScheduleReference.ScheduleID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ScheduleReference.Definition">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.NoSchedule">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.TimeExpiration">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.TimeExpiration.Minutes">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.DataSourceCredentials">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceCredentials.DataSourceName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceCredentials.UserName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceCredentials.Password">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ItemParameter">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.ParameterTypeName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.Nullable">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.NullableSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.AllowBlank">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.AllowBlankSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.MultiValue">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.MultiValueSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.QueryParameter">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.QueryParameterSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.Prompt">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.PromptUser">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.PromptUserSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.Dependencies">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.ValidValuesQueryBased">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.ValidValuesQueryBasedSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.ValidValues">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.DefaultValuesQueryBased">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.DefaultValuesQueryBasedSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.DefaultValues">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.ParameterStateName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemParameter.ErrorMessage">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ValidValue">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ValidValue.Label">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ValidValue.Value">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.Schedule">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Schedule.ScheduleID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Schedule.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Schedule.Definition">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Schedule.Description">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Schedule.Creator">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Schedule.NextRunTime">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Schedule.NextRunTimeSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Schedule.LastRunTime">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Schedule.LastRunTimeSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Schedule.ReferencesPresent">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Schedule.ScheduleStateName">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ModelPerspective">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelPerspective.ID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelPerspective.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelPerspective.Description">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ModelCatalogItem">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelCatalogItem.Model">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelCatalogItem.Description">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelCatalogItem.Perspectives">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ModelItem">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelItem.ID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelItem.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelItem.ModelItemTypeName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelItem.Description">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelItem.ModelItems">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ModelDrillthroughReport">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelDrillthroughReport.Path">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ModelDrillthroughReport.Type">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.DrillthroughType">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.DrillthroughType.Detail">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.DrillthroughType.List">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.DataSourcePrompt">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourcePrompt.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourcePrompt.DataSourceID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourcePrompt.Prompt">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.Policy">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Policy.GroupUserName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Policy.Roles">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.Role">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Role.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Role.Description">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.Task">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Task.TaskID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Task.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Task.Description">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.DataSource">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSource.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSource.Item">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.DataSourceDefinition">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.Extension">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.ConnectString">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.UseOriginalConnectString">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.OriginalConnectStringExpressionBased">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.CredentialRetrieval">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.WindowsCredentials">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.ImpersonateUser">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.ImpersonateUserSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.Prompt">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.UserName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.Password">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.Enabled">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceDefinition.EnabledSpecified">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.CredentialRetrievalEnum">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.CredentialRetrievalEnum.Prompt">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.CredentialRetrievalEnum.Store">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.CredentialRetrievalEnum.Integrated">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.CredentialRetrievalEnum.None">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.DataSourceDefinitionOrReference">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.DataSourceReference">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSourceReference.Reference">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.InvalidDataSourceReference">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.Subscription">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.SubscriptionID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.Owner">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.Path">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.VirtualPath">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.Report">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.DeliverySettings">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.Description">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.Status">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.Active">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.LastExecuted">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.LastExecutedSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.ModifiedBy">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.ModifiedDate">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.EventType">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Subscription.IsDataDriven">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ExtensionSettings">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ExtensionSettings.Extension">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ExtensionSettings.ParameterValues">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ParameterFieldReference">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ParameterFieldReference.ParameterName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ParameterFieldReference.FieldAlias">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ParameterValueOrFieldReference">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ParameterValue">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ParameterValue.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ParameterValue.Value">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ParameterValue.Label">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ActiveState">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ActiveState.DeliveryExtensionRemoved">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ActiveState.DeliveryExtensionRemovedSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ActiveState.SharedDataSourceRemoved">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ActiveState.SharedDataSourceRemovedSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ActiveState.MissingParameterValue">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ActiveState.MissingParameterValueSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ActiveState.InvalidParameterValue">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ActiveState.InvalidParameterValueSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ActiveState.UnknownReportParameter">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ActiveState.UnknownReportParameterSpecified">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ExtensionParameter">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ExtensionParameter.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ExtensionParameter.DisplayName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ExtensionParameter.Required">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ExtensionParameter.RequiredSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ExtensionParameter.ReadOnly">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ExtensionParameter.Value">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ExtensionParameter.Error">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ExtensionParameter.Encrypted">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ExtensionParameter.IsPassword">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ExtensionParameter.ValidValues">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.QueryDefinition">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.QueryDefinition.CommandType">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.QueryDefinition.CommandText">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.QueryDefinition.Timeout">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.QueryDefinition.TimeoutSpecified">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.Field">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Field.Alias">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Field.Name">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.DataSetDefinition">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSetDefinition.Fields">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSetDefinition.Query">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSetDefinition.CaseSensitivity">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSetDefinition.CaseSensitivitySpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSetDefinition.Collation">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSetDefinition.AccentSensitivity">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSetDefinition.AccentSensitivitySpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSetDefinition.KanatypeSensitivity">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSetDefinition.KanatypeSensitivitySpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSetDefinition.WidthSensitivity">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSetDefinition.WidthSensitivitySpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataSetDefinition.Name">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.SensitivityEnum">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.SensitivityEnum.True">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.SensitivityEnum.False">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.SensitivityEnum.Auto">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.DataRetrievalPlan">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataRetrievalPlan.Item">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.DataRetrievalPlan.DataSet">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ItemReferenceData">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemReferenceData.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemReferenceData.Reference">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemReferenceData.ReferenceType">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ItemReference">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemReference.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemReference.Reference">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ItemNamespaceHeader">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemNamespaceHeader.ItemNamespace">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemNamespaceHeader.AnyAttr">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ItemNamespaceEnum">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.ItemNamespaceEnum.PathBased">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.ItemNamespaceEnum.GUIDBased">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.SearchCondition">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.SearchCondition.Condition">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.SearchCondition.ConditionSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.SearchCondition.Values">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.SearchCondition.Name">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ConditionEnum">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.ConditionEnum.Contains">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.ConditionEnum.Equals">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.ConditionEnum.In">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.ConditionEnum.Between">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ItemHistorySnapshot">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemHistorySnapshot.HistoryID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemHistorySnapshot.CreationDate">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ItemHistorySnapshot.Size">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.SYSTEMTIME">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.SYSTEMTIME.year">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.SYSTEMTIME.month">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.SYSTEMTIME.dayOfWeek">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.SYSTEMTIME.day">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.SYSTEMTIME.hour">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.SYSTEMTIME.minute">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.SYSTEMTIME.second">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.SYSTEMTIME.milliseconds">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.TimeZoneInformation">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.TimeZoneInformation.Bias">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.TimeZoneInformation.StandardBias">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.TimeZoneInformation.StandardDate">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.TimeZoneInformation.DaylightBias">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.TimeZoneInformation.DaylightDate">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.ServerInfoHeader">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ServerInfoHeader.ReportServerVersionNumber">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ServerInfoHeader.ReportServerEdition">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ServerInfoHeader.ReportServerVersion">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ServerInfoHeader.ReportServerDateTime">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ServerInfoHeader.ReportServerTimeZoneInfo">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.ServerInfoHeader.AnyAttr">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.Warning">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Warning.Code">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Warning.Severity">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Warning.ObjectName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Warning.ObjectType">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Warning.Message">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.CatalogItem">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.ID">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.Path">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.VirtualPath">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.TypeName">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.Size">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.SizeSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.Description">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.Hidden">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.HiddenSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.CreationDate">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.CreationDateSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.ModifiedDate">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.ModifiedDateSpecified">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.CreatedBy">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.ModifiedBy">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.CatalogItem.ItemMetadata">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.Property">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Property.Name">
+<remarks/>
+</member>
+<member name="P:Sahassa.ReportService.Property.Value">
+<remarks/>
+</member>
+<member name="T:Sahassa.ReportService.BooleanOperatorEnum">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.BooleanOperatorEnum.And">
+<remarks/>
+</member>
+<member name="F:Sahassa.ReportService.BooleanOperatorEnum.Or">
+<remarks/>
+</member>
+</members>
+</doc>

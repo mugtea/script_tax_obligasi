@@ -1,0 +1,78 @@
+﻿Installing assembly 'D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.InstallLog
+Installing service EStatement Email Agent Danamon Services  Tax...
+Service EStatement Email Agent Danamon Services  Tax has been successfully installed.
+Creating EventLog source EStatement Email Agent Danamon Services  Tax in log Application...
+Committing assembly 'D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.InstallLog
+Installing assembly 'D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.InstallLog
+Installing service EStatement Email Agent Danamon Services  Tax...
+Creating EventLog source EStatement Email Agent Danamon Services  Tax in log Application...
+Rolling back assembly 'D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.InstallLog
+Restoring event log to previous state for source EStatement Email Agent Danamon Services  Tax.
+Installing assembly 'D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.InstallLog
+Installing service EStatement Email Agent Danamon Services  Tax...
+Creating EventLog source EStatement Email Agent Danamon Services  Tax in log Application...
+Rolling back assembly 'D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.InstallLog
+Restoring event log to previous state for source EStatement Email Agent Danamon Services  Tax.
+Installing assembly 'D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.InstallLog
+Installing service EStatement Email Agent Danamon Services  Tax...
+Creating EventLog source EStatement Email Agent Danamon Services  Tax in log Application...
+Rolling back assembly 'D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.InstallLog
+Restoring event log to previous state for source EStatement Email Agent Danamon Services  Tax.
+Installing assembly 'D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.InstallLog
+Installing service EStatement Email Agent Danamon Services  Tax...
+Creating EventLog source EStatement Email Agent Danamon Services  Tax in log Application...
+Rolling back assembly 'D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.InstallLog
+Restoring event log to previous state for source EStatement Email Agent Danamon Services  Tax.
+Installing assembly 'D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.InstallLog
+Installing service EStatement Email Agent Danamon Services  Tax...
+Service EStatement Email Agent Danamon Services  Tax has been successfully installed.
+Creating EventLog source EStatement Email Agent Danamon Services  Tax in log Application...
+Committing assembly 'D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.exe
+   logfile = D:\Sahassa\Project\Danamon\Phase 3\Service Email Agent 1 (1)\Service Email Agent\EmailAgentService\bin\Debug\EmailAgentServiceTax.InstallLog
