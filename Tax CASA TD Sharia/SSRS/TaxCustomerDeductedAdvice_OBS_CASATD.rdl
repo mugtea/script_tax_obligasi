@@ -3,20 +3,16 @@
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="eStatementConnection">
-      <ConnectionProperties>
-        <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=.\sqlserver;Initial Catalog=EngineStatement_BDI;Persist Security Info=True;User ID=sa;Password=keymaker</ConnectString>
-        <IntegratedSecurity>true</IntegratedSecurity>
-      </ConnectionProperties>
-      <rd:SecurityType>Integrated</rd:SecurityType>
-      <rd:DataSourceID>f90d6407-dbb8-441e-8947-3b5f9a8ff884</rd:DataSourceID>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>DB</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>e0ef51b0-9972-46fd-8bc8-dfd0cde8c599</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="SummaryTaxReporting">
       <Query>
-        <DataSourceName>eStatementConnection</DataSourceName>
+        <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@fk_taxrequestlist">
             <Value>=Parameters!fk_taxrequestlist.Value</Value>
