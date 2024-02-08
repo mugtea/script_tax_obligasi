@@ -1,0 +1,35 @@
+USE [Enginestatement_BDI]
+GO
+
+DROP TABLE IF EXISTS [TaxCustomerDeductedAdvice_OBS_History]
+
+CREATE TABLE [dbo].[TaxCustomerDeductedAdvice_OBS_History](
+	[DataID] [int] IDENTITY(1,1) NOT NULL,
+	[cif] [varchar](30) NOT NULL,
+	[cif_eoy] [varchar](30) NULL,
+	[customer_name] [varchar](150) NULL,
+	[account_no] [varchar](30) NULL,
+	[branch_code] [smallint] NULL,
+	[period_date] [datetime2](7) NULL,
+	[product_category] [varchar](50) NULL,
+	[product_code] [smallint] NULL,
+	[product_name] [varchar](50) NULL,
+	[currency_code] [varchar](5) NULL,
+	[balance_original] [decimal](23, 4) NULL,
+	[balance_idr] [decimal](23, 4) NULL,
+	[interest_original] [decimal](23, 4) NULL,
+	[interest_idr] [decimal](23, 4) NULL,
+	[interest_desc] [nvarchar](50) NULL,
+	[tax_original] [decimal](23, 4) NULL,
+	[tax_idr] [decimal](23, 4) NULL,
+	[tax_desc] [varchar](50) NULL,
+	[maturity_date] [varchar](30) NULL,
+	[account_status] [tinyint] NULL,
+	[date_pr] [varchar](30) NULL,
+	[period_type] [varchar](1) NULL,
+	[npwp] [varchar](30) NULL,
+	[alamat] [varchar](200) NULL
+) ON [PRIMARY]
+GO
+
+

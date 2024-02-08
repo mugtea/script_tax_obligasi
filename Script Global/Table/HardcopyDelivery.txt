@@ -1,0 +1,15 @@
+if not exists (select * From sys.tables where name like '%HardcopyDelivery%')
+BEGIN
+	CREATE TABLE [dbo].[HardcopyDelivery](
+	[Pk_HardcopyDelivery_Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[Pk_HardcopyDelivery_GUID] [uniqueidentifier] NOT NULL,
+	[FileDataName] [varchar](255) NOT NULL,
+	[DataStream] [varbinary](max) NULL,
+	[ContentType] [varchar](255) NOT NULL,
+	[TotalPages] [int] NOT NULL,
+	[Path] [varchar](255) NOT NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+END
+GO
+
+

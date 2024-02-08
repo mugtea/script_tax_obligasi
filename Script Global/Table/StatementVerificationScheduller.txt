@@ -1,0 +1,12 @@
+USE [Enginestatement_BDI]
+GO
+if not exists (select * From sys.tables where name like '%StatementVerificationScheduller%')
+BEGIN
+CREATE TABLE [dbo].[StatementVerificationScheduller](
+	[PK_StatementVerificationScheduller] [int] IDENTITY(1,1) NOT NULL,
+	[Fk_StatementVerification] [varchar](max) NULL,
+	[Fk_StatementTemplate] [varchar](max) NULL,
+	[Period] [date] NOT NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+end
+

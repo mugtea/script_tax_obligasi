@@ -1,0 +1,41 @@
+USE [Enginestatement_BDI]
+GO
+
+CREATE OR ALTER     view [dbo].[vw_TaxCustomerDeductedAdvice_OBS_GetUngeneratedFile]            
+as            
+select distinct S.Fk_MsStatementTemplate_Id, fd.DataStream, concat(s.CIFNo,'_',year(trl.period_start),'_',RIGHT(concat('00',MONTH(trl.period_start)),2),'-',RIGHT(concat('00',MONTH(trl.period_end)),2),'_',    
+CASE     
+ WHEN tbs.product_category not like '%syariah%' then 'Produk Simpanan'    
+ WHEN tbs.product_category like '%syariah%' then 'Produk Simpanan Syariah'    
+END ,'.pdf') as FileName, tbs.product_category From FileData fd            
+inner join MappingStatementFileData msf on msf.Fk_FileData_Id = fd.Pk_FileData_Id            
+inner join Statement s on msf.Fk_Statement_Id = s.Pk_Statement_Id            
+inner join TaxRequestList trl on trl.id = s.PostalCode --postal code = taxrequestlist
+inner join TaxCustomerDeductedAdvice_OBS_Summary tbs on tbs.ACCOUNT_NO = s.AccountNo and tbs.CIF = s.CIFNo    
+where             
+ trl.is_generated is null         
+ and fd.DataStream is not null        
+ and s.Fk_MsStatementTemplate_Id in (select Pk_MsStatementTemplate_Id From MsStatementTemplate where StatementTemplateName in ('Tax Reporting Casa TD','Tax Reporting Syariah'))  
+ union all  
+ select distinct S.Fk_MsStatementTemplate_Id, fd.DataStream, concat(s.CIFNo,'_',year(trl.period_start),'_',RIGHT(concat('00',MONTH(trl.period_start)),2),'-',RIGHT(concat('00',MONTH(trl.period_end)),2),'_',    
+'Obligasi,WM.pdf') [FileName],'' From FileData fd            
+inner join MappingStatementFileData msf on msf.Fk_FileData_Id = fd.Pk_FileData_Id            
+inner join Statement s on msf.Fk_Statement_Id = s.Pk_Statement_Id            
+inner join TaxRequestList trl on trl.id = s.FK_TaxRequestList       
+where             
+ trl.is_generated is null         
+ and fd.DataStream is not null       
+ and s.Fk_MsStatementTemplate_Id in (select Pk_MsStatementTemplate_Id From MsStatementTemplate where StatementTemplateName in ('Tax Obligasi Summary'))       
+ union all  
+  select distinct  S.Fk_MsStatementTemplate_Id, fd.DataStream, concat(s.CIFNo,'_',year(trl.period_start),'_',RIGHT(concat('00',MONTH(trl.period_start)),2),'-',RIGHT(concat('00',MONTH(trl.period_end)),2),'_',    
+'Bukti Pemotongan PPh Obligasi,WM.pdf') [FileName],'' From FileData fd            
+inner join MappingStatementFileData msf on msf.Fk_FileData_Id = fd.Pk_FileData_Id            
+inner join Statement s on msf.Fk_Statement_Id = s.Pk_Statement_Id            
+inner join TaxRequestList trl on trl.id = s.FK_TaxRequestList       
+where             
+ trl.is_generated is null         
+ and fd.DataStream is not null    
+ and s.Fk_MsStatementTemplate_Id in (select Pk_MsStatementTemplate_Id From MsStatementTemplate where StatementTemplateName in ('Tax Obligasi Detail'))   
+GO
+
+
