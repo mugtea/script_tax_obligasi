@@ -1,0 +1,16 @@
+CREATE   PROC [dbo].[usp_setCurrentStatementIDTaxEmail] (@CurrentFKStatementIDTax AS bigint)
+as
+begin
+	if not exists (select  *From SystemParameter where ParameterName = 'CurrentFKStatementIDTax')
+	begin
+		insert into SystemParameter (ParameterName,ParameterValue,Activation,CreatedDate,CreatedBy)
+		SELECT 'CurrentFKStatementIDTax',@CurrentFKStatementIDTax,1,GETDATE(),'system'
+	end
+	else 
+	begin
+		update SystemParameter 
+			set ParameterValue = @CurrentFKStatementIDTax
+		where ParameterName = 'CurrentFKStatementIDTax'
+	end
+end
+GO

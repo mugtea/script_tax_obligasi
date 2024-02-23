@@ -1,0 +1,15 @@
+ CREATE PROCEDURE [dbo].[TaxEmailandVerificationTemplate]
+ AS
+ BEGIN
+   UPDATE e
+   SET e.IsValidToSendEmail = 1
+   FROM EmailQueue e
+   INNER JOIN Statement s
+     ON e.Fk_Statement_Id = s.Pk_Statement_Id
+   WHERE s.Fk_MsStatementTemplate_Id IN (SELECT
+     Pk_MsStatementTemplate_Id
+   FROM MsStatementTemplate
+   WHERE StatementTemplateName IN ('Tax Reporting Casa TD', 'Tax Reporting Syariah', 'Tax Obligasi Summary', 'Tax Obligasi Detail'))
+ END
+ GO
+ 

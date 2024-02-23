@@ -1,0 +1,17 @@
+CREATE OR ALTER view [dbo].[vw_TaxCustomerDeductedAdvice_OBS_ObligasiSummary_Header]    
+ as    
+  SELECT distinct    
+   trl.period_start  TanggalAwalPelaporan,    
+   trl.period_end  TanggalAkhirPelaporan,    
+   osh.npwp npwp,         
+   osh.CIF CIF,    
+   osh.NamaNasabah NamaNasabah,    
+   trl.id  ,
+   osh.TanggalPerolehan
+ FROM (select * from (select ROW_NUMBER() over (partition by cif order by dataid desc) RowID, npwp, CIF,NamaNasabah, TanggalPerolehan from TaxCustomerDeductedAdvice_ObligasiSummary_History) x where x.RowID = 1) osh    
+ join TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation osci on osh.CIF = osci.CIF    
+ join TaxRequestList trl on trl.id = osci.Fk_TaxRequestList 
+  where year(trl.period_start) >= year(CAST(CONVERT(date,LEFT(osh.tanggalperolehan,10))  as date))
+  and year(trl.period_start) <= year(CAST(CONVERT(date,right(osh.tanggalperolehan,10))  as date))
+  and MONTH(trl.period_start) >= MONTH(CAST(CONVERT(date,LEFT(osh.tanggalperolehan,10))  as date))
+  and MONTH(trl.period_end) <= MONTH(CAST(CONVERT(date,right(osh.tanggalperolehan,10))  as date))

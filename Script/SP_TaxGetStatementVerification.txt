@@ -1,0 +1,14 @@
+ CREATE PROCEDURE [dbo].[TaxGetStatementVerification] (@pkStatementTemplateId as bigint) 
+ AS  
+   SELECT  
+     Pk_StatementVerification_Id  
+   FROM StatementVerification  
+   WHERE Fk_MsStatementTemplate_Id = @pkStatementTemplateId
+   --in (SELECT 
+   --    ParameterValue  
+   --  FROM systemparameter  
+   --  WHERE ParameterName in ('Fk_MsStatementTemplate_Id_Tax_Sharia','Fk_MsStatementTemplate_Id_Tax_Casatd'))  
+   AND ProcessDoneStatus = 0  
+   AND IsGeneratingEmail = 0
+ GO
+ 

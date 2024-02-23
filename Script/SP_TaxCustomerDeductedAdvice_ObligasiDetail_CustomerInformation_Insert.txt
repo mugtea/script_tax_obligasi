@@ -1,0 +1,25 @@
+CREATE OR ALTER PROC [dbo].[TaxCustomerDeductedAdvice_ObligasiDetail_CustomerInformation_Insert]
+AS
+BEGIN
+  IF EXISTS (SELECT TOP 1 * FROM TaxCustomerDeductedAdvice_ObligasiDetail_History)
+  BEGIN
+    INSERT INTO TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation (cif, customer_name, account_no, branch_code, postal_code, fk_taxrequestlist, DATE_BIRTH)
+    SELECT DISTINCT TRL.cif
+                  , toh.NamaWajibPajak
+                  , ''
+                  , TRL.id
+                  , TRL.id
+                  , TRL.id
+                  , case when (select top 1 DATE_BIRTH from TaxCustomerDeductedAdvice_OBS_History  WITH (NOLOCK)   where cif = toh.cif and date_birth is not null) is null then '000000' else (select top 1 DATE_BIRTH from TaxCustomerDeductedAdvice_OBS_History  WITH (NOLOCK)   where cif = toh.cif and date_birth is not null) end
+    FROM TaxRequestList TRL
+      INNER JOIN TAXCUSTOMERDEDUCTEDADVICE_OBLIGASIDetail_HISTORY toh ON TRL.cif = toh.cif
+    WHERE toh.date_pr BETWEEN TRL.period_start AND TRL.period_end
+      AND TRL.[status] IN ('waiting')
+      AND NOT EXISTS (
+        SELECT NULL
+        FROM TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation x
+        WHERE x.Fk_TaxRequestList = TRL.id
+      )
+  END
+END
+GO

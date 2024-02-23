@@ -1,0 +1,38 @@
+ CREATE    or alter   view [dbo].[vw_TaxCustomerDeductedAdvice_OBS_ObligasiDetail]        
+ as        
+ SELECT        
+  concat(FORMAT(osh.dataid, '00000'), '/CUST/PPH4/',FORMAT(osh.TanggalPotongPajak, 'MMyy')) taxNr,        
+   osh.npwp  npwp,        
+   osh.NamaWajibPajak,        
+   osh.Alamat,        
+   osh.NamaObligasi,        
+   CAST(concat('', format (osh.JumlahNilaiNominal, '#,##0', 'DE-de')) as varchar(255)) JumlahNilaiNominal,        
+   osh.NomorSeri,        
+   concat(osh.TingkatBunga,' %') TingkatBunga,        
+   dbo.sf_formatTanggal(osh.JatuhTempo) as JatuhTempo,        
+   CASE 
+ 	WHEN osh.trx_desc like '%Kupon%' OR  osh.TanggalPerolehan like '%1900%' THEN NULL 
+ 	else dbo.sf_formatTanggal(osh.TanggalPerolehan) END AS TanggalPerolehan,        
+   CASE 
+ 	WHEN osh.trx_desc like '%Kupon%' OR osh.TanggalPenjualan like '%1900%'  THEN NULL 
+ 	ELSE  dbo.sf_formatTanggal(osh.TanggalPenjualan) END AS TanggalPenjualan,        
+   cast(CASE WHEN osh.trx_desc like '%Kupon%' THEN NULL ELSE  concat('', format (osh.JumlahHargaPerolehanBersih, '#,##0', 'DE-de')) END as varchar(255)) AS JumlahHargaPerolehanBersih,        
+   cast(CASE WHEN osh.trx_desc like '%Kupon%' THEN NULL ELSE  concat('', format (osh.JumlahHargaJualBersih, '#,##0', 'DE-de')) END as varchar(255))AS JumlahHargaJualBersih,        
+   cast(CASE WHEN osh.trx_desc like '%Kupon%' THEN NULL ELSE  concat('', format (osh.diskonto, '#,##0', 'DE-de')) END as varchar(255))AS diskonto,        
+   cast(concat('', format (osh.accruedInterest, '#,##0', 'DE-de'))as varchar(255)) as accruedInterest,        
+   cast(concat('', format (osh.jumlah, '#,##0', 'DE-de'))as varchar(255)) as jumlah,          
+   cast(concat('', format (osh.Param_ppn, '#,##0', 'DE-de'))as varchar(255)) as Param_ppn,          
+   cast(concat('', format (osh.taxAmount, '#,##0', 'DE-de'))as varchar(255)) as taxAmount,         
+   osh.namapemotongpajak,        
+   osh.cif,        
+   osh.trx_desc,        
+   concat(dbo.Terbilang(taxAmount), ' Rupiah') as Terbilang,        
+   osh.DataID,
+   dbo.sf_formatTanggal(osh.tanggalpotongpajak)  tanggalpotongpajak
+ FROM TaxCustomerDeductedAdvice_ObligasiDetail_History osh
+ GO
+ 
+
+
+
+

@@ -1,0 +1,47 @@
+ CREATE OR ALTER  Proc [dbo].[TaxCustomerDeductedAdvice_ObligasiSummary_History_Insert]  
+ AS  
+ BEGIN  
+  IF DAY(GETDATE())<>5  
+  BEGIN  
+  RETURN  
+  END  
+   
+  IF (EXISTS (SELECT TOP 1 * FROM estatement.dbo.TAX_CSA_MONTH_SUMMARY with(nolock)))  
+  BEGIN  
+  INSERT INTO TaxCustomerDeductedAdvice_ObligasiSummary_History (npwp,  
+  CIF,  
+  NamaNasabah,  
+  NamaProduct,  
+  TanggalPerolehan,  
+  MataUang,  
+  Nominal,  
+  KeteranganTransaksi,  
+  Bunga,  
+  PPHFinal,  
+  Param_ppn,  
+  namapemotongpajak)  
+    SELECT  
+   npwp,  
+   CIF,  
+   NamaNasabah,  
+   NamaProduct,  
+   TanggalPerolehan,  
+   MataUang,  
+   Nominal,  
+   KeteranganTransaksi,  
+   Bunga,  
+   PPHFinal,  
+   Param_ppn,  
+   namapemotongpajak 
+    FROM estatement.dbo.TAX_CSA_MONTH_SUMMARY a with(nolock)  
+    WHERE NOT EXISTS (SELECT  
+   NULL  
+    FROM TaxCustomerDeductedAdvice_ObligasiSummary_History  
+    x  
+    WHERE x.cif = a.cif  
+    AND x.namaproduct = a.namaproduct  
+    AND x.tanggalperolehan = a.tanggalperolehan  
+    AND x.KeteranganTransaksi = a.KeteranganTransaksi  
+    )  
+  END  
+ END  

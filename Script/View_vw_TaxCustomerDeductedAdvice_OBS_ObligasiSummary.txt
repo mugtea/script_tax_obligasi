@@ -1,0 +1,23 @@
+
+     CREATE OR ALTER    VIEW [dbo].[vw_TaxCustomerDeductedAdvice_OBS_ObligasiSummary] AS SELECT      
+   trl.period_start  TanggalAwalPelaporan,      
+   trl.period_end  TanggalAkhirPelaporan,      
+   --osh.npwp npwp,      
+   --osh.CIF CIF,      
+   --osh.NamaNasabah NamaNasabah,      
+   osh.NamaProduct NamaProduct,      
+   --CONVERT(VARCHAR(10), CONVERT(DATE, REPLACE(SUBSTRING(osh.TanggalPerolehan, 1, 10), '-', '/')), 103)  ' - '  CONVERT(VARCHAR(10), CONVERT(DATE, REPLACE(SUBSTRING(osh.TanggalPerolehan, 14, 10), '-', '/')), 103) AS TanggalPerolehan,      
+   --OSH.TanggalPerolehan,
+   osh.MataUang MataUang,      
+   cast(concat(osh.MataUang,' ', format (SUM(osh.Nominal), '#,##0', 'DE-de'))as varchar(255)) Nominal,      
+   osh.KeteranganTransaksi KeteranganTransaksi,      
+   cast(concat(osh.MataUang,' ', format (SUM(osh.Bunga), '#,##0', 'DE-de'))as varchar(255)) Bunga,      
+   cast(concat(osh.MataUang,' ', format (SUM(osh.PPHFinal), '#,##0', 'DE-de'))as varchar(255)) PPHFinal,      
+   trl.id      
+ FROM TaxCustomerDeductedAdvice_ObligasiSummary_History osh      
+ join TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation osci on osh.CIF = osci.CIF      
+ join TaxRequestList trl on trl.id = osci.Fk_TaxRequestList      
+ where CONVERT(date,LEFT(osh.tanggalperolehan,10)) >= TRL.period_start and convert(date,right(osh.tanggalperolehan,10))  <= TRL.period_end    
+ GROUP BY osh.NamaProduct,  osh.MataUang, trl.id , OSH.KeteranganTransaksi   
+ --,trl.period_start,trl.period_end  , osh.TanggalPerolehan
+

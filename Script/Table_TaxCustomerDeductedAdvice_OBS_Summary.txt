@@ -1,0 +1,24 @@
+ CREATE TABLE [dbo].[TaxCustomerDeductedAdvice_OBS_Summary]
+ (
+ 	[CIF] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+ 	[CUSTOMER_NAME] [varchar] (150) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ 	[ACCOUNT_NO] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ 	[PRODUCT_NAME] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ 	[product_category] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ 	[currency_code] [varchar] (5) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ 	[interest_original] [decimal] (38,4) NULL,
+ 	[interest_idr] [decimal] (38,4) NULL,
+ 	[balance_idr] [decimal] (38,4) NULL,
+ 	[balance_original] [decimal] (38,4) NULL,
+ 	[tax_original] [decimal] (38,4) NULL,
+ 	[tax_idr] [decimal] (38,4) NULL,
+ 	[Periode] [varchar] (63) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ 	[periodstart] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ 	[periodend] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ 	[npwp] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ 	[alamat] [varchar] (200) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ 	[period_type] [varchar] (1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ 	[fk_taxrequestlist] [bigint] NULL
+ ) ON [PRIMARY]
+ GO
+ 

@@ -1,0 +1,122 @@
+create OR ALTER PROCEDURE [dbo].[TaxCustomerReportingHistory_Insert] AS       
+  BEGIN IF EXISTS (select top 1 * from  ESTATEMENT.DBO.TAX_CSA_MONTH WITH (NOLOCK))      
+   BEGIN       
+ IF DAY(GETDATE())<>5 AND EXISTS (SELECT TOP 1 * FROM [TaxCustomerDeductedAdvice_OBS_History] WITH(NOLOCK))
+ BEGIN  
+ RETURN  
+ END  
+   --drop index      
+   DROP INDEX IF EXISTS [CI_CIF] ON [dbo].[TaxCustomerDeductedAdvice_OBS_History]      
+   
+   --GET BULANAN
+   INSERT INTO TaxCustomerDeductedAdvice_OBS_History (      
+    cif, cif_eoy, customer_name, account_no,       
+    branch_code, period_date, product_category,       
+    product_code, product_name, currency_code,       
+    balance_original, balance_idr, interest_original,       
+    interest_idr, interest_desc, tax_original,       
+    tax_idr, tax_desc, maturity_date,       
+    account_status, date_pr, period_type, npwp, alamat, DATE_BIRTH     
+  )       
+  SELECT    
+		LEFT(cif,30),    
+		LEFT(cif_eoy,30),    
+		LEFT(customer_name,150),    
+		LEFT(account_no,30),    
+		CAST(branch_code AS varchar(10)) branch_code,    
+		period_date,    
+		LEFT(product_category, 50) product_category,    
+		product_code,    
+		LEFT(product_name, 50) product_name,    
+		currency_code,    
+		balance_original,    
+		balance_idr,    
+		interest_original,    
+		interest_idr,    
+		CAST(interest_desc AS nvarchar(100))interest_desc,    
+		tax_original,    
+		tax_idr,    
+		LEFT(sub_product_category , 50)tax_desc,    
+		'' maturity_date,    
+		'0' account_status,    
+		date_pr,    
+		'M' period_type,    
+		NPWP,    
+		CASE WHEN Address = '' THEN '' ELSE Concat(Address,', ',District_SubDistrict,', ',dbo.RemoveNonAlphaCharacters(City),', ',ZIP) END Address   
+		, REPLACE(CONVERT(VARCHAR(8),DATE_BIRTH,4),'.','')   
+  FROM  ESTATEMENT.DBO.TAX_FUND_MONTH E   
+WHERE       
+  NOT EXISTS (      
+    SELECT       
+      null       
+    FROM       
+      TaxCustomerDeductedAdvice_OBS_History d       
+    WHERE       
+      d.cif = e.cif       
+      and d.account_no = e.account_no       
+      and DATEDIFF(      
+        day, d.period_date, e.period_date      
+      )= 0 and d.period_type = 'M'     
+  )   
+
+  END  
+        
+  --GET TAHUNAN    
+   INSERT INTO TaxCustomerDeductedAdvice_OBS_History (      
+    cif, cif_eoy, customer_name, account_no,       
+    branch_code, period_date, product_category,       
+    product_code, product_name, currency_code,       
+    balance_original, balance_idr, interest_original,       
+    interest_idr, interest_desc, tax_original,       
+    tax_idr, tax_desc, maturity_date,       
+    account_status, date_pr, period_type, npwp, alamat, DATE_BIRTH     
+  )       
+  SELECT    
+		LEFT(cif,30),    
+		LEFT(cif_eoy,30),    
+		LEFT(customer_name,150),    
+		LEFT(account_no,30),    
+		SUBSTRING(branch_name, 1, (CHARINDEX(' ', branch_name + ' ') - 1)) branch_code,    
+		end_period AS period_date,    
+		LEFT(product_category, 50) product_category,    
+		SUBSTRING(product_name, 1, (CHARINDEX(' ', product_name + ' ') - 1)) product_code,    
+		LEFT(product_name, 50) product_name,    
+		currency_code,    
+		balance_original,    
+		balance_idr,    
+		interest_original,    
+		interest_idr,    
+		'' interest_desc,    
+		tax_original,    
+		tax_idr,    
+		LEFT(sub_product_category , 50)tax_desc,    
+		'' maturity_date,    
+		'0' account_status,    
+		date_pr,    
+		'Y' period_type,    
+		NPWP,    
+		CASE WHEN Address = '' THEN '' ELSE Concat(Address,', ',District_SubDistrict,', ',dbo.RemoveNonAlphaCharacters(City),', ',ZIP) END Address   
+		, REPLACE(CONVERT(VARCHAR(8),DATE_BIRTH,4),'.','')   
+  FROM  ESTATEMENT.DBO.TAX_FUND_YEAR E   
+WHERE       
+  NOT EXISTS (      
+    SELECT       
+      null       
+    FROM       
+      TaxCustomerDeductedAdvice_OBS_History d       
+    WHERE       
+      d.cif = e.cif       
+      and d.account_no = e.account_no       
+      and DATEDIFF(      
+        day, d.period_date, e.end_period      
+      )= 0 and d.period_type = 'Y'     
+  )   
+      
+CREATE CLUSTERED INDEX [CI_CIF] ON [dbo].[TaxCustomerDeductedAdvice_OBS_History]      
+(      
+ [cif] ASC,      
+ period_type ASC,      
+ [account_no] ASC      
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]      
+      
+END  

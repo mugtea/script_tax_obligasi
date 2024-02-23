@@ -1,0 +1,20 @@
+CREATE TABLE [dbo].[TaxRequestList]
+(
+	[id] [int] IDENTITY (1,1) NOT NULL,
+	[cif] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[period_start] [date] NULL,
+	[period_end] [date] NULL,
+	[year] [varchar] (4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[status] [varchar] (20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[email] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[email_requester] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[created_date] [datetime] NULL,
+	[updated_date] [datetime] NULL,
+	[unqiue_code] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[err_message] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[token] [varchar] (1000) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[body_data] [varchar] (8000) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[period_type] [varchar] (1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[is_generated] [bit] NULL
+) ON [PRIMARY]
+GO

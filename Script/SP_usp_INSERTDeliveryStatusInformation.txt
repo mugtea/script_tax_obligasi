@@ -1,0 +1,640 @@
+ALTER    Procedure [dbo].[usp_INSERTDeliveryStatusInformation]      
+(@StatusSummary BIGINT,       
+ @DeliveryType integer,      
+ @DeliveryCategory integer,      
+ @StatementVerificationID BIGINT)      
+AS      
+BEGIN      
+  
+--INSERT INTO LogSchedullerTax (DESCRIPTION)  
+--SELECT CONCAT('CALL [usp_INSERTDeliveryStatusInformation] ' , GETDATE())  
+       
+ Declare @STRQUERY as varchar(max)    
+ declare @Fk_MsStatementTemplate_Id as int, @TableName as varchar(200), @FieldPrimaryKey as varchar(200)    
+ declare @FieldCIFNumber as varchar(200), @FieldCustomerNumber as varchar(200), @FieldAccountNo as varchar(200), @Period as datetime    
+ declare @ColumnOrderBy as varchar(200), @OrderByWith as varchar(200), @xIsUsedOrderBy as bit=0  
+ select top 1 @Fk_MsStatementTemplate_Id=SG.Fk_MsStatementTemplate_Id, @TableName=replace(replace(SGPK.TableNameField,'[',''),']','')     
+ , @FieldPrimaryKey=replace(replace(replace(replace(SGPK.PrimaryKeyField,SGPK.TableNameField,''),'[',''),']',''),'.','')     
+ , @FieldCIFNumber=replace(replace(SG.FieldCIFNumber,'[',''),']',''), @FieldCustomerNumber=replace(replace(SG.FieldCustomerNumber,'[',''),']','')    
+ , @FieldAccountNo=replace(replace(SG.FieldAccountNo,'[',''),']','')    
+ , @Period=SV.Period    
+ , @ColumnOrderBy=replace(replace(replace(replace(SGET.ColumnOrderBy,'[',''),']',''),'<',''),'>','')    
+ , @OrderByWith=SGET.OrderByWith  
+ , @xIsUsedOrderBy = isnull(SGET.IsUsedOrderBy,0)    
+ from StatementGenerator SG with(nolock)    
+ inner join StatementGeneratorPrimaryKey SGPK with(nolock) on SG.PK_StatementGenerator_ID=SGPK.FK_StatementGenerator_ID    
+ inner join StatementVerification SV with(nolock) on SG.Fk_MsStatementTemplate_Id=SV.Fk_MsStatementTemplate_Id     
+ inner join StatementGeneratorEmailTemplate SGET with(nolock) on SG.PK_StatementGenerator_ID=SGET.FK_StatementGenerator_ID    
+ where SV.Pk_StatementVerification_Id=@StatementVerificationID    
+     
+ set @FieldCIFNumber = replace(replace(@FieldCIFNumber,@TableName,''),'.','')     
+ set @FieldCustomerNumber = replace(replace(@FieldCustomerNumber,@TableName,''),'.','')     
+ set @FieldAccountNo = isnull (replace(replace(@FieldAccountNo,@TableName,''),'.','') ,'-')    
+ set @ColumnOrderBy = replace(replace(@ColumnOrderBy,@TableName,''),'.','')    
+ print '@fieldcifnumber + ' + @FieldCIFNumber    
+ print '@FieldCustomerNumber + ' + @FieldCustomerNumber    
+ print '@FieldAccountNo + ' + @FieldAccountNo    
+ print '@ColumnOrderBy + ' + @ColumnOrderBy    
+    
+ --select    
+----MT.CustomerAddressLine4    
+----, s.Period, s.Fk_MsStatementTemplate_Id    
+----, s.CIFNo, s.AccountNo,     
+--se.*    
+--from statement s    
+--inner join StatementEmail se on s.Pk_Statement_Id=se.Fk_Statement_Id    
+--inner join BankingSingleStatementCustomerInformation MT on s.CIFNo=MT.CIFNo and S.CustomerNo=MT.CIFNo and S.AccountNo=MT.AccountNumber     
+--where s.Period='2021-11-08'    
+--and s.Fk_MsStatementTemplate_Id=40    
+--order by MT.CustomerAddressLine4 desc    
+    
+UPDATE StatementVerification SET IsGeneratingEmail = 1 WHERE Pk_StatementVerification_Id = @StatementVerificationID      
+      
+DECLARE @StatementIDTempTable AS TABLE (Pk_Statement_Id  BIGINT,UNIQUE CLUSTERED (Pk_Statement_Id))      
+DECLARE @EmailQueueTempTable AS TABLE (Pk_Statement_Id  BIGINT,UNIQUE CLUSTERED (Pk_Statement_Id))      
+  
+DELETE FROM @StatementIDTempTable  
+DELETE FROM @EmailQueueTempTable  
+      
+INSERT INTO @StatementIDTempTable      
+SELECT s.Pk_Statement_Id      
+FROM StatementVerification sv with(nolock)       
+  INNER JOIN Statement s   with(nolock)    
+  ON sv.Fk_MsStatementTemplate_Id = s.Fk_MsStatementTemplate_Id      
+  AND sv.Period = s.Period      
+WHERE Pk_StatementVerification_Id = @StatementVerificationID     
+  
+--insert into tmp_StatementIDTempTable     
+--SELECT s.Pk_Statement_Id   
+--FROM StatementVerification sv with(nolock)       
+--  INNER JOIN Statement s   with(nolock)    
+--  ON sv.Fk_MsStatementTemplate_Id = s.Fk_MsStatementTemplate_Id      
+--  AND sv.Period = s.Period      
+--WHERE Pk_StatementVerification_Id = @StatementVerificationID     
+      
+INSERT INTO @EmailQueueTempTable      
+SELECT Fk_Statement_Id   
+FROM StatementEmail  with(nolock)      
+WHERE Fk_Statement_Id IN (SELECT Pk_Statement_Id FROM @StatementIDTempTable)      
+      
+--insert into tmp_EmailQueueTempTable   
+--SELECT Fk_Statement_Id     
+--FROM StatementEmail  with(nolock)      
+--WHERE Fk_Statement_Id IN (SELECT Pk_Statement_Id FROM @StatementIDTempTable)      
+  
+DECLARE @EmailQueueCount INT,      
+  @EmailAttachmentCount INT      
+        
+SELECT @EmailQueueCount = COUNT(DISTINCT Pk_Statement_Id)      
+FROM @EmailQueueTempTable se       
+      
+--SELECT @EmailAttachmentCount = COUNT(DISTINCT Pk_Statement_Id)      
+--FROM StatementEmail se with(nolock)      
+ -- INNER JOIN @EmailQueueTempTable eq      
+ -- ON se.Fk_Statement_Id = eq.Pk_Statement_Id      
+--WHERE se.DataStream IS NOT NULL      
+ -- AND se.Fk_Statement_Id IN (SELECT Pk_Statement_Id FROM @StatementIDTempTable)      
+      
+ print '@EmailQueueCount ' + convert(varchar(10), @EmailQueueCount)    
+ print '@EmailAttachmentCount ' + convert(varchar(10), @EmailAttachmentCount)    
+IF  @EmailQueueCount > 0 --AND @EmailAttachmentCount = @EmailQueueCount      
+BEGIN        
+ IF @DeliveryType=1        
+ BEGIN        
+  -- By EMail      
+    
+  IF EXISTS (  select * from StatementVerification where Fk_MsStatementTemplate_Id in (SELECT Pk_MsStatementTemplate_Id FROM MsStatementTemplate WHERE StatementTemplateName in ('Tax Reporting Casa TD','Tax Reporting Syariah','Tax Obligasi Summary','Tax Ob
+ligasi Detail')) AND Pk_StatementVerification_Id = @StatementVerificationID)  
+    begin  
+ --postal code disini diisi fk_taxreq list  
+   SET @STRQUERY='      
+  INSERT INTO DeliveryStatusInformation (        
+  Fk_DeliveryStatusSummary_Id,         
+  Fk_Statement_Id,        
+  Fk_DeliveryType_ID,        
+  DeliveredDate,        
+  Fk_DeliveryChannel_ID,        
+  Fk_DeliveryStatus_ID,         
+  DaysSendEmailConfirmation,        
+  RepliedStatus,  
+  FK_TaxRequestList)          
+  select '+ CONVERT(VARCHAR(MAX), @StatusSummary) + ',          
+  se.Fk_Statement_Id, '+        
+  CONVERT(VARCHAR(MAX), @DeliveryType) + ', GETDATE(),         
+  se.Fk_DeliveryChannel_ID,        
+  5, DaysSendEmailConfirmation,        
+  0 RepliedStatus  ,  
+  s.FK_TaxRequestList  
+  from (select a.Pk_Statement_Id, a.CIFNo, a.CustomerNo, a.AccountNo, a.Period, a.Fk_MsStatementTemplate_Id,  
+  a.Fk_TaxRequestList  
+  from statement a with(nolock)       
+  where a.Fk_MsStatementTemplate_Id='+convert(varchar(20),@Fk_MsStatementTemplate_Id)+'       
+  and a.Period='''+substring(convert(varchar(20),@Period,120),1,10)+''') as s       
+  inner join StatementEmail se with(nolock) on s.Pk_Statement_Id=se.Fk_Statement_Id      
+ inner join (select '+@FieldCIFNumber+' AS CIFNo, '+@FieldCustomerNumber+' as CustomerNumber, '+@FieldAccountNo+' as xaccount, '+@ColumnOrderBy+' as xColumnOrder , FK_TaxRequestList      
+ from '+@TableName +' with(nolock)      
+ group by FK_TaxRequestList,'+@FieldCIFNumber+', '+@FieldCustomerNumber+', '+@FieldAccountNo+', '+@ColumnOrderBy+'      
+ ) as MT on s.CIFNo=MT.CIFNo and s.CustomerNo=MT.CustomerNumber and s.AccountNo=iif(MT.xaccount=''-'',s.AccountNo, MT.xaccount)   
+  and s.FK_TaxRequestList = mt.FK_TaxRequestList      
+  where s.Period='''+substring(convert(varchar(20),@Period,120),1,10)+'''      
+  and s.Fk_MsStatementTemplate_Id='+convert(varchar(20),@Fk_MsStatementTemplate_Id)+'      
+  '      
+  +iif(@ColumnOrderBy is null or @xIsUsedOrderBy=0,'',' order by MT.xColumnOrder '+ @OrderByWith +' ')+'      
+   '      
+   end  
+   else  
+   begin  
+    SET @STRQUERY='    
+  INSERT INTO DeliveryStatusInformation (      
+  Fk_DeliveryStatusSummary_Id,       
+  Fk_Statement_Id,      
+  Fk_DeliveryType_ID,      
+  DeliveredDate,      
+  Fk_DeliveryChannel_ID,      
+  Fk_DeliveryStatus_ID,       
+  DaysSendEmailConfirmation,      
+  RepliedStatus)        
+  select '+ CONVERT(VARCHAR(MAX), @StatusSummary) + ',        
+  se.Fk_Statement_Id, '+      
+  CONVERT(VARCHAR(MAX), @DeliveryType) + ', GETDATE(),    
+  se.Fk_DeliveryChannel_ID,      
+  5, DaysSendEmailConfirmation,      
+  0 RepliedStatus       
+  from (select a.Pk_Statement_Id, a.CIFNo, a.CustomerNo, a.AccountNo, a.Period, a.Fk_MsStatementTemplate_Id    
+  from statement a with(nolock)     
+  where a.Fk_MsStatementTemplate_Id='+convert(varchar(20),@Fk_MsStatementTemplate_Id)+'     
+  and a.Period='''+substring(convert(varchar(20),@Period,120),1,10)+''') as s     
+  inner join StatementEmail se with(nolock) on s.Pk_Statement_Id=se.Fk_Statement_Id    
+ inner join (select '+@FieldCIFNumber+' AS CIFNo, '+@FieldCustomerNumber+' as CustomerNumber, '+@FieldAccountNo+' as xaccount, '+@ColumnOrderBy+' as xColumnOrder    
+ from '+@TableName +' with(nolock)    
+ group by '+@FieldCIFNumber+', '+@FieldCustomerNumber+', '+@FieldAccountNo+', '+@ColumnOrderBy+'    
+ ) as MT on s.CIFNo=MT.CIFNo and s.CustomerNo=MT.CustomerNumber and s.AccountNo=iif(MT.xaccount=''-'',s.AccountNo, MT.xaccount)    
+  where s.Period='''+substring(convert(varchar(20),@Period,120),1,10)+'''    
+  and s.Fk_MsStatementTemplate_Id='+convert(varchar(20),@Fk_MsStatementTemplate_Id)+'    
+  '    
+  +iif(@ColumnOrderBy is null or @xIsUsedOrderBy=0,'',' order by MT.xColumnOrder '+ @OrderByWith +' ')+'    
+   '    
+   end  
+  
+  print(@STRQUERY)    
+    --INSERT INTO LogSchedullerTax (DESCRIPTION) VALUES (@STRQUERY)  
+  EXEC(@STRQUERY)      
+      --INSERT INTO LogSchedullerTax (DESCRIPTION) VALUES (CONCAT('ROW COUNT ', @@ROWCOUNT))  
+  
+    
+  --5 is queueing        
+        IF EXISTS (  select * from StatementVerification where Fk_MsStatementTemplate_Id in (SELECT Pk_MsStatementTemplate_Id FROM MsStatementTemplate WHERE StatementTemplateName in ('Tax Reporting Casa TD','Tax Reporting Syariah','Tax Obligasi Summary',
+'Tax Obligasi Detail')) AND Pk_StatementVerification_Id = @StatementVerificationID)  
+    begin  
+  set @STRQUERY='        
+  INSERT INTO EmailQueue (        
+  Fk_Statement_Id,        
+  Fk_FromEmailIdentity_Id,        
+  Fk_ReplyToEmailIdentity_Id,        
+  ToEmail,        
+  CCEmail,        
+  BCCEmail,        
+  Subject,        
+  Body,        
+  BodyTypeIsHtml,        
+  FileDataName,        
+  DataStream,        
+  ContentType,        
+  NumberofRetryifFailed,        
+  TimewaitbeforeRetry,        
+  CurrentRetry,        
+  CreatedDate,        
+  Fk_DeliveryCategory_ID,        
+  DefaultEmailTemplate,         
+  MessageId,         
+  NextRunTime,        
+  Fk_DeliveryChannel_ID)        
+   select distinct         
+  se.Fk_Statement_Id,        
+  se.Fk_FromEmailIdentity_Id,        
+  se.Fk_ReplyToEmailIdentity_Id,        
+  se.ToEmail,        
+    se.CCEmail,        
+    se.BCCEmail,        
+    se.Subject,        
+    se.Body,        
+    se.BodyTypeIsHtml,        
+    NULL,        
+    NULL,        
+    NULL,        
+    se.NumberofRetryifFailed,        
+    se.TimewaitbeforeRetry,        
+    se.CurrentRetry,        
+    GETDATE(),        
+    '+convert(varchar(max),@DeliveryCategory)+',        
+    1,        
+    ''S:'' + CAST(se.Fk_Statement_Id AS VARCHAR(MAX)),         
+    GETDATE(),        
+    se.Fk_DeliveryChannel_ID        
+  from (select a.Pk_Statement_Id, a.CIFNo, a.CustomerNo, a.AccountNo, a.Period, a.Fk_MsStatementTemplate_Id,a.FK_TaxRequestList       
+  from statement a with(nolock)       
+  where a.Fk_MsStatementTemplate_Id='+convert(varchar(20),@Fk_MsStatementTemplate_Id)+'       
+  and a.Period='''+substring(convert(varchar(20),@Period,120),1,10)+''') as s       
+  inner join StatementEmail se with(nolock) on s.Pk_Statement_Id=se.Fk_Statement_Id      
+   inner join (select '+@FieldCIFNumber+' AS CIFNo, '+@FieldCustomerNumber+' as CustomerNumber, '+@FieldAccountNo+' as xaccount, '+@ColumnOrderBy+' as xColumnOrder , FK_TaxRequestList     
+ from '+@TableName +' with(nolock)      
+ group by FK_TaxRequestList,'+@FieldCIFNumber+', '+@FieldCustomerNumber+', '+@FieldAccountNo+', '+@ColumnOrderBy+'      
+ ) as MT on s.CIFNo=MT.CIFNo and s.CustomerNo=MT.CustomerNumber and s.AccountNo=iif(MT.xaccount=''-'',s.AccountNo, MT.xaccount)   
+  and s.FK_TaxRequestList = mt.FK_TaxRequestList     
+  inner join (select Fk_Statement_Id, Fk_DeliveryStatusSummary_Id,FK_TaxRequestList       
+ from DeliveryStatusInformation with(nolock)      
+ where Fk_DeliveryStatusSummary_Id = '+convert(varchar(max),@StatusSummary)+') as dsi on dsi.Fk_Statement_Id=s.Pk_Statement_Id and  
+ dsi.FK_TaxRequestList = s.FK_TaxRequestList  
+  where s.Period='''+substring(convert(varchar(20),@Period,120),1,10)+'''      
+  and s.Fk_MsStatementTemplate_Id='+convert(varchar(20),@Fk_MsStatementTemplate_Id)+'      
+  '      
+  +iif(@ColumnOrderBy is null or @xIsUsedOrderBy=0,'',' order by MT.xColumnOrder '+ @OrderByWith +' ')+'      
+   '      
+      end  
+   else  
+   begin  
+    set @STRQUERY='      
+  INSERT INTO EmailQueue (      
+  Fk_Statement_Id,      
+  Fk_FromEmailIdentity_Id,      
+  Fk_ReplyToEmailIdentity_Id,      
+  ToEmail,      
+  CCEmail,      
+  BCCEmail,      
+  Subject,      
+  Body,      
+  BodyTypeIsHtml,      
+  FileDataName,      
+  DataStream,      
+  ContentType,      
+  NumberofRetryifFailed,      
+  TimewaitbeforeRetry,      
+  CurrentRetry,      
+  CreatedDate,      
+  Fk_DeliveryCategory_ID,      
+  DefaultEmailTemplate,       
+  MessageId,       
+  NextRunTime,      
+  Fk_DeliveryChannel_ID)      
+  select       
+    se.Fk_Statement_Id,      
+    se.Fk_FromEmailIdentity_Id,      
+    se.Fk_ReplyToEmailIdentity_Id,      
+    se.ToEmail,      
+    se.CCEmail,      
+    se.BCCEmail,      
+    se.Subject,      
+    se.Body,      
+    se.BodyTypeIsHtml,      
+    NULL,      
+    NULL,      
+    NULL,      
+    se.NumberofRetryifFailed,      
+    se.TimewaitbeforeRetry,      
+    se.CurrentRetry,      
+    GETDATE(),      
+    '+convert(varchar(max),@DeliveryCategory)+',      
+    1,      
+    ''S:'' + CAST(se.Fk_Statement_Id AS VARCHAR(MAX)),       
+    GETDATE(),      
+    se.Fk_DeliveryChannel_ID      
+  from (select a.Pk_Statement_Id, a.CIFNo, a.CustomerNo, a.AccountNo, a.Period, a.Fk_MsStatementTemplate_Id     
+  from statement a with(nolock)     
+  where a.Fk_MsStatementTemplate_Id='+convert(varchar(20),@Fk_MsStatementTemplate_Id)+'     
+  and a.Period='''+substring(convert(varchar(20),@Period,120),1,10)+''') as s     
+  inner join StatementEmail se with(nolock) on s.Pk_Statement_Id=se.Fk_Statement_Id    
+  inner join (select '+@FieldCIFNumber+' AS CIFNo, '+@FieldCustomerNumber+' as CustomerNumber, '+@FieldAccountNo+' as xaccount, '+@ColumnOrderBy+' as xColumnOrder    
+ from '+@TableName +' with(nolock)    
+ group by '+@FieldCIFNumber+', '+@FieldCustomerNumber+', '+@FieldAccountNo+', '+@ColumnOrderBy+'    
+ ) as MT on s.CIFNo=MT.CIFNo and s.CustomerNo=MT.CustomerNumber and s.AccountNo=iif(MT.xaccount=''-'',s.AccountNo, MT.xaccount)  
+  inner join (select Fk_Statement_Id, Fk_DeliveryStatusSummary_Id     
+ from DeliveryStatusInformation with(nolock)    
+ where Fk_DeliveryStatusSummary_Id = '+convert(varchar(max),@StatusSummary)+') as dsi on dsi.Fk_Statement_Id=s.Pk_Statement_Id    
+  where s.Period='''+substring(convert(varchar(20),@Period,120),1,10)+'''    
+  and s.Fk_MsStatementTemplate_Id='+convert(varchar(20),@Fk_MsStatementTemplate_Id)+'    
+  '    
+  +iif(@ColumnOrderBy is null or @xIsUsedOrderBy=0,'',' order by MT.xColumnOrder '+ @OrderByWith +' ')+'    
+   '    
+       
+   end  
+print(@STRQUERY)      
+EXEC(@STRQUERY)    
+  --return  
+  
+      --INSERT INTO LogSchedullerTax (DESCRIPTION) VALUES (CONCAT('ROW COUNT 2 ', @@ROWCOUNT))  
+   
+   
+  --INSERT INTO LogSchedullerTax (DESCRIPTION)  
+  --SELECT 'MASUKKAH BEOFRE'  
+  
+  
+  --INSERT INTO LogSchedullerTax (DESCRIPTION) VALUES (@STRQUERY)  
+  
+  
+  --INSERT INTO LogSchedullerTax (DESCRIPTION)  
+  --SELECT 'MASUKKAH'  
+  
+  
+       
+  -- INSERT Attachment to EmailQueueAttachment      
+ DECLARE @FileDataTempTable AS TABLE (Fk_Statement_Id  BIGINT, Pk_FileData_Id  BIGINT, Pk_EmailQueue_ID bigint, RowIndex bigint, UNIQUE CLUSTERED (Pk_FileData_Id, Pk_EmailQueue_ID))     
+ delete from @FileDataTempTable    
+    
+ insert into @FileDataTempTable(Fk_Statement_Id, Pk_FileData_Id, Pk_EmailQueue_ID, RowIndex)    
+ select map.Fk_Statement_Id, map.Fk_FileData_Id, eq.Pk_EmailQueue_ID, ROW_NUMBER() over (order by map.Fk_Statement_Id) as RowIndex    
+ from MappingStatementFileData map with (nolock)      
+ inner join EmailQueue eq with (nolock) on map.Fk_Statement_Id=eq.Fk_Statement_Id    
+ where map.Fk_Statement_Id IN (SELECT Pk_Statement_Id FROM @StatementIDTempTable)    
+  
+ --insert into tmp_FileDataTempTable  
+ --select map.Fk_Statement_Id, map.Fk_FileData_Id, eq.Pk_EmailQueue_ID, ROW_NUMBER() over (order by map.Fk_Statement_Id) as RowIndex    
+ --from MappingStatementFileData map with (nolock)      
+ --inner join EmailQueue eq with (nolock) on map.Fk_Statement_Id=eq.Fk_Statement_Id    
+ --where map.Fk_Statement_Id IN (SELECT Pk_Statement_Id FROM @StatementIDTempTable)    
+  
+  
+   
+ begin transaction    
+  INSERT INTO EmailQueueAttachment        
+  select          
+  a.Pk_EmailQueue_ID,        
+  fd.FileDataName,        
+  fd.DataStream,        
+  fd.ContentType        
+  FROM FileData fd with (nolock)     
+  inner join @FileDataTempTable a on fd.Pk_FileData_Id=a.Pk_FileData_Id    
+  
+   --INSERT INTO LogSchedullerTax (DESCRIPTION) VALUES (CONCAT('ROW COUNT EmailQueueAttachment ', @@ROWCOUNT))  
+ commit transaction    
+      
+   
+  
+ ---- Updated By Bamz @2022-06-22 [New Recomendation]    
+ --declare @xloop as bigint=1    
+ --declare @ItemEachLoop as bigint = 1000 -- Jumlah Item Setiap Looping    
+ --declare @xNumberData as bigint=(select count(*) from @FileDataTempTable ) --Jumlah Data    
+  
+ --while (@xloop<=@xNumberData)    
+ --begin    
+ --begin transaction    
+ -- INSERT INTO EmailQueueAttachment        
+ -- select          
+ -- a.Pk_EmailQueue_ID,        
+ -- fd.FileDataName,        
+ -- fd.DataStream,        
+ -- fd.ContentType        
+ -- FROM FileData fd with (nolock)     
+ -- inner join @FileDataTempTable a on fd.Pk_FileData_Id=a.Pk_FileData_Id    
+ -- where a.RowIndex<=@xloop and a.RowIndex<@xloop+@ItemEachLoop    
+  
+ --  INSERT INTO LogSchedullerTax (DESCRIPTION) VALUES (CONCAT('ROW COUNT EmailQueueAttachment ', @@ROWCOUNT))  
+ --  INSERT INTO LogSchedullerTax (DESCRIPTION) VALUES (CONCAT('loop EmailQueueAttachment ', @xloop))  
+ --  INSERT INTO LogSchedullerTax (DESCRIPTION) VALUES (CONCAT('@ItemEachLoop EmailQueueAttachment ', @ItemEachLoop))  
+ --  INSERT INTO LogSchedullerTax (DESCRIPTION) VALUES (CONCAT('count attachment', @xNumberData))  
+ --commit transaction    
+ -- set @xloop=@xloop+@ItemEachLoop    
+ --end     
+      
+  ---- INSERT Attachment to EmailQueueAttachment        
+  --INSERT INTO EmailQueueAttachment        
+  --select          
+  --  eq.Pk_EmailQueue_ID,        
+  --  fd.FileDataName,        
+  --  fd.DataStream,        
+  --  fd.ContentType        
+  --FROM MappingStatementFileData maps with (nolock)       
+  --inner join FileData fd with (nolock) on maps.Fk_FileData_Id = fd.Pk_FileData_Id      
+  --INNER JOIN EmailQueue eq with (nolock) on maps.Fk_Statement_Id = eq.Fk_Statement_Id          
+  --WHERE fd.DataStream IS NOT NULL        
+  --  AND eq.Fk_Statement_Id IN ( SELECT Pk_Statement_Id FROM @StatementIDTempTable)          
+       
+  ---- INSERT Attachment to EmailQueueAttachment        
+  --INSERT INTO EmailQueueAttachment        
+  --select          
+  --  eq.Pk_EmailQueue_ID,        
+  --  fd.FileDataName,        
+  --  fd.DataStream,        
+  --  fd.ContentType        
+  --FROM MappingStatementFileData maps with (nolock)       
+  --inner join FileData fd with (nolock) on maps.Fk_FileData_Id = fd.Pk_FileData_Id      
+  --INNER JOIN EmailQueue eq with (nolock) on maps.Fk_Statement_Id = eq.Fk_Statement_Id        
+  --INNER JOIN StatementEmail se with (nolock) on maps.Fk_Statement_Id = se.Fk_Statement_Id and eq.Fk_Statement_Id=se.Fk_Statement_Id        
+  --WHERE fd.DataStream IS NOT NULL        
+  --  AND se.Fk_Statement_Id IN ( SELECT Fk_Statement_Id from DeliveryStatusInformation        
+  --         WHERE fk_statement_id IN (SELECT Pk_Statement_Id FROM @StatementIDTempTable)        
+  --          )         
+  --order by eq.Pk_EmailQueue_ID asc  -- desc/asc tetep jadi esc, karena duluan mana yang masuk      
+        
+  -- =======Tidak Memakai dari statementemail ---==========      
+  --INSERT INTO EmailQueueAttachment        
+  --select          
+ --  eq.Pk_EmailQueue_ID,        
+  --  se.FileDataName,        
+  --  se.DataStream,        
+  --  se.ContentType        
+  --FROM StatementEmail se        
+  --  INNER JOIN EmailQueue eq        
+  --  ON se.Fk_Statement_Id = eq.Fk_Statement_Id        
+  --WHERE se.DataStream IS NOT NULL        
+  --  AND se.Fk_Statement_Id IN ( SELECT Fk_Statement_Id from DeliveryStatusInformation        
+  --         WHERE fk_statement_id IN (SELECT Pk_Statement_Id FROM @StatementIDTempTable)        
+  --          )        
+  --order by eq.Pk_EmailQueue_ID asc  -- desc/asc tetep jadi esc, karena duluan mana yang masuk      
+      
+      
+          
+    UPDATE EmailQueue        
+    SET  IsGenerateAttachmentDone = 1        
+    WHERE Pk_EmailQueue_ID IN ( select eq.Pk_EmailQueue_ID        
+          FROM StatementEmail se with (nolock)       
+            INNER JOIN EmailQueue eq with (nolock)       
+            ON se.Fk_Statement_Id = eq.Fk_Statement_Id        
+          WHERE se.Fk_Statement_Id IN ( SELECT Fk_Statement_Id from DeliveryStatusInformation with (nolock)       
+                  WHERE fk_statement_id IN (SELECT Pk_Statement_Id FROM @StatementIDTempTable)        
+                   )        
+          )        
+             
+  -- Insert notifikasi        
+  INSERT INTO EmailQueue (        
+  Fk_Statement_Id,        
+  Fk_FromEmailIdentity_Id,        
+  Fk_ReplyToEmailIdentity_Id,        
+  ToEmail,        
+  CCEmail,        
+  BCCEmail,        
+  Subject,        
+  Body,        
+  BodyTypeIsHtml,        
+  FileDataName,        
+  DataStream,        
+  ContentType,        
+  NumberofRetryifFailed,        
+  TimewaitbeforeRetry,        
+  CurrentRetry,        
+  CreatedDate,        
+  Fk_DeliveryCategory_ID,        
+  DefaultEmailTemplate,         
+  MessageId,        
+  NextRunTime,        
+  Fk_DeliveryChannel_ID)        
+  select         
+    Fk_Statement_Id,        
+    Fk_FromEmailIdentity_Id,        
+    Fk_ReplyToEmailIdentity_Id,        
+    ToEmail,        
+    CCEmail,        
+    BCCEmail,        
+    Subject,        
+    Body,        
+    BodyTypeIsHtml,        
+    NULL,        
+    NULL,        
+    NULL,        
+    NumberofRetryifFailed,        
+    TimewaitbeforeRetry,        
+    CurrentRetry,        
+    GETDATE(),        
+    4,        
+    1,        
+    'N:' + CAST(Fk_Statement_Id AS VARCHAR(MAX)),        
+    NextRunTime,        
+    Fk_DeliveryChannel_ID        
+  FROM StatementNotification with (nolock)         
+  WHERE Fk_Statement_Id IN (SELECT Fk_Statement_Id from DeliveryStatusInformation with (nolock)       
+         WHERE fk_statement_id IN (SELECT Pk_Statement_Id FROM @StatementIDTempTable)              
+         )        
+          
+  INSERT INTO EmailQueueAttachment        
+  select          
+    eq.Pk_EmailQueue_ID,        
+    sn.FileDataName,        
+    sn.DataStream,        
+    sn.ContentType        
+  FROM StatementNotification sn with (nolock)       
+    INNER JOIN EmailQueue eq with (nolock)       
+    ON sn.Fk_Statement_Id = eq.Fk_Statement_Id        
+  WHERE sn.DataStream IS NOT NULL        
+    AND sn.Fk_Statement_Id IN ( SELECT Fk_Statement_Id from DeliveryStatusInformation with (nolock)       
+           WHERE fk_statement_id IN (SELECT Pk_Statement_Id FROM @StatementIDTempTable)        
+            )         
+                    
+  UPDATE EmailQueue        
+    SET  IsGenerateAttachmentDone = 1        
+    WHERE Pk_EmailQueue_ID IN ( select eq.Pk_EmailQueue_ID        
+          FROM StatementNotification sn with (nolock)       
+            INNER JOIN EmailQueue eq with (nolock)        
+            ON sn.Fk_Statement_Id = eq.Fk_Statement_Id        
+          WHERE sn.Fk_Statement_Id IN ( SELECT Fk_Statement_Id from DeliveryStatusInformation with (nolock)       
+                  WHERE fk_statement_id IN (SELECT Pk_Statement_Id FROM @StatementIDTempTable)        
+                   )        
+    )        
+                       
+ END        
+ ELSE        
+  BEGIN       
+   -- SMS        
+      
+   DECLARE @DELIVERYCHANNELSMS AS BIGINT        
+   SELECT @DELIVERYCHANNELSMS= sp.ParameterValue  FROM dbo.SystemParameter sp WHERE sp.ParameterName='ChannelSMSInUsed'        
+         
+   INSERT INTO DeliveryStatusInformation (        
+   Fk_DeliveryStatusSummary_Id,         
+   Fk_Statement_Id,        
+   Fk_DeliveryType_ID,        
+   DeliveredDate,        
+   Fk_DeliveryChannel_ID,        
+   Fk_DeliveryStatus_ID,         
+   DaysSendEmailConfirmation)          
+   select @StatusSummary,         
+   Fk_Statement_Id,         
+   @DeliveryType,         
+   GETDATE(),         
+   @DELIVERYCHANNELSMS,        
+   5, 0  FROM dbo.StatementSMS ss with (nolock)         
+   WHERE fk_statement_id IN (SELECT s.Pk_Statement_Id        
+       FROM StatementVerification sv with (nolock)        
+       INNER JOIN Statement s with (nolock)       
+       ON sv.Fk_MsStatementTemplate_Id = s.Fk_MsStatementTemplate_Id        
+       AND sv.Period = s.Period        
+       WHERE Pk_StatementVerification_Id = @StatementVerificationID)       
+         
+      
+           
+   -- Insert SMS Queue        
+   INSERT INTO SMSQueue (        
+   Fk_Statement_Id,        
+   Fk_DeliveryCategory_ID,        
+   Recipient,        
+   Sender,        
+   MessagesSMS,        
+   SendSMSAfterGenerated,        
+   NumberOfRetryIfFailed,        
+   TimeWaitBeforeRetry,        
+   CurrentRetry,        
+   NextRunTime,        
+   CreatedBy)        
+   select         
+   Fk_Statement_Id,        
+   @DeliveryCategory,        
+   Recipient,        
+   Sender,        
+   MessagesSMS,        
+   SendSMSAfterGenerated,        
+   NumberOfRetryIfFailed,        
+   TimeWaitBeforeRetry,        
+   0,        
+   GETDATE(),         
+   'system' from StatementSMS with (nolock) where Fk_Statement_Id IN (SELECT Fk_Statement_Id from DeliveryStatusInformation with (nolock))          
+  END        
+        
+ --DELETE FROM StatementEmail WHERE Fk_Statement_Id IN (SELECT Fk_Statement_Id from mstemp)           
+ --truncate table mstemp        
+        
+ END        
+       
+ -- Hardcopy Delivery     
+    
+ INSERT INTO DeliveryStatusInformation (      
+   Fk_DeliveryStatusSummary_Id,       
+   Fk_Statement_Id,      
+   Fk_DeliveryType_ID,      
+   DeliveredDate,      
+   Fk_DeliveryChannel_ID,      
+   Fk_DeliveryStatus_ID,       
+   DaysSendEmailConfirmation,      
+   Fk_Activity_ID,      
+   RepliedStatus)        
+ SELECT @StatusSummary,       
+   Pk_Statement_Id,       
+   3,       
+   GETDATE(),       
+   0,      
+   1 AS Fk_DeliveryStatus_ID,       
+   0 AS DaysSendEmailConfirmation,      
+   4 AS Fk_Activity_ID,      
+   0 AS RepliedStatus        
+ FROM Statement s with (nolock)      
+   INNER JOIN MergedFile mf  with (nolock)    
+   ON s.Pk_Statement_Id =mf.Fk_Statement_Id      
+   INNER JOIN StatementVerification sv with (nolock)     
+   ON sv.Fk_MsStatementTemplate_Id = s.Fk_MsStatementTemplate_Id      
+   AND sv.Period = s.Period      
+   LEFT OUTER JOIN(    
+  select se.fk_statement_id    
+  FROM dbo.StatementEmail se with (nolock)     
+  WHERE fk_statement_id IN (SELECT s.Pk_Statement_Id      
+     FROM StatementVerification sv with (nolock)      
+     INNER JOIN Statement s with (nolock)     
+     ON sv.Fk_MsStatementTemplate_Id = s.Fk_MsStatementTemplate_Id      
+     AND sv.Period = s.Period      
+     WHERE Pk_StatementVerification_Id = @StatementVerificationID)    
+   ) as see on s.Pk_Statement_Id=see.Fk_Statement_Id    
+ WHERE sv.Pk_StatementVerification_Id = @StatementVerificationID      
+ and see.Fk_Statement_Id is null    
+ group by Pk_Statement_Id    
+    
+ -- End Hardcopy Delivery      
+       
+ UPDATE StatementVerification SET IsGeneratingEmail = 0 WHERE Pk_StatementVerification_Id = @StatementVerificationID      
+END
+GO

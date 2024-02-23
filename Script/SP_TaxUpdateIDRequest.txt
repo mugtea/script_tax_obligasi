@@ -1,0 +1,49 @@
+CREATE   PROCEDURE [dbo].[TaxUpdateIDRequest]   
+as    
+begin    
+    
+drop table if exists tempListUpdateIDRequestTax     
+  select s.PostalCode AS ID , s.PostalCode AS FK_TaxRequestList into tempListUpdateIDRequestTax  
+	 From FileData a     
+ inner join MappingStatementFileData b on a.Pk_FileData_Id = b.Fk_FileData_Id    
+ inner join Statement s on s.Pk_Statement_Id = b.Fk_Statement_Id    
+ where s.FK_TaxRequestList is null  or s.FK_TaxRequestList <> s.PostalCode 
+
+	 UPDATE s set FK_TaxRequestList = s.PostalCode  From FileData a     
+ inner join MappingStatementFileData b on a.Pk_FileData_Id = b.Fk_FileData_Id    
+ inner join Statement s on s.Pk_Statement_Id = b.Fk_Statement_Id    
+ where s.FK_TaxRequestList is null  or s.FK_TaxRequestList <> s.PostalCode
+
+ update a set a.FileDataName = b.FileName from FileData a 
+	inner join vw_TaxCustomerDeductedAdvice_OBS_GetUngeneratedFile b on a.Pk_FileData_Id = b.Pk_FileData_Id 
+
+UPDATE se SET 
+	SE.ToEmail = CASE WHEN LEN(trl.email_requester)>0 then trl.email_requester else trl.email_requester END
+	--,SE.CCEmail = CASE WHEN LEN(trl.email_requester)>0 then trl.email else '' END
+From StatementEmail se 
+inner join Statement s on se.Fk_Statement_Id = s.Pk_Statement_Id
+inner join TaxRequestList trl on trl.id = s.FK_TaxRequestList
+where s.Fk_MsStatementTemplate_Id in (SELECT Pk_MsStatementTemplate_Id  FROM MsStatementTemplate WHERE StatementTemplateName in ('Tax Reporting Casa TD','Tax Reporting Syariah','Tax Obligasi Summary','Tax Obligasi Detail')) and 
+(ISNULL(se.ToEmail,'') <> CASE WHEN LEN(trl.email_requester)>0 then trl.email_requester else trl.email_requester END
+or ISNULL(SE.CCEmail,'') <> CASE WHEN LEN(trl.email_requester)>0 then trl.email else '' END)
+
+UPDATE se SET 
+	SE.Fk_DeliveryChannel_ID = (select top 1 Pk_MsDeliveryChannelEMailServer_ID From MsDeliveryChannelEMailServer where KeywordToProcess like '%'+ (substring( ToEmail , (charindex('@', ToEmail ))+1, LEN( ToEmail ))) +'%')
+	--,SE.CCEmail = CASE WHEN SE.CCEmail NOT LIKE '%DANAMON%' THEN '' ELSE CCEmail END
+From StatementEmail se 
+inner join Statement s on se.Fk_Statement_Id = s.Pk_Statement_Id
+inner join TaxRequestList trl on trl.id = s.FK_TaxRequestList
+where SE.Fk_DeliveryChannel_ID != (select top 1 Pk_MsDeliveryChannelEMailServer_ID From MsDeliveryChannelEMailServer where KeywordToProcess like '%'+ (substring( ToEmail , (charindex('@', ToEmail ))+1, LEN( ToEmail ))) +'%')
+
+UPDATE se SET 
+	SE.Fk_FromEmailIdentity_Id = MSI.PK_MsEmailIdendity_Id,
+	SE.Fk_ReplyToEmailIdentity_Id = MSI.PK_MsEmailIdendity_Id
+FROM 
+StatementEmail se 
+INNER JOIN MsDeliveryChannelEMailServer MSE ON MSE.Pk_MsDeliveryChannelEMailServer_ID = se.Fk_DeliveryChannel_ID
+INNER JOIN MsDeliveryChannelEMailServerDetail MSD ON MSD.Fk_MsDeliveryChannelEMailServer_ID = MSE.Pk_MsDeliveryChannelEMailServer_ID
+INNER JOIN MsEmailIdentity MSI ON MSI.Description = MSE.Nm_MsDeliveryChannelEMailServer
+WHERE SE.Fk_FromEmailIdentity_Id <> MSI.PK_MsEmailIdendity_Id OR
+	SE.Fk_ReplyToEmailIdentity_Id <> MSI.PK_MsEmailIdendity_Id
+end
+GO

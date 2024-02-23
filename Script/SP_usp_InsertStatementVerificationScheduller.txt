@@ -1,0 +1,20 @@
+ALTER   PROCEDURE [dbo].[usp_InsertStatementVerificationScheduller]    
+ @Fk_StatementTemplate_Id as varchar(max),  
+ @Fk_StatementVerification as varchar(max),  
+ @Period as date  
+AS    
+BEGIN    
+  
+Declare @IsSchedule as int  
+select  @IsSchedule=COUNT(*) from MsScheduleGeneratePDF where Fk_StatementTemplate_Id=@Fk_StatementTemplate_Id  
+  
+if @IsSchedule > 0   
+begin  
+insert into [StatementVerificationScheduller]  
+(Fk_StatementVerification,Fk_StatementTemplate,Period)  
+values  
+(@Fk_StatementVerification,@Fk_StatementTemplate_Id,@Period)  
+end  
+  
+End
+GO

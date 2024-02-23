@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation]
+(
+	[DataID] [int] IDENTITY (1,1) NOT NULL,
+	[cif] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[customer_name] [varchar] (150) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[account_no] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[branch_code] [smallint] NOT NULL,
+	[postal_code] [varchar] (6) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[fk_taxrequestlist] [bigint] NULL,
+	[date_birth] [varchar] (6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY]
+GO
+

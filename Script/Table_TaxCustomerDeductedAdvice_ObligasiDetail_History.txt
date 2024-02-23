@@ -1,0 +1,29 @@
+CREATE TABLE [dbo].[TaxCustomerDeductedAdvice_ObligasiDetail_History]
+(
+	[DataID] [int] IDENTITY (1,1) NOT NULL,
+	[npwp] [varchar] (225) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[NamaWajibPajak] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[Alamat] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[NamaObligasi] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[JumlahNilaiNominal] [decimal] (38,8) NULL,
+	[NomorSeri] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[TingkatBunga] [decimal] (6,3) NULL,
+	[JatuhTempo] [datetime] NULL,
+	[TanggalPerolehan] [datetime] NULL,
+	[TanggalPenjualan] [datetime] NULL,
+	[JumlahHargaPerolehanBersih] [decimal] (38,8) NULL,
+	[JumlahHargaJualBersih] [decimal] (38,9) NULL,
+	[diskonto] [decimal] (38,10) NULL,
+	[accruedInterest] [decimal] (38,10) NULL,
+	[jumlah] [decimal] (38,10) NULL,
+	[taxAmount] [decimal] (38,8) NULL,
+	[trx_desc] [varchar] (16) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[currency] [varchar] (3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[date_pr] [date] NULL,
+	[Param_ppn] [decimal] (38,8) NULL,
+	[namapemotongpajak] [varchar] (18) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[cif] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[date_birth] [varchar] (6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY]
+GO
+

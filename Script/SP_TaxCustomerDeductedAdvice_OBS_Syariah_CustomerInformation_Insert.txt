@@ -1,0 +1,44 @@
+CREATE  or ALTER  PROCEDURE [dbo].[TaxCustomerDeductedAdvice_OBS_Syariah_CustomerInformation_Insert] AS BEGIN IF EXISTS (      
+  SELECT      
+    TOP 1 *      
+  FROM      
+    TaxCustomerDeductedAdvice_OBS_History  
+) BEGIN      
+--diinsert ke casa td di karenakan template nya di gabung
+INSERT INTO      
+  TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation (      
+    cif,      
+    customer_name,      
+    account_no,      
+    branch_code,      
+    postal_code ,  
+ fk_taxrequestlist  ,
+ date_birth
+  )      
+SELECT DISTINCT      
+  E.cif,      
+  E.customer_name,      
+  '' as account_no, --E.account_no,      
+  '' as branch_code, --E.branch_code,      
+  TRL.id postal_code,  
+  TRL.id as FK_TaxRequestList                   
+  , case when (select top 1 DATE_BIRTH from TaxCustomerDeductedAdvice_OBS_History  WITH (NOLOCK)   where cif = e.cif and date_birth is not null) is null then '000000' else (select top 1 DATE_BIRTH from TaxCustomerDeductedAdvice_OBS_History  WITH (NOLOCK)   where cif = e.cif and date_birth is not null) end
+FROM      
+  TaxCustomerDeductedAdvice_OBS_History e      
+  INNER JOIN TaxRequestList TRL ON TRL.CIF=E.cif  
+  INNER JOIN TaxCustomerDeductedAdvice_OBS_Summary CSR ON CSR.fk_taxrequestlist = TRL.id and e.account_no = csr.ACCOUNT_NO  
+WHERE trl.[status] = 'waiting' and CSR.product_category LIKE '%syariah%'    
+AND       
+  NOT EXISTS (      
+    SELECT      
+      NULL      
+    FROM      
+      TaxCustomerDeductedAdvice_OBS_CASATD_CustomerInformation d      
+    WHERE      
+      d.cif=e.cif      
+      AND d.fk_taxrequestlist = csr.fk_taxrequestlist     
+   AND trl.[Status] = 'waiting'      
+  )  
+  END  
+  END
+GO

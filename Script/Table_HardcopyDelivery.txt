@@ -1,0 +1,12 @@
+ CREATE TABLE [dbo].[HardcopyDelivery]
+ (
+ 	[Pk_HardcopyDelivery_Id] [bigint] IDENTITY (1,1) NOT NULL,
+ 	[Pk_HardcopyDelivery_GUID] [uniqueidentifier] NOT NULL,
+ 	[FileDataName] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+ 	[DataStream] [varbinary] (max) NULL,
+ 	[ContentType] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+ 	[TotalPages] [int] NOT NULL,
+ 	[Path] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+ ) ON [PRIMARY]
+ GO
+ 

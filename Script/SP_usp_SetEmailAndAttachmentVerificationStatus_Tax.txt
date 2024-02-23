@@ -1,0 +1,97 @@
+CREATE PROCEDURE [dbo].[usp_SetEmailAndAttachmentVerificationStatus_Tax] (@pkStatementTemplateId as bigint)
+AS
+BEGIN TRY
+  BEGIN TRANSACTION
+
+    UPDATE EmailAndAttachmentVerification
+    SET VerificationStatus = 1
+    WHERE Fk_MsStatementTemplate_Id = @pkStatementTemplateId
+    AND VerificationStatus = 0
+
+    INSERT INTO AuditTrailHeader (CreatedDate, CreatedBy, ApproveBy, ModuleName, FK_MsOperationAuditTrail_ID, FK_MsStatusAuditTrail_ID)
+      SELECT
+        GETDATE(),
+        'system',
+        'system',
+        'EmailCountAndChecksumVerification',
+        2,
+        2
+
+    INSERT INTO AuditTrailDetail (FK_AuditTrailHeader_ID, FieldName, OldValue, NewValue)
+      SELECT
+        SCOPE_IDENTITY(),
+        'VerifiedBy',
+        '',
+        'system'
+      UNION ALL
+      SELECT
+        SCOPE_IDENTITY(),
+        'VerificationStatus',
+        '0',
+        '1'
+      UNION ALL
+      SELECT
+        SCOPE_IDENTITY(),
+        'VerifiedDate',
+        '',
+        CONVERT(varchar, GETDATE(), 103)
+
+    DECLARE @counter AS integer = 1,
+            @isValid AS bit = 1
+    DECLARE @maxRow AS integer = (SELECT
+      COUNT(1)
+    FROM EmailAndAttachmentVerification
+    WHERE VerificationStatus = 1
+    AND Fk_MsStatementTemplate_Id = @pkStatementTemplateId
+ )
+
+    WHILE @counter <= @maxRow
+    BEGIN
+      DECLARE @PeriodDate AS date
+      SELECT
+        @PeriodDate = [Period] FROM (SELECT
+        ROW_NUMBER() OVER (ORDER BY PK_EmailAndAttachmentVerification_ID) RowNum,
+        *
+      FROM EmailAndAttachmentVerification
+      WHERE VerificationStatus = 1
+      AND Fk_MsStatementTemplate_Id = @pkStatementTemplateId
+   ) x
+   where x.RowNum = @counter
+
+   EXEC usp_EmailQueue_UpdateIsValidToSendEmail @pkStatementTemplateId, @PeriodDate
+
+      UPDATE StatementRec7_Header
+      SET VerificationStatus = 2
+      WHERE Fk_MsStatementTemplate_Id = @pkStatementTemplateId
+      AND Period = @PeriodDate
+      SET @counter += 1
+    END --end while
+
+  COMMIT TRANSACTION
+  SELECT
+    1 AS RESULT
+END TRY
+BEGIN CATCH
+
+  DECLARE @ErrorMessage nvarchar(4000);
+  DECLARE @ErrorSeverity int;
+  DECLARE @ErrorState int;
+
+  SELECT
+    @ErrorMessage = ERROR_MESSAGE(),
+    @ErrorSeverity = ERROR_SEVERITY(),
+    @ErrorState = ERROR_STATE();
+
+  RAISERROR (@ErrorMessage, -- Message text.  
+  @ErrorSeverity, -- Severity.  
+  @ErrorState -- State.  
+  );
+
+  WHILE @@TRANCOUNT > 0
+  BEGIN
+    ROLLBACK TRANSACTION;
+    SELECT
+      0 AS RESULT
+  END
+END CATCH
+GO

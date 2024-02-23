@@ -1,0 +1,22 @@
+ CREATE PROCEDURE [dbo].[TaxStatementVerification_GetUnfinishGeneratingEmail]  (@pkStatementTemplateId as bigint)
+  -- Add the parameters for the stored procedure here  
+    
+ AS  
+ BEGIN  
+  -- SET NOCOUNT ON added to prevent extra result sets from  
+  -- interfering with SELECT statements.  
+  SET NOCOUNT ON;  
+   
+     -- Insert statements for procedure here  
+  select top 1 isnull(StatementTemplateName, '') as StatementTemplateName, isnull(VerifiedBy, '') as VerifiedBy  
+  from StatementVerification sv inner join MsStatementTemplate st   
+   on sv.Fk_MsStatementTemplate_Id = st.Pk_MsStatementTemplate_Id  
+  where sv.IsGeneratingEmail = 1  and st.Pk_MsStatementTemplate_Id = @pkStatementTemplateId
+  --in (SELECT
+  --     ParameterValue
+  --   FROM systemparameter
+  --   WHERE ParameterName IN ('Fk_MsStatementTemplate_Id_Tax_Sharia', 'Fk_MsStatementTemplate_Id_Tax_Casatd'))
+ 
+ END
+ GO
+ 

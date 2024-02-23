@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DB">
-  <ConnectionProperties>
-    <Extension>SQL</Extension>
-    <ConnectString>Data Source=.\sqlserver;Initial Catalog=EngineStatement_BDI;Persist Security Info=True;User ID=sa;Password=keymaker</ConnectString>
-  </ConnectionProperties>
-  <DataSourceID>5b486514-a17f-44cc-b75f-4d22ff33a1c5</DataSourceID>
-</RptDataSource>

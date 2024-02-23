@@ -1,0 +1,12 @@
+ CREATE   PROCEDURE [dbo].[TaxCustomerDeductedAdvice_OBS_SetGeneratedFile]
+ as
+ begin
+ update trl set is_generated = 1 From FileData fd
+ inner join MappingStatementFileData msf on msf.Fk_FileData_Id = fd.Pk_FileData_Id
+ inner join Statement s on msf.Fk_Statement_Id = s.Pk_Statement_Id
+ inner join TaxRequestList trl on trl.id = s.FK_TaxRequestList
+ where 
+  trl.is_generated is null
+ end
+ GO
+ 

@@ -1,0 +1,12 @@
+ CREATE PROCEDURE [dbo].[usp_GetEmailAndAttachmentVerificationTax]
+   AS
+     SELECT
+       PK_EmailAndAttachmentVerification_ID
+     FROM EmailAndAttachmentVerification
+     WHERE VerificationStatus = 0
+     AND Fk_MsStatementTemplate_Id =  (SELECT top 1
+       ParameterValue
+     FROM systemparameter
+     WHERE ParameterName = 'Fk_MsStatementTemplate_Id_Tax')
+ GO
+ 

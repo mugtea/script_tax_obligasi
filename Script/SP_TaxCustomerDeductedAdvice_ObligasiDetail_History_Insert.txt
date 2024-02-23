@@ -1,0 +1,71 @@
+ CREATE  OR ALTER  Proc [dbo].[TaxCustomerDeductedAdvice_ObligasiDetail_History_Insert]  
+ AS  
+ BEGIN  
+  IF DAY(GETDATE())<>5 AND EXISTS (SELECT TOP 1 * fROM TaxCustomerDeductedAdvice_ObligasiDetail_History with(nolock))  
+  BEGIN  
+   RETURN  
+  END  
+  
+   
+  IF EXISTS (SELECT TOP 1 * FROM ESTATEMENT.DBO.TAX_CSA_MONTH_TRANS_COUPON with(nolock))   
+  BEGIN  
+  INSERT INTO TaxCustomerDeductedAdvice_ObligasiDetail_History (  
+   npwp,  
+   NamaWajibPajak,  
+   Alamat,  
+   NamaObligasi,  
+   JumlahNilaiNominal,  
+   NomorSeri,  
+   TingkatBunga,  
+   JatuhTempo,  
+   TanggalPerolehan,  
+   TanggalPenjualan,  
+   JumlahHargaPerolehanBersih,  
+   JumlahHargaJualBersih,  
+   diskonto,  
+   accruedInterest,  
+   jumlah,  
+   taxAmount,  
+   trx_desc,  
+   currency,  
+   date_pr,  
+   Param_ppn,  
+   namapemotongpajak,  
+   cif,
+   TanggalPotongPajak)  
+    SELECT  
+    npwp,  
+    NamaWajibPajak,  
+    Alamat,  
+    NamaObligasi,  
+    JumlahNilaiNominal,  
+    NomorSeri,  
+    TingkatBunga,  
+    JatuhTempo,  
+    TanggalPerolehan,  
+    TanggalPenjualan,  
+    JumlahHargaPerolehanBersih,  
+    JumlahHargaJualBersih,  
+    diskonto,  
+    accruedInterest,  
+    jumlah,  
+    taxAmount,  
+    trx_desc,  
+    currency,  
+    date_pr,  
+    Param_ppn,  
+    namapemotongpajak,  
+    cif,
+	TanggalPotongPajak 
+    FROM  ESTATEMENT.DBO.TAX_CSA_MONTH_TRANS_COUPON a with(nolock)  
+    WHERE NOT EXISTS (SELECT  
+   NULL  
+    FROM TaxCustomerDeductedAdvice_ObligasiDetail_History  
+    x  
+    WHERE x.cif = a.cif  
+    AND x.date_pr = a.date_pr  
+    )  
+  END  
+ END  
+
+

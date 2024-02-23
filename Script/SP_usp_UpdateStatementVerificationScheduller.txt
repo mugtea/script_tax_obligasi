@@ -1,0 +1,31 @@
+ALTER    PROCEDURE [dbo].[usp_UpdateStatementVerificationScheduller]      
+ @Pk_StatementVerification_Id as varchar(max),    
+ @Status as varchar(max)    
+AS      
+BEGIN      
+    
+Declare @OldVerifiedBy as Varchar(max),    
+@OldVerificationStatus as Varchar(max),    
+@OldVerifiedDate as Datetime    
+    
+select @OldVerifiedBy = VerifiedBy, @OldVerificationStatus=VerificationStatus,@OldVerifiedDate=VerifiedDate    
+from StatementVerification    
+where Pk_StatementVerification_Id = @Pk_StatementVerification_Id    
+    
+update StatementVerification set    
+VerificationStatus = 2,    
+VerifiedBy = 'System',    
+VerifiedDate = GetDate()    
+where Pk_StatementVerification_Id = @Pk_StatementVerification_Id      
+    
+    
+if @Status = '2'     
+begin    
+declare @DateNow as datetime    
+set @DateNow = GetDate()    
+exec usp_CreateAuditTrailScheduller @OldVerifiedBy,'System',@OldVerificationStatus,@Status,@OldVerifiedDate,@DateNow    
+end    
+    
+    
+END
+GO
